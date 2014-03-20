@@ -8,6 +8,7 @@
 				surnamez:{ required:true },
 				emailz:{ required:true,
 						 email:true},
+			    cptch_number:{required:true}
 				
 			},
 			messages: {
@@ -15,8 +16,15 @@
 				surnamez:{ required:"Απαιτείται" },
 				emailz:{ required:"Απαιτείται",
 						 email:"Πρέπει να έχει την μορφή email"},
+				cptch_number:{required:"Απαιτείται το captcha που ακολουθεί"}
 			
-			}
+			},
+			errorPlacement: function(error, element) {         
+				if(element.attr("name") == "cptch_number") 
+					error.insertBefore(element.parent());
+				else 
+					error.insertAfter(element);
+		   }
 		});
 		
 	} );
