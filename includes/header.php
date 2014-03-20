@@ -12,13 +12,15 @@
     <link href="http://ma.ellak.gr/wp-content/themes/ma_ellak/css/datepicker.css" rel="stylesheet">
 
 		<style type="text/css" title="currentStyle">
-			@import "/js/demo_page1.css";
-			@import "/js/demo_table1.css";
+			@import "js/demo_page.css";
+			@import "js/demo_table.css";
 		</style>
 
 
-		<script type="text/javascript" language="javascript" src="/js/jquery.js"></script>
-		<script type="text/javascript" language="javascript" src="/js/jquery.dataTables.js"></script>
+		<script type="text/javascript" language="javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" language="javascript" src="js/jquery.validate.min.js"></script>
+		<script type="text/javascript" language="javascript" src="js/validateforms.js"></script>
+		<script type="text/javascript" language="javascript" src="js/jquery.dataTables.js"></script>
 		<script type="text/javascript" charset="utf-8">
 			$(document).ready(function() {
 				$('#example').dataTable();
@@ -43,11 +45,12 @@ a.btn , .btn-link, .dropdown.login .btn-link:active, .login .btn-link[disabled] 
 background-color: none !important;
 background-image: none !important;
 }
-.error{color:red;}
-label{text-transform:uppercase;}
+.error{color:#C0392B;display:block;padding:5px;}
+input.error{border: 2px solid #C0392B; }
 p {color:white;}
 .footer p {color:#333333;}
-
+.icon-twitter-sign:before{content:"\f081";}
+.icon-facebook-sign:before{content:"\f082";}
     </style>
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -72,13 +75,14 @@ p {color:white;}
         </a>
         <ul class="nav">
         <li>&nbsp;</li>
-        <li><a href="http://snf-131326.vm.okeanos.grnet.gr/maellak/maeelak/">MONAΔΕΣ ΑΡΙΣΤΕΙΑΣ</a></li>
+        <li><a href="http://ma.ellak.gr/">MONAΔΕΣ ΑΡΙΣΤΕΙΑΣ</a></li>
         </ul>
         <ul class="nav pull-right">
-        <li class="icn"><a href="#"><i class="icon-twitter-sign"></i></a></li>
-        <li class="icn"><a href="#"><i class="icon-facebook-sign"></i></a></li>
-        <li class="icn"><a href="#"><i class="icon-rss"></i></a></li>
-        </ul>
+          <li class="icn"><a target="_blank" href="http://www.facebook.com/ma.elllak">
+          	<i class="icon-facebook-sign"></i></a></li>
+          	<li class="icn"><a target="_blank" href="http://www.twitter.com/ma_ellak"><i class="icon-twitter-sign"></i></a></li>
+          	<li class="icn"><a href="http://ma.ellak.gr/listfeeds/"><i class="icon-rss"></i></a></li>            
+			           </ul>
        
     </div><!--home-->
 	</div>

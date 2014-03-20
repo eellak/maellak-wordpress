@@ -15,7 +15,7 @@ if ($_GET["d"]==1) {
 <?php
 }
 ?>
-					<form action="resetemail-2.php" class="form-horizontal span12" method="post">
+					<form action="resetemail-2.php" id="emailForm" class="form-horizontal span12" method="post">
 						<fieldset class="form-vertical span4 offset4">
 							<div class="control-group">
 								<label class="control-label span12" for="login-password">EMAIL</label>
