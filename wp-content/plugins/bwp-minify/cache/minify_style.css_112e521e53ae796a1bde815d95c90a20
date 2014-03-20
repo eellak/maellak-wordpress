@@ -1,0 +1,51 @@
+html{overflow-y:scroll}body{}#canvas{width:768px;margin:0
+auto}#header{margin:0
+0 10px 0}#header h1,
+#header
+h4{font-size:30px;margin:0;padding:10px
+0 10px 0}#header h1 span,
+#header h4
+span{}#nav,#subNav{list-style:none;padding:0;margin:0}#subNav{margin-top:10px}#nav li,
+#subNav
+li{display:inline;padding:0
+10px 0 0}.current_page_item a,
+.current_page_parent
+a{text-decoration:none}.current_page_item a:hover,
+.current_page_parent a:hover{text-decoration:underline}#primaryContent{width:540px;float:left;padding:0
+20px 0 0;margin:0}#primaryContent
+h1{padding:0;margin:10px
+0 0 0}#primaryContent
+h2{padding:0;margin:10px
+0 0 0}#primaryContent h1.postTitle,
+#primaryContent
+h2.postTitle{font-size:22px}#primaryContent
+h3{padding:0;margin:10px
+0 0 0}ol#posts{list-style:none;margin:0;padding:0}li.postWrapper,div.postWrapper{}.postWrapper
+img{}div.post{}p.postMeta{}#pagination{list-style:none;margin:0px;padding:0px}#pagination
+li{display:inlne}#pagination
+.previous{text-align:left;float:left}#pagination
+.future{text-align:right;float:right}#secondaryContent{width:200px;float:left}#secondaryContent
+h3{padding:0;margin:10px
+0 0 0}#secondaryContent>ul{list-style:none;margin:0;padding:0}#secondaryContent>ul>li{margin:0
+0 10px 0}.widget_tag_cloud
+a{padding-left:5px}#comment{width:500px}#footer{clear:both;font-size:80%}.skip,.noCss{position:absolute;left:-9999px}.alignnone{margin:5px
+20px 20px 0}.aligncenter,div.aligncenter{display:block;margin:5px
+auto 5px auto}.alignright{float:right;margin:5px
+0 20px 20px}.alignleft{float:left;margin:5px
+20px 20px 0}.aligncenter{display:block;margin:5px
+auto 5px auto}a
+img.alignright{float:right;margin:5px
+0 20px 20px}a
+img.alignnone{margin:5px
+20px 20px 0}a
+img.alignleft{float:left;margin:5px
+20px 20px 0}a
+img.aligncenter{display:block;margin-left:auto;margin-right:auto}.wp-caption{background:#fff;border:1px
+solid #f0f0f0;max-width:96%;padding:5px
+3px 10px;text-align:center}.wp-caption.alignnone{margin:5px
+20px 20px 0}.wp-caption.alignleft{margin:5px
+20px 20px 0}.wp-caption.alignright{margin:5px
+0 20px 20px}.wp-caption
+img{border:0
+none;height:auto;margin:0;max-width:98.5%;padding:0;width:auto}.wp-caption p.wp-caption-text{font-size:11px;line-height:17px;margin:0;padding:0
+4px 5px}

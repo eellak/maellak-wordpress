@@ -1,0 +1,1038 @@
+# Copyright (C) 2010 
+# This file is distributed under the same license as the  package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Buddypress Doc\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/buddypress-docs\n"
+"POT-Creation-Date: 2013-09-09 18:47:51+00:00\n"
+"PO-Revision-Date: 2013-10-02 19:46+0200\n"
+"Last-Translator: \n"
+"Language-Team: jmorgent <jmorgent@gmail.com>\n"
+"Language: Greek\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+
+#: bp-docs.php:256
+msgctxt "post type general name"
+msgid "BuddyPress Docs"
+msgstr "BuddyPress Docs"
+
+#: bp-docs.php:257
+msgctxt "post type singular name"
+msgid "Doc"
+msgstr "Wiki"
+
+#: bp-docs.php:258
+msgctxt "add new"
+msgid "Add New"
+msgstr "Προσθήκη νέου"
+
+#: bp-docs.php:259
+msgid "Add New Doc"
+msgstr "Προσθήκη νέου wiki"
+
+#: bp-docs.php:260
+msgid "Edit Doc"
+msgstr "Επεξεργασία wiki"
+
+#: bp-docs.php:261 includes/integration-groups.php:800
+#: includes/integration-groups.php:1266
+#: includes/templates/docs/docs-header.php:40
+msgid "New Doc"
+msgstr "Νέο wiki"
+
+#: bp-docs.php:262
+msgid "View Doc"
+msgstr "Εμφάνιση wiki"
+
+#: bp-docs.php:263
+msgid "Search Docs"
+msgstr "Αναζήτηση"
+
+#: bp-docs.php:264
+msgid "No Docs found"
+msgstr "Δεν βρέθηκαν wikis"
+
+#: bp-docs.php:265
+msgid "No Docs found in Trash"
+msgstr "Δεν βρέθηκαν wikis στον Κάδο"
+
+#: bp-docs.php:272 includes/component.php:40
+#: includes/integration-groups.php:1061
+msgid "BuddyPress Docs"
+msgstr "BuddyPress Docs"
+
+#: bp-docs.php:291
+msgid "Associated Items"
+msgstr "Συνδεόμενα αντικείμενα"
+
+#: bp-docs.php:292
+msgid "Associated Item"
+msgstr "Συνδεόμενο αντικείμενο"
+
+#: bp-docs.php:486
+msgid "You are not allowed to read that Doc."
+msgstr "Δεν έχετε δικαίωμα να διαγράψετε αυτό το wiki."
+
+#: bp-docs.php:490
+msgid "You are not allowed to create Docs."
+msgstr "Δεν επιτρέπεται να δημιουργήσετε νέα wikis."
+
+#: bp-docs.php:494
+msgid "You are not allowed to edit that Doc."
+msgstr "Δεν έχετε δικαίωμα επεξεργασίας αυτού του wiki."
+
+#: bp-docs.php:498
+msgid "You are not allowed to view that Doc's history."
+msgstr "Δεν έχετε δικαίωμα να δείτε την ιστορία αυτού του wiki."
+
+#: includes/addon-hierarchy.php:113
+msgid "Parent: "
+msgstr "Πατρικό:"
+
+#: includes/addon-hierarchy.php:164
+msgid "Children: "
+msgstr "Παιδί:"
+
+#: includes/addon-history.php:117
+msgid "You have successfully restored the Doc to the revision from %s."
+msgstr "Έχετε επιτυχώς ανακτήσει το wiki στην αναθεώρηση από %s."
+
+#: includes/addon-history.php:165
+msgid "Compare Revisions of &#8220;%1$s&#8221;"
+msgstr "Σύγκριση αναθεωρήσεων de &#8220;%1$s&#8221;"
+
+#: includes/addon-history.php:166 includes/addon-history.php:195
+msgid "Revisions"
+msgstr "Αναθεωρήσεις"
+
+#: includes/addon-history.php:194
+msgid "Revision for &#8220;%1$s&#8221; created on %2$s"
+msgstr "Αναθεώρηση από &#8220;%1$s&#8221; δημιουργήθηκε %2$s"
+
+#. translators: post revision: 1: when, 2: author name
+#: includes/addon-history.php:360
+msgctxt "post revision"
+msgid "%1$s by %2$s"
+msgstr "%1$s από %2$s"
+
+#: includes/addon-history.php:387
+msgid "Restore"
+msgstr "Ανάκτηση"
+
+#: includes/addon-history.php:410
+msgid "Compare Revisions"
+msgstr "Σύγκριση αναθεωρήσεων"
+
+#. translators: column name in revisons
+#: includes/addon-history.php:426
+msgid "Old"
+msgstr "Παλιό"
+
+#. translators: column name in revisons
+#: includes/addon-history.php:427
+msgid "New"
+msgstr "Νέο"
+
+#. translators: column name in revisons
+#: includes/addon-history.php:428
+msgid "Date Created"
+msgstr "Ημερομηνία δημιουργίας"
+
+#: includes/addon-history.php:429 includes/templates/docs/docs-loop.php:25
+msgid "Author"
+msgstr "Συγγραφέας"
+
+#: includes/addon-history.php:430
+msgid "Actions"
+msgstr "Ενέργειες"
+
+#: includes/addon-history.php:458 includes/integration-groups.php:809
+#: includes/templatetags.php:941
+msgid "History"
+msgstr "Ιστορικότητα"
+
+#: includes/addon-taxonomy.php:87
+msgid "Docs Tags"
+msgstr "Ετικέτες wikis"
+
+#: includes/addon-taxonomy.php:88
+msgid "Docs Tag"
+msgstr "Ετικέτα wiki"
+
+#: includes/addon-taxonomy.php:225
+msgid "Tags: %s"
+msgstr "Ετικέτες: %s"
+
+#: includes/addon-taxonomy.php:357 includes/templates/docs/single/edit.php:104
+msgid "Tags"
+msgstr "Ετικέτες"
+
+#: includes/addon-taxonomy.php:409
+msgid "You are viewing docs with the following tags: %s"
+msgstr "Βλέπετε τα wikis με τις ακόλουθες ετικέτες: %s"
+
+#: includes/addon-taxonomy.php:418
+msgid "Tag"
+msgstr "Ετικέτα"
+
+#: includes/addon-taxonomy.php:446
+msgid "(%d)"
+msgstr "(%d)"
+
+#: includes/addon-taxonomy.php:528
+msgid "Docs tagged %s"
+msgstr "Wikis που έχουν ετικέτες %s"
+
+#: includes/addon-taxonomy.php:587
+msgid "Most Used"
+msgstr "Τα πιο χρησιμοποιούμενα"
+
+#. translators: %s: add new taxonomy label
+#: includes/addon-taxonomy.php:611
+msgid "+ %s"
+msgstr "+ %s"
+
+#: includes/admin.php:32 includes/admin.php:44
+msgid "BuddyPress Docs Settings"
+msgstr "Ρυθμίσεις BuddyPress Docs"
+
+#: includes/admin.php:33
+msgid "Settings"
+msgstr "Ρυθμίσεις"
+
+#: includes/admin.php:57
+msgid "General"
+msgstr "Γενικά"
+
+#: includes/admin.php:65
+msgid "Slug"
+msgstr "ετικέτα"
+
+#: includes/admin.php:75
+msgid "Directory Excerpt Length"
+msgstr ""
+
+#: includes/admin.php:85
+msgid "Users"
+msgstr "Χρήστες"
+
+#: includes/admin.php:93
+msgid "User Tab Name"
+msgstr ""
+
+#: includes/admin.php:104
+msgid "Groups"
+msgstr "Θεματικές περιοχές"
+
+#: includes/admin.php:112
+msgid "Group Tab Name"
+msgstr "Όνομα θεματικής περιοχής"
+
+#: includes/admin.php:123 includes/attachments.php:517
+#: includes/templates/docs/single/edit.php:68
+#: includes/templates/docs/single/index.php:32 includes/templatetags.php:1952
+msgid "Attachments"
+msgstr "Επισυναπτόμενα"
+
+#: includes/admin.php:131
+msgid "Enable Attachments"
+msgstr "Ενεργοποίηση επισυναπτόμενων"
+
+#: includes/admin.php:147
+msgid "Change the slug used to build Docs URLs."
+msgstr ""
+"Άλλαξε το slug που χρησιμοποιείται για να δημιουργηθεί ο σύνδεσμος των wikis."
+
+#: includes/admin.php:147
+msgid ""
+"You have already defined this value in <code>wp-config.php</code>, so it "
+"cannot be edited here."
+msgstr ""
+"Έχετε ήδη καθορίσει την τιμή αυτή στο <code>wp-config.php</code>, οπότε δεν "
+"μπορείτε να την επεξεργαστείτε εδώ."
+
+#: includes/admin.php:157
+msgid ""
+"Excerpts are shown on Docs directories, to provide better context. If your "
+"theme or language requires longer or shorter excerpts, change this value. "
+"Set to <code>0</code> to disable these excerpts."
+msgstr ""
+
+#: includes/admin.php:167
+msgid ""
+"Change the word on the BuddyPress group tab from 'Docs' to whatever you'd "
+"like. Keep in mind that this will not change the text anywhere else on the "
+"page. For a more thorough text change, create a <a href='http://codex."
+"buddypress.org/extending-buddypress/customizing-labels-messages-and-"
+"urls/'>language file</a> for BuddyPress Docs."
+msgstr ""
+
+#: includes/admin.php:177
+msgid ""
+"Change the word on users' Docs tabs from 'Docs' to whatever you'd like. Keep "
+"in mind that this will not change the text anywhere else on the page. For a "
+"more thorough text change, create a <a href='http://codex.buddypress.org/"
+"extending-buddypress/customizing-labels-messages-and-urls/'>language file</"
+"a> for BuddyPress Docs."
+msgstr ""
+
+#: includes/admin.php:187
+msgid "Enabled"
+msgstr "Ενεργοποιημένο"
+
+#: includes/admin.php:188
+msgid "Disabled"
+msgstr "Απενεργοποιημένο"
+
+#: includes/admin.php:190
+msgid "Allow users to add attachments to their Docs."
+msgstr "Επιτρέψτε στους χρήστες να προσθέτουν επισυναπτόμενα στα wiki τους."
+
+#: includes/admin.php:224
+msgid "Recent Comments"
+msgstr "Πρόσφατα σχόλια"
+
+#: includes/admin.php:299
+msgid "No comments yet."
+msgstr "Δεν υπάρχουν σχόλια ακόμη."
+
+#: includes/attachments.php:65 includes/attachments.php:72
+msgid "File not found."
+msgstr "Το αρχείο δεν βρέθηκε."
+
+#: includes/attachments.php:293
+msgid "Attachment deleted"
+msgstr "Το επισυναπτόμενο διαγράφηκε"
+
+#: includes/attachments.php:295
+msgid "Could not delete attachment"
+msgstr "Δεν μπορούσε να διαγραφεί το επισυναπτόμενο"
+
+#: includes/attachments.php:533
+msgid "Has attachment?"
+msgstr "Έχει επισυναπτόμενο?"
+
+#: includes/attachments.php:535
+msgid "Yes"
+msgstr "Ναι"
+
+#: includes/attachments.php:536
+msgid "No"
+msgstr "Όχι"
+
+#: includes/attachments.php:537
+msgid "Doesn&#8217;t matter"
+msgstr "Δεν έχει σημασία"
+
+#: includes/attachments.php:539
+msgid "Filter"
+msgstr "Φίλτρο"
+
+#: includes/component.php:158
+msgid "Search Docs..."
+msgstr "Αναζήτηση wikis"
+
+#: includes/component.php:204 includes/component.php:312
+#: includes/templatetags.php:1331
+msgid "Started By Me"
+msgstr "Ξεκίνησε από εμένα"
+
+#: includes/component.php:211 includes/component.php:321
+#: includes/templatetags.php:1332
+msgid "Edited By Me"
+msgstr "Επεξεργάστηκε από εμένα"
+
+#: includes/component.php:218 includes/templatetags.php:1356
+msgid "Create New Doc"
+msgstr "Νέο wiki"
+
+#: includes/component.php:309
+msgid "My Docs "
+msgstr "Τα wikis μου"
+
+#: includes/component.php:309
+msgid "%s&#8217;s Docs"
+msgstr ""
+
+#: includes/component.php:312
+msgid "Started By %s"
+msgstr "Ξεκίνησε από %s"
+
+#: includes/component.php:321
+msgid "Edited By %s"
+msgstr "Επεξεργασία από %s"
+
+#: includes/component.php:410
+msgid ""
+"This doc is currently being edited by %s. To prevent overwrites, you cannot "
+"edit until that user has finished. Please try again in a few minutes."
+msgstr ""
+"Αυτό το wiki το επεξεργάζεται ο %s. Για να αποφύγετε τα πανωγραψίματα, δεν "
+"μπορείτε να το επεξεργαστείτε μέχρι αυτός ο χρήστης ολοκληρώσει τη "
+"διαδικασία. Παρακαλώ δοκιμάστε ξανά σε λίγα λεπτά."
+
+#: includes/component.php:423
+msgid "You do not have permission to edit the doc."
+msgstr "Δεν έχετε δικαίωμα επεξεργασίας αυτού του wiki."
+
+#: includes/component.php:439
+msgid "You do not have permission to create a Doc in this group."
+msgstr "Δεν έχετε δικαίωμα δημιουργίας ενός wiki στη συγκεκριμένη ομάδα."
+
+#: includes/component.php:455
+msgid "You do not have permission to view this Doc's history."
+msgstr "Δεν έχετε δικαίωμα να δείτε την ιστορία αυτού του wiki."
+
+#: includes/component.php:479
+msgid "Lock successfully removed"
+msgstr "Το κλείδωμα έχει αφαιρεθεί επιτυχώς."
+
+#: includes/component.php:504
+msgid "Doc successfully deleted!"
+msgstr "Το wiki διαγράφηκε επιτυχώς!"
+
+#: includes/component.php:506
+msgid "Could not delete doc."
+msgstr "Δεν μπορούσε να διαγραφεί το wiki."
+
+#: includes/component.php:509
+msgid "You do not have permission to delete that doc."
+msgstr "Δεν έχετε δικαίωμα να διαγράψετε αυτό το wiki."
+
+#: includes/component.php:641
+msgid "%1$s commented on the doc %2$s"
+msgstr "%1$s σχολίασε το wiki %2$s"
+
+#: includes/component.php:737
+msgid "Show New Docs"
+msgstr "Δείτε νέα wikis"
+
+#: includes/component.php:738
+msgid "Show Doc Edits"
+msgstr "Δείτε τις αλλαγές των wikis"
+
+#: includes/component.php:739
+msgid "Show Doc Comments"
+msgstr "Δείτε τα σχόλια των wikis"
+
+#: includes/component.php:806
+msgid "%1$s created the doc %2$s"
+msgstr "%1$s δημιούργησε το wiki %2$s"
+
+#: includes/component.php:808
+msgid "%1$s edited the doc %2$s"
+msgstr "%1$s επεξεργάστηκε το wiki %2$s"
+
+#: includes/component.php:1042 includes/component.php:1054
+msgid "Search"
+msgstr "Αναζήτηση"
+
+#: includes/component.php:1105
+msgid "Upload File"
+msgstr "Ανέβασμα αρχείου"
+
+#: includes/component.php:1106
+msgid "OK"
+msgstr "ΟΚ"
+
+#: includes/component.php:1107
+msgid "Still working?"
+msgstr "Ακόμα δουλεύετε?"
+
+#: includes/functions.php:160
+msgctxt ""
+"Description for the associated-item taxonomy term. Of the form \"Docs "
+"associated with the [item-type] [item-name]\" - item-type is group, user, etc"
+msgid "Docs associated with the %1$s %2$s"
+msgstr "Wikis που σχετίζονται με %1$s %2$s"
+
+#: includes/functions.php:499 includes/templatetags.php:1432
+msgid "Logged-in Users"
+msgstr "Συνδεδεμένοι χρήστες"
+
+#: includes/functions.php:504 includes/templatetags.php:1434
+msgid "The Doc author only"
+msgstr "Ο δημιουργός μόνο (%s)"
+
+#: includes/functions.php:512 includes/templatetags.php:1431
+msgid "Anyone"
+msgstr "Οποιοσδήποτε"
+
+#: includes/integration-groups.php:433
+msgid "Members of %s"
+msgstr "Μέλη %s"
+
+#: includes/integration-groups.php:445
+msgid "Admins and mods of %s"
+msgstr "Διαχειριστές και συντονιστές %s"
+
+#: includes/integration-groups.php:526
+msgid "%1$s created the doc %2$s in the group %3$s"
+msgstr "%1$s δημιούργησε το wiki %2$s στην ομάδα %3$s"
+
+#: includes/integration-groups.php:528
+msgid "%1$s edited the doc %2$s in the group %3$s"
+msgstr "%1$s επεξεργάστηκε το wiki %2$s στην ομάδα %3$s"
+
+#: includes/integration-groups.php:578
+msgid "%1$s commented on the doc %2$s in the group %3$s"
+msgstr "%1$s σχολίασε το wiki %2$s στην ομάδα %3$s"
+
+#: includes/integration-groups.php:652
+msgid "Group"
+msgstr "Θεματική περιοχή"
+
+#: includes/integration-groups.php:772
+msgid "%s <span>%d</span>"
+msgstr "%s <span>%d</span>"
+
+#: includes/integration-groups.php:794 includes/integration-groups.php:878
+#: includes/integration-groups.php:1423 includes/integration-users.php:192
+msgid "Docs"
+msgstr "Wikis"
+
+#: includes/integration-groups.php:807
+#: includes/templates/docs/docs-header.php:30 includes/templatetags.php:937
+#: includes/templatetags.php:1535
+msgid "Edit"
+msgstr "Επεξεργασία"
+
+#: includes/integration-groups.php:979
+msgid "Save Changes"
+msgstr "Αποθήκευση αλλαγών"
+
+#: includes/integration-groups.php:1004
+msgid "There was an error saving, please try again"
+msgstr "Υπήρχε ένα λάθος στην αποθήκευση, παρακαλώ προσπαθήστε ξενά"
+
+#: includes/integration-groups.php:1006
+msgid "Settings saved successfully"
+msgstr "Οι ρυθμίσεις αποθηκεύτηκαν επιτυχώς"
+
+#: includes/integration-groups.php:1063
+msgid ""
+"BuddyPress Docs is a powerful tool for collaboration with members of your "
+"group. A cross between document editor and wiki, BuddyPress Docs allows you "
+"to co-author and co-edit documents with your fellow group members, which you "
+"can then sort and tag in a way that helps your group to get work done."
+msgstr ""
+"Το εργαλείο BuddyPress Docs είναι ένα δυνατό εργαλείο συνεργασίας με τα μέλη "
+"της ομάδας σου. Ένας συνδυασμός μεταξύ επεξεργαστή εγγράφων και wiki, το "
+"BuddyPress Docs επιτρέπει την συγγραφή και επεξεργασία εγγράφων με τα μέλη "
+"της ομάδας, τα οποία μπορείς να ταξινομήσεις και να σηματοδοτήσεις με τρόπο "
+"που βοηθάει την ομάδα σου να ολοκληρώσει τη δουλειά της."
+
+#: includes/integration-groups.php:1066
+msgid "Enable BuddyPress Docs for this group"
+msgstr "Ενεργοποίηση BuddyPress Docs γι'αυτή την ομάδα"
+
+#: includes/integration-groups.php:1070
+msgid "Options"
+msgstr "Επιλογές"
+
+#: includes/integration-groups.php:1075
+msgid "Minimum role to associate Docs with this group:"
+msgstr "Ελάχιστος ρόλος για τη συσχέτιση των wikis με αυτή την ομάδα:"
+
+#: includes/integration-groups.php:1080
+msgid "Group admin"
+msgstr "Διαχειριστής"
+
+#: includes/integration-groups.php:1081
+msgid "Group moderator"
+msgstr "Συντονιστής"
+
+#: includes/integration-groups.php:1082
+msgid "Group member"
+msgstr "Μέλος"
+
+#: includes/integration-groups.php:1263
+msgid "View Docs"
+msgstr "Δες τα wiki"
+
+#: includes/query-builder.php:410
+msgid "Unknown error. Please try again."
+msgstr "Άγνωστο λάθος. Προσπαθήστε ξανά."
+
+#: includes/query-builder.php:430
+msgid "You are not allowed to associate a Doc with that group."
+msgstr ""
+"Δεν έχετε δικαίωμα δημιουργίας ενός wiki στη συγκεκριμένη θεματική περιοχή."
+
+#: includes/query-builder.php:440
+msgid "The title field is required."
+msgstr "Ο τίτλος και το περιεχόμενο είναι υποχρεωτικά πεδία."
+
+#: includes/query-builder.php:469
+msgid "There was an error when creating the doc."
+msgstr "Προέκυψε ένα λάθος κατά τη δημιουργία."
+
+#: includes/query-builder.php:478
+msgid "Doc successfully created!"
+msgstr "Το wiki δημιουργήθηκε με επιτυχία!"
+
+#: includes/query-builder.php:498
+msgid "There was an error when saving the doc."
+msgstr "Προέκυψε ένα λάθος κατά τη διαδικασία αποθήκευσης."
+
+#: includes/query-builder.php:507
+msgid ""
+"You idled a bit too long while in Edit mode. In order to allow others to "
+"edit the doc you were working on, your changes have been autosaved. Click "
+"the Edit button to return to Edit mode."
+msgstr ""
+"Είσαστε αδρανής πολύ ώρα στην κατάσταση επεξεργασίας. Προκειμένου να "
+"επιτρέψετε σε άλλους να επεξεργαστούν το έγγραφο το οποίο επεξεργάζεστε, οι "
+"αλλαγές σας έχουν ήδη αποθηκευθεί. Επιλέξτε το κουμπί \"Επεξεργασία\" για να "
+"επιστρέψετε στην φάση επεξεργασίας."
+
+#: includes/query-builder.php:510
+msgid "Doc successfully edited!"
+msgstr "Επιτυχής επεξεργασία wiki!"
+
+#: includes/query-builder.php:541
+msgid ""
+"Your Doc was successfully saved, but some of your access settings have been "
+"changed to match the Doc's permissions."
+msgstr ""
+"Το wiki αποθηκεύθηκε επιτυχώς, αλλά κάποιες από τις ρυμίσεις πρόσβασης έχουν "
+"αλλαχθεί προκειμένου να ταιριάζουν με τα δικαιώματα του wiki."
+
+#: includes/templates/docs/docs-header.php:25 includes/templatetags.php:934
+msgid "Read"
+msgstr "Διάβασμα"
+
+#: includes/templates/docs/docs-loop.php:21
+#: includes/templates/docs/single/edit.php:34
+msgid "Title"
+msgstr "Τίτλος"
+
+#: includes/templates/docs/docs-loop.php:29
+msgid "Created"
+msgstr "Δημιουργήθηκε"
+
+#: includes/templates/docs/docs-loop.php:33
+msgid "Last Edited"
+msgstr "Τελευταία επεξεργασία"
+
+#: includes/templates/docs/docs-loop.php:86
+msgid "Viewing %1$s-%2$s of %3$s docs"
+msgstr "Βλέπετε %1$s-%2$s of %3$s wikis"
+
+#: includes/templates/docs/docs-loop.php:97
+msgid "There are no docs for this view. Why not <a href=\"%s\">create one</a>?"
+msgstr ""
+"Δεν υπάρχουν wikis γι αυτή τη δημοσίευση. Γιατί να μην <a href=\"%s"
+"\">δημιουργήσετε ένα</a>?"
+
+#: includes/templates/docs/docs-loop.php:99
+msgid "There are no docs for this view."
+msgstr "Δεν υπάρχουν wikis για την προβολή."
+
+#: includes/templates/docs/index.php:23 includes/theme-bridge.php:165
+msgid "Docs Directory"
+msgstr "Φάκελος Docs"
+
+#: includes/templates/docs/single/comments.php:27
+msgid "Discussion (%d)"
+msgstr "Συζήτηση (%d)"
+
+#: includes/templates/docs/single/comments.php:49
+msgid "There are no comments for this doc yet."
+msgstr "Δεν υπάρχουν σχόλια γι'αυτό το wiki ακόμα."
+
+#: includes/templates/docs/single/comments.php:58
+msgid "Comment display has been disabled on this doc."
+msgstr "Η εμφάνιση σχολίων έχει απενεργοποιηθεί γι'αυτό το wiki."
+
+#: includes/templates/docs/single/comments.php:67
+msgid "Comment posting has been disabled on this doc."
+msgstr "Η δημιουργία σχολίων έχει απενεργοποιηθεί γι αυτό το wiki."
+
+#: includes/templates/docs/single/edit.php:23
+msgid "You have been idle for <span id=\"idle-warning-time\"></span>"
+msgstr "Είστε αδρανής γι <span id=\"idle-warning-time\"></span>"
+
+#: includes/templates/docs/single/edit.php:40
+msgid "Permalink"
+msgstr "Permalink"
+
+#: includes/templates/docs/single/edit.php:48
+msgid "Content"
+msgstr "Περιεχόμενο"
+
+#: includes/templates/docs/single/edit.php:77
+msgid "Associated Group"
+msgstr "Συνδεόμενη θεματική περιοχή"
+
+#: includes/templates/docs/single/edit.php:91
+msgid "Access"
+msgstr "Πρόσβαση"
+
+#: includes/templates/docs/single/edit.php:110
+msgid "Tags are words or phrases that help to describe and organize your Docs."
+msgstr ""
+"Οι ετικέτες είναι λέξεις ή φράσεις που βοηθούν στην περιγραφή και την "
+"οργάνωση των wikis."
+
+#: includes/templates/docs/single/edit.php:111
+msgid ""
+"Separate tags with commas (for example: <em>orchestra, snare drum, piccolo, "
+"Brahms</em>)"
+msgstr ""
+"Ξεχώρισε τις ετικέτες με κόμμα (για παράδειγμα: <em>orchestra, snare drum, "
+"piccolo, Brahms</em>)"
+
+#: includes/templates/docs/single/edit.php:125
+msgid "Parent"
+msgstr "Γονιός"
+
+#: includes/templates/docs/single/edit.php:131
+msgid "Select a parent for this Doc."
+msgstr "Διάλεξε ένα γονιό για το wiki αυτό."
+
+#: includes/templates/docs/single/edit.php:133
+msgid ""
+"(Optional) Assigning a parent Doc means that a link to the parent will "
+"appear at the bottom of this Doc, and a link to this Doc will appear at the "
+"bottom of the parent."
+msgstr ""
+"(Προαιρετικό) Η ανάθεση ενός πατρικού wiki σημαίνει ότι θα εμφανιστεί ένας "
+"σύνδεσμος προς το πατρικό wiki στο τέλος αυτού του wiki, και ένας σύνδεσμος "
+"προς το wiki αυτό θα εμφανιστεί στο τέλος του πατρικού."
+
+#: includes/templates/docs/single/edit.php:154
+msgid "Save"
+msgstr "Αποθήκευση"
+
+#: includes/templates/docs/single/edit.php:154
+msgid "Cancel"
+msgstr "Ακύρωση"
+
+#: includes/templates/docs/single/edit.php:157 includes/templatetags.php:1880
+msgid "Delete"
+msgstr "Διαγραφή"
+
+#: includes/templates/docs/single/edit.php:187
+msgid "Are you still there?"
+msgstr "Είστε ακόμα εκεί?"
+
+#: includes/templates/docs/single/edit.php:189
+msgid ""
+"In order to prevent overwriting content, only one person can edit a given "
+"doc at a time. For that reason, you must periodically ensure the system that "
+"you're still actively editing. If you are idle for more than 30 minutes, "
+"your changes will be auto-saved, and you'll be sent out of Edit mode so that "
+"others can access the doc."
+msgstr ""
+"Για να αποφευχθεί το πανωγράψιμο περιεχομένου, μόνο ένα άτομο μπορεί να "
+"επεξεργάζεται ένα wiki σε μια συγκεκριμένη χρονική στιγμή. Για το λόγο αυτό, "
+"θα πρέπει περιοδικά να εξασφαλίζετε στο σύστημα ότι είστε ακόμα ενεργός στη "
+"διαδικασία της επεξεργασίας. Εάν είστε αδρανής για περισσότερο από 30 λεπτά, "
+"οι αλλαγές σας θα αποθηκευθούν αυτόματα, και θα οδηγηθείτε εκτός της "
+"κατάστασης επεξεργασίας προκειμένου άλλοι να προσπελάσουν το wiki."
+
+#: includes/templates/docs/single/edit.php:191
+msgid "I'm still editing!"
+msgstr "Ακόμα επεξεργάζομαι το έγγραφο!"
+
+#: includes/templates/docs/single/history.php:9
+msgid "Click on a revision date from the list below to view that revision."
+msgstr ""
+"Επιλέξτε μια ημερομηνία αναθεώρησης από την παρακάτω λίστα για να δείτε αυτή "
+"την αναθεώρηση."
+
+#: includes/templates/docs/single/history.php:11
+msgid ""
+"Alternatively, you can compare two revisions by selecting them in the 'Old' "
+"and 'New' columns, and clicking 'Compare Revisions'."
+msgstr ""
+"Εναλλακτικά, μπορείτε να συγκρίνετε δύο αναθεωρήσεις με το να επιλέξετε τις "
+"στήλες 'Παλιά' και 'Νέα' και να επιλέξετε 'Σύγκριση Αναθεωρήσεων'."
+
+#: includes/templates/docs/single/history.php:22
+msgid "Older: %s"
+msgstr "Παλιότερα: %s"
+
+#: includes/templates/docs/single/history.php:23
+msgid "Newer: %s"
+msgstr "Νεότερα: %s"
+
+#: includes/templates/docs/single/history.php:30
+msgid ""
+"You are currently viewing a revision titled \"%1$s\", saved on %2$s by %3$s"
+msgstr ""
+"Αυτή τη στιγμή βλέπετε την αναθεώρηση με τίτλο \"%1$s\", που αποθηκεύτηκε "
+"την %2$s από %3$s"
+
+#: includes/templates/docs/single/history.php:52
+msgid "These revisions are identical."
+msgstr "Αυτές οι αναθεωρήσεις είναι ταυτόσημες."
+
+#: includes/templates/docs/single/index.php:7
+msgid "Locked"
+msgstr "Κλειδωμένο"
+
+#: includes/templates/docs/single/index.php:7
+msgid "(click for more info)"
+msgstr "(κάντε κλικ για περισσότερες πληροφορίες)"
+
+#: includes/templates/docs/single/index.php:9
+msgid ""
+"This doc is currently being edited by %1$s. In order to prevent edit "
+"conflicts, only one user can edit a doc at a time."
+msgstr ""
+"Το wiki αυτό επεξεργάζεται αυτή τη στιγμή από τον %1$s. Προκειμένου να "
+"αποφύγετε προβλήματα στην επεξεργασία, μόνο ένας χρήστης μπορεί να "
+"επεξεργάζεται το wiki σε μια στιγμή."
+
+#: includes/templates/docs/single/index.php:12
+msgid ""
+"Please try again in a few minutes. Or, as an admin, you can <a href=\"%s"
+"\">force cancel</a> the edit lock."
+msgstr ""
+"Παρακαλώ προσπαθήστε πάλι σε μερικά λεπτά. Ή, σαν διαχειριστής μπορείτε, να "
+"<a href=\"%s\">ακυρώσετε</a>το κλείδωμα επεξεργασίας."
+
+#: includes/templates/docs/single/index.php:14
+msgid "Please try again in a few minutes."
+msgstr "Παρακαλώ δοκιμάστε ξανά σε λίγα λεπτά."
+
+#: includes/templatetags-edit.php:115
+msgid "(no parent)"
+msgstr "(Δεν υπάρχει γονιός)"
+
+#: includes/templatetags.php:198
+msgid "You are viewing <strong>all</strong> docs."
+msgstr "Βλέπετε <strong>όλα</strong> τα wikis."
+
+#: includes/templatetags.php:207
+msgid ""
+"<strong><a href=\"%s\" title=\"View All Docs\">View All Docs</a></strong>"
+msgstr ""
+"<strong><a href=\"%s\" title=\"View All Docs\">Όλα τα wikis</a></strong>"
+
+#: includes/templatetags.php:217
+msgid "Filter by: %s"
+msgstr "Φίλτρο με: %s"
+
+#: includes/templatetags.php:294
+msgid "You are searching for docs containing the term <em>%s</em>"
+msgstr "Ψάχνετε τα wikis που περιλαμβάνουν τον όρο <em>%s</em>"
+
+#: includes/templatetags.php:765
+msgid "Which group should this Doc be associated with?"
+msgstr "Με ποια θεματική περιοχή θα πρέπει να συνδεθεί αυτό το wiki?"
+
+#: includes/templatetags.php:766
+msgid ""
+"(Optional) Note that the Access settings available for this Doc may be "
+"limited by the privacy settings of the group you choose."
+msgstr ""
+"(Προαιρετικό) Υπενθυμίζεται ότι οι ρυθμίσεις πρόσβασης για το συγκεκριμένο "
+"wiki μπορεί να υπόκεινται σε περιορισμούς με βάση τις ρυθμίσεις ασφάλειας "
+"που έχουν οριστεί για τη θεματική περιοχή."
+
+#: includes/templatetags.php:771
+msgid "None"
+msgstr "Καμία"
+
+#: includes/templatetags.php:818
+msgid "%s member"
+msgstr "%s μέλος"
+
+#: includes/templatetags.php:818
+msgid "%s members"
+msgstr "%s μέλη"
+
+#: includes/templatetags.php:822
+msgid "Public Group"
+msgstr "Δημόσια ομάδα"
+
+#: includes/templatetags.php:826
+msgid "Private Group"
+msgstr "Ιδιωτική ομάδα"
+
+#: includes/templatetags.php:830
+msgid "Hidden Group"
+msgstr "Κρυφή ομάδα"
+
+#: includes/templatetags.php:869
+msgid "Who can read this doc?"
+msgstr "Ποιος μπορεί να διαβάσει αυτό το wiki?"
+
+#: includes/templatetags.php:873
+msgid "Who can edit this doc?"
+msgstr "Ποιος μπορεί να επεξεργαστεί αυτό το wiki?"
+
+#: includes/templatetags.php:877
+msgid "Who can read comments on this doc?"
+msgstr "Ποιος μπορεί να διαβάσει τα σχόλια σε αυτό το wiki?"
+
+#: includes/templatetags.php:881
+msgid "Who can post comments on this doc?"
+msgstr "Ποιος μπορεί να κάνει σχόλια σε αυτό το wiki?"
+
+#: includes/templatetags.php:885
+msgid "Who can view the history of this doc?"
+msgstr "Ποιος μπορεί να δει την ιστορικότητα του wiki?"
+
+#: includes/templatetags.php:1136
+msgid "&laquo;"
+msgstr "&laquo;"
+
+#: includes/templatetags.php:1137
+msgid "&raquo;"
+msgstr "&raquo;"
+
+#: includes/templatetags.php:1325
+msgid "All Docs"
+msgstr "Όλα τα Wikis"
+
+#: includes/templatetags.php:1329
+msgid "%s's Docs"
+msgstr "Τα wikis του %s"
+
+#: includes/templatetags.php:1335
+msgid "My Groups"
+msgstr "Οι Θεματικές Περιοχές μου"
+
+#: includes/templatetags.php:1417
+msgid "Group: "
+msgstr "Θεματική περιοχή: "
+
+#: includes/templatetags.php:1419
+msgid " %s"
+msgstr " %s"
+
+#: includes/templatetags.php:1433
+msgid "My Friends"
+msgstr "Οι φίλοι μου"
+
+#: includes/templatetags.php:1435
+msgid "Just Me"
+msgstr "Μόνο εγώ"
+
+#: includes/templatetags.php:1439
+msgid "Members of: %s"
+msgstr "Μέλη του: %s"
+
+#: includes/templatetags.php:1440
+msgid "Admins and mods of the group %s"
+msgstr "Διαχειριστές και συντονιστές της %s"
+
+#: includes/templatetags.php:1444
+msgid "The Doc author only (that's you!)"
+msgstr "Ο δημιουργός του wiki μόνο (Αυτός είσαι εσύ!)"
+
+#: includes/templatetags.php:1451
+msgid "This Doc can be read by: <strong>%s</strong>"
+msgstr "Αυτό το wiki μπορεί να διαβαστεί από: <strong>%s</strong>"
+
+#: includes/templatetags.php:1455
+msgid "This Doc can be edited by: <strong>%s</strong>"
+msgstr "Αυτό το wiki μπορεί να το επεξεργαστεί ο: <strong>%s</strong>"
+
+#: includes/templatetags.php:1459
+msgid "Comments are visible to: <strong>%s</strong>"
+msgstr "Τα σχόλια είναι ορατά σε: <strong>%s</strong>"
+
+#: includes/templatetags.php:1463
+msgid "Comments can be posted by: <strong>%s</strong>"
+msgstr "Τα σχόλια μπορούν να γίνουν από: <strong>%s</strong>"
+
+#: includes/templatetags.php:1467
+msgid "History can be viewed by: <strong>%s</strong>"
+msgstr "Η ιστορικότητα είναι ορατή από: <strong>%s</strong>"
+
+#: includes/templatetags.php:1509
+msgid "Private"
+msgstr "Ιδιωτικό"
+
+#: includes/templatetags.php:1512
+msgid "Public"
+msgstr "Δημόσιο"
+
+#: includes/templatetags.php:1515
+msgid "Limited"
+msgstr "Περιορισμένο"
+
+#: includes/templatetags.php:1520
+msgid "Access: <strong>%s</strong>"
+msgstr "Πρόσβαση: <strong>%s</strong>"
+
+#: includes/templatetags.php:1521
+msgid "Show Details"
+msgstr "Δείτε λεπτομέρειες"
+
+#: includes/templatetags.php:1537
+msgid "Hide Details"
+msgstr "Αποκρύψτε τις λεπτομέρειες"
+
+#: includes/templatetags.php:1827
+msgid "Add Files"
+msgstr "Προσθήκη αρχείων"
+
+#: includes/theme-bridge.php:223
+msgid "Create a Doc"
+msgstr "Δημιουργία wiki"
+
+#: includes/upgrade.php:40
+msgid "Upgrade complete!"
+msgstr "Η αναβάθμιση ολοκληρώθηκε!"
+
+#: includes/upgrade.php:61 includes/upgrade.php:99
+msgid ""
+"Thanks for updating BuddyPress Docs. We need to run a few quick operations "
+"before your new Docs is ready to use."
+msgstr ""
+"Ευχαριστούμε που αναβαθμίσατε το BuddyPress Docs. Θα πρέπει να τρέξουν "
+"μερικές λειτουργίες πριν τα wikis είναι έτοιμα προς χρήση."
+
+#: includes/upgrade.php:62
+msgid "Click here to start the upgrade."
+msgstr "Κάντε κλικ για να ξεκινήσει η αναβάθμιση."
+
+#: includes/upgrade.php:70 includes/upgrade.php:91
+msgid "BuddyPress Docs Upgrade"
+msgstr "Αναβάθμιση BuddyPress Docs"
+
+#: includes/upgrade.php:71
+msgid "Upgrade"
+msgstr "Αναβάθμιση"
+
+#: includes/upgrade.php:101
+msgid "Start the upgrade"
+msgstr "Έναρξη της αναβάθμισης"
+
+#: includes/upgrade.php:107
+msgid "Migrating..."
+msgstr ""
+
+#: includes/upgrade.php:138
+msgid "Migration complete! <a href=\"%s\">Dashboard</a>"
+msgstr ""
+
+#: includes/upgrade.php:243
+msgid "Docs associated with the group %s"
+msgstr "Wikis που συνδέονται με αυτή την θεματική περιοχή %s"
+
+#: includes/upgrade.php:258
+msgid "Group terms migrated. Now migrating Doc access terms...."
+msgstr ""
+
+#: includes/upgrade.php:306
+msgid "Migrated %s of %s Docs. Migrating...."
+msgstr ""
+
+#~ msgid "All members of the group"
+#~ msgstr "Όλα τα μέλη της ομάδας"
+
+#~ msgid "No one"
+#~ msgstr "Κανείς"
+
+#~ msgid "Docs (%d)"
+#~ msgstr "Έγγραφα (%d)"
