@@ -1,0 +1,4 @@
+AuthUserFile /var/.users
+AuthType Basic
+AuthName "My Files"
+Require valid-user
