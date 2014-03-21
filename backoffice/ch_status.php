@@ -18,19 +18,19 @@ if (!$con)
 
 mysql_select_db(DB_NAME, $con);
 
+$st=0;
+
 $q = "select * from users where username ='".$user."'";
 $qry = mysql_query($q);
 $row = mysql_fetch_array($qry);
 if ($row['_status']==0)
 	$st =1;
-else 
-	$st=0;
  
 $q  = "UPDATE `users` SET `_status` = '".$st."' WHERE `users`.`username` = '".$user."'";
-echo $q;
+
 $qry = mysql_query($q);
 
-if ($ch_status==1 && 0) {
+if ($st==1) {
 	$to      = $row['email'];
 	$subject = 'Ενεργοποίηση Λογαριασμού';
 
