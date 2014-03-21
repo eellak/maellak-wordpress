@@ -58,15 +58,13 @@ $_POST["username1"] = strip_tags($_POST["username1"]);
 $_POST["username2"] = strip_tags($_POST["username2"]);
 $_POST["foreas"]    = strip_tags($_POST["foreas"]);
 
-
-
-$servername="localhost";
-$username="maeellakgr";
 $conn= mysql_connect($servername,$username,"m@eellak123gr")or die(mysql_error());
+$conn = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD) or die(mysql_error());
+
 mysql_set_charset('utf8',$conn);
 
 $cs = 0;
-mysql_select_db("maellakgr",$conn);
+mysql_select_db(DB_NAME, $conn);
 $s1="select * from users where username='".$_POST['regname']."' limit 1;";
 //echo $q1;
 $r1=mysql_query($s1,$conn) or die(mysql_error());

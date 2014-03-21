@@ -1,12 +1,14 @@
-<?php
+<?php require_once('../wp-config.php'); 
+
 $user = $_GET['id'];
+
 if ($user=="admin") {
 	Header("Location: /backoffice/");
 exit;
 }
 
 
-$con = mysql_connect('localhost', 'root', 'Takis');
+$con = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);
 
 
 if (!$con)
@@ -14,7 +16,7 @@ if (!$con)
   die('Could not connect: ' . mysql_error());
   }
 
-mysql_select_db("users", $con);
+mysql_select_db(DB_NAME, $con);
 
 $q = "select * from users where username ='".$user."'";
 $qry = mysql_query($q);
