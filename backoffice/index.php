@@ -1,3 +1,4 @@
+<?php require_once('../wp-config.php'); ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 	<head>
@@ -126,12 +127,12 @@ p {color:white;}
 	</thead>
 	<tbody>
 <?php
-$con = mysql_connect('localhost', 'root', 'Takis');
+$con = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);
 if (!$con)
   {
   die('Could not connect: ' . mysql_error());
   }
-mysql_select_db("users", $con);
+mysql_select_db(DB_NAME, $con);
 mysql_query("set names 'utf8';");
 $qqq = "select * from users;";
 $qry = mysql_query($qqq);
