@@ -26,7 +26,7 @@ if ($row['_status']==0)
 else 
 	$st=0;
  
-$q  = "UPDATE `users`.`users` SET `_status` = '".$st."' WHERE `users`.`username` = '".$user."'";
+$q  = "UPDATE `users` SET `_status` = '".$st."' WHERE `users`.`username` = '".$user."'";
 echo $q;
 $qry = mysql_query($q);
 
@@ -320,5 +320,5 @@ mail($to, $subject, $message, $headers);
 
 }
 
-//Header("Location: /backoffice/");
+Header("Location: /backoffice/");
 ?>
