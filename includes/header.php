@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic&amp;subset=latin,greek-ext,greek' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic&amp;subset=latin,greek-ext,greek' rel='stylesheet' type='text/css'>
 
-    <link href="http://ma.ellak.gr/wp-content/themes/ma_ellak/css/main.css" rel="stylesheet">
-    <link href="http://ma.ellak.gr/wp-content/themes/ma_ellak/css/datepicker.css" rel="stylesheet">
+    <link href="wp-content/themes/ma_ellak/css/main.css" rel="stylesheet">
+    <link href="wp-content/themes/ma_ellak/css/datepicker.css" rel="stylesheet">
 
 		<style type="text/css" title="currentStyle">
 			@import "js/demo_page.css";
@@ -45,7 +45,7 @@ a.btn , .btn-link, .dropdown.login .btn-link:active, .login .btn-link[disabled] 
 background-color: none !important;
 background-image: none !important;
 }
-.error{color:#C0392B;display:block;padding:5px;}
+.error{color:#C0392B;display:inline-block;padding:5px;}
 input.error{border: 2px solid #C0392B; }
 p {color:white;}
 .footer p {color:#333333;}
