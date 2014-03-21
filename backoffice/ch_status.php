@@ -27,6 +27,7 @@ else
 	$st=0;
  
 $q  = "UPDATE `users`.`users` SET `_status` = '".$st."' WHERE `users`.`username` = '".$user."'";
+echo $q;
 $qry = mysql_query($q);
 
 if ($ch_status==1 && 0) {
@@ -319,5 +320,5 @@ mail($to, $subject, $message, $headers);
 
 }
 
-Header("Location: /backoffice/");
+//Header("Location: /backoffice/");
 ?>
