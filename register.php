@@ -116,9 +116,9 @@ require_once('recaptchalib.php');
 $publickey = "6LfZFOcSAAAAAECZPSPNxKVLOIHcLa4SLY4hsFpG";
 
 # the response from reCAPTCHA
-#$resp = null;
+$resp = null;
 # the error code from reCAPTCHA, if any
-#$error = null;
+$error = null;
 
 # was there a reCAPTCHA response?
 echo recaptcha_get_html($publickey);
