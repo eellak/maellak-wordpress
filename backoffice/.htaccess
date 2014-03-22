@@ -1,4 +1,5 @@
-AuthName "Login to Administration Area"
-AuthType Basic
 AuthUserFile /var/www/.htpasswd
-Require user admin 
+AuthGroupFile /dev/null
+AuthName Login to Administration Area
+AuthType Basic
+Require valid-user
