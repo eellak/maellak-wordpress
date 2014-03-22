@@ -9,8 +9,8 @@
     <meta name="author" content="">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic&amp;subset=latin,greek-ext,greek' rel='stylesheet' type='text/css'>
 
-    <link href="wp-content/themes/ma_ellak/css/main.css" rel="stylesheet">
-    <link href="wp-content/themes/ma_ellak/css/datepicker.css" rel="stylesheet">
+    <link href="/wp-content/themes/ma_ellak/css/main.css" rel="stylesheet">
+    <link href="/wp-content/themes/ma_ellak/css/datepicker.css" rel="stylesheet">
 
 		<style type="text/css" title="currentStyle">
 			@import "js/demo_page.css";
@@ -18,10 +18,10 @@
 		</style>
 
 
-		<script type="text/javascript" language="javascript" src="js/jquery.js"></script>
-		<script type="text/javascript" language="javascript" src="js/jquery.validate.min.js"></script>
-		<script type="text/javascript" language="javascript" src="js/validateforms.js"></script>
-		<script type="text/javascript" language="javascript" src="js/jquery.dataTables.js"></script>
+		<script type="text/javascript" language="javascript" src="/js/jquery.js"></script>
+		<script type="text/javascript" language="javascript" src="/js/jquery.validate.min.js"></script>
+		<script type="text/javascript" language="javascript" src="/js/validateforms.js"></script>
+		<script type="text/javascript" language="javascript" src="/js/jquery.dataTables.js"></script>
 
     <style>
 		.main1{background: #00C697;}
@@ -79,11 +79,11 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <link rel="shortcut icon" href="wp-content/themes/ma_ellak/images/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="wp-content/themes/ma_ellak/images/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="wp-content/themes/ma_ellak/images/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="wp-content/themes/ma_ellak/images/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="wp-content/themes/ma_ellak/images/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="/wp-content/themes/ma_ellak/images/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/wp-content/themes/ma_ellak/images/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/wp-content/themes/ma_ellak/images/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/wp-content/themes/ma_ellak/images/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/wp-content/themes/ma_ellak/images/apple-touch-icon-57-precomposed.png">
   </head>
 
   <body class="home">
@@ -200,6 +200,6 @@
       </div>
     </div>
 
-    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="/js/jquery-1.10.2.min.js"></script>
   </body>
 </html>
