@@ -128,8 +128,8 @@
 				?>
               <a href="<?php echo $EventsUrl;?>" class="btn btn-tiny btn-inverse btn-more">
 				  <?php _e('ΔΕΙΤΕ ΑΝΑΛΥΤΙΚΑ ΟΛΕΣ ΤΙΣ ΕΚΔΗΛΩΣΕΙΣ','ma-ellak');  
-				  //echo " ( ".wp_count_posts( 'events' )->publish  ." "; _e('εκδηλώσεις','ma-ellak' ); 
-				  ?> )</a>
+				  //echo " ( ".wp_count_posts( 'events' )->publish  ." . __('εκδηλώσεις','ma-ellak' ).' )'; 
+				  ?> </a>
             </div><!-- span4 feauturette events -->
             <div class="span4 featurette col newsletter">
 				<h2><?php _e('Newsletter','ma-ellak');?></h2>
