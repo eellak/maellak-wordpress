@@ -121,7 +121,7 @@ $resp = null;
 $error = null;
 
 # was there a reCAPTCHA response?
-echo recaptcha_get_html($publickey);
+echo recaptcha_get_html($publickey, $error , true);
 ?>
 	<br/>
 		

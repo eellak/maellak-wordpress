@@ -295,7 +295,7 @@ $message_footer =
         <tbody><tr><td class="w30" width="30"></td><td class="w580 h0" height="30" width="360"></td><td class="w0" width="60"></td><td class="w0" width="160"></td><td class="w30" width="30"></td></tr>
         <tr>
             <td class="w30" width="30"></td>
-            <td class="w580" valign="top">
+            <td class="w640" valign="top">
             <span class="hide"><p id="permission-reminder" class="footer-content-left" align="left" style="text-align:center;">
             	<span style="color:#fff;">Λαμβάνετε αυτό το μήνυμα γιατί έχετε εγγραφεί στις Μονάδες Αριστείας. </span>
             </span>
