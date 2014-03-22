@@ -97,7 +97,7 @@
     </div><!--home-->
 	</div>
     <div id="main1" class="main1">
-      <div class="container" style="height:auto;padding-top:80px;">
+      <div class="container" style="height:auto;padding-top:80px;padding-bottom:80px;">
 		
 <div id="demo">
 
