@@ -7,7 +7,8 @@
 				username1:{ required: true },
 				username2:{ required:true,  },
 				regemail:{ required:true,
-						 email:true},
+						 email:true,
+						 remote: "includes/check_email_exists.php"},
 				regname:{required:true,minlength: 5},
 				
 				regpass1: {
@@ -27,7 +28,8 @@
 				username1:{ required: " Το όνομα είναι υποχρεωτικό!" },
 				username2:{ required:" Το επώνυμο είναι υποχρεωτικό!" },
 				regemail:{ required:"Το ηλεκτρονικό ταχυδρομείο δεν έχει σωστή μορφή. Πρέπει να έχει τη μορφή onoma@onoma.gr",
-						   email:"Πρέπει να έχει την μορφή email"},
+						   email:"Πρέπει να έχει την μορφή email.", 
+						   remote:"Το email που δηλώσατε υπάρχει"},
 				regname:{required:" Το όνομα χρήστη είναι υποχρεωτικό !", minlength:" Το όνομα χρήστη  πρέπει να περιέχει τουλάχιστον 5 χαρακτήρες",},
 				regpass1:{required:"O κωδικός χρήστη είναι υποχρεωτικός", 
 						  minlength:" Ο κωδικός χρήστη πρέπει να περιέχει τουλάχιστον 5 χαρακτήρες"},
