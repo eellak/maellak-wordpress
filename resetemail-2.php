@@ -1,13 +1,13 @@
-<?php 
+<?php require_once('wp-config.php'); 
+
 include("includes/header.php");
 $ee =  strip_tags($_POST["email"]);
 
-$db_pass = "XXXXXX"; $db_user = "root"; $db_host = "localhost"; $db_name = "users";
-$lid = mysql_connect($db_host, $db_user, $db_pass);
+$lid = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD) or die(mysql_error());
 
 
 $regex = '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/';
-mysql_select_db("users",$lid);
+mysql_select_db(DB_NAME, $lid);
 $s1="select * from users where email='".$ee."' limit 1;";
 //echo $q1;
 $r1=mysql_query($s1,$lid) or die(mysql_error());

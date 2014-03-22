@@ -1,4 +1,5 @@
-<?php 
+<?php require_once('wp-config.php'); 
+
 	require_once('recaptchalib.php');
         $privatekey = "6LfZFOcSAAAAAKhtX-AxGDX2grJ8t8Cl5wpmZn4T";
         $resp = null;
@@ -58,7 +59,6 @@ $_POST["username1"] = strip_tags($_POST["username1"]);
 $_POST["username2"] = strip_tags($_POST["username2"]);
 $_POST["foreas"]    = strip_tags($_POST["foreas"]);
 
-$conn= mysql_connect($servername,$username,"m@eellak123gr")or die(mysql_error());
 $conn = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD) or die(mysql_error());
 
 mysql_set_charset('utf8',$conn);
@@ -84,7 +84,7 @@ if (mysql_num_rows($r1)>0) {
 //echo $cs;
 
 if ($cs==0) {
-mysql_select_db("maellakgr",$conn);
+
 $sql="insert into users (onoma, eponimo, username,foreas,idikotita,email,password,password_md5,_ip)values('$_POST[username1]','$_POST[username2]','$_POST[regname]','$_POST[foreas]','$_POST[idikotita]','$_POST[regemail]','$_POST[regpass1]','".md5($_POST[regpass1])."','$_SERVER[REMOTE_ADDR]')";
 $result=mysql_query($sql,$conn) or die(mysql_error());
 }
