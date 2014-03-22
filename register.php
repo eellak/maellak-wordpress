@@ -110,7 +110,7 @@
 		<input name="regpass1" id="regpass1" type="password" size="20" class="input-block-level"><span id="regpass1Info"></span><br/>
 		<label for="regpass2">Κωδικος χρηστη - ξανα (*)</label>
 		<input name="regpass2" id="regpass2" type="password" size="20" class="input-block-level"><span id="regpass2Info"></span><br/>
-
+		<br/>
 <?php
 require_once('recaptchalib.php');
 $publickey = "6LfZFOcSAAAAAECZPSPNxKVLOIHcLa4SLY4hsFpG";
@@ -126,24 +126,20 @@ echo recaptcha_get_html($publickey);
 	<br/>
 		
                 	<button id="login-button" name="login-button" class="btn btn-primary btn-block" type="submit">ΔΗΜΙΟΥΡΓΙΑ</button>
+           
+			</fieldset>
+        </form>    
+       </div>
+       </div>
+       </div>
                
-        </div>
-                     
 		<div style='clear:both'></div><br/>
 
-<!--
-        <p><a href="#" class='yellow'>Ξεχασα τον κωδικο μου</a></p>
-        <p><a href="#" class='yellow'>Δεν εχω λογαριασμο</a></p>
-        <p><a href="#" class='yellow'>Συνδεση μέσω shibboleth</a></p>
--->
-</fieldset>
-        </form>
+
        
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<!-- <script type="text/javascript" src="js/val.js"></script> -->
-                </div>
-              </div>
-            </div>
+               
 
   <?php 
   	include("includes/footer.php");
