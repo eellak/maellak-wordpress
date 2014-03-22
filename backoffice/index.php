@@ -135,7 +135,7 @@
 			<td><?php echo $row['eponimo']." ".$row['onoma']; ?></td>
 			<td><?php echo $row['username']; ?></td>
 			<td><?php echo $row["_time"]; ?></td>
-			<td class="center"><a href="ch_status.php?id=<?php echo $row['username']; ?>'><?php echo $status; ?></a></td>
+			<td class="center"><a href="ch_status.php?id=<?php echo $row['username']; ?>"><?php echo $status; ?></a></td>
 			<td class="center"><?php echo $row["_ip"]; ?></td>
 		</tr>
 <?php
