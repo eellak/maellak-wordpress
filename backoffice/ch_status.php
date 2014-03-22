@@ -165,13 +165,13 @@ text-rendering: optimizelegibility;
             <table border="0" cellpadding="0" cellspacing="0">
     <tbody><tr>
         
-        <td valign="middle"><a href="http://www.facebook.com/ma_ellak" rel="cs_facebox"><img src="http://ma.ellak.gr/js/like-glyph.png" alt="Facebook icon" ="" height="14" width="8" border="0"></a></td>
+        <td valign="middle"><a href="http://www.facebook.com/ma_ellak" rel="cs_facebox"><img src="http://ma.ellak.gr/js/like-glyph.png" alt="Facebook icon" ="" border="0"></a></td>
         <td width="3"></td>
         <td valign="middle"><div class="header-content"><a href="http://www.facebook.com/ma_ellak" rel="cs_facebox" style="color:#fff;text-transform:uppercase;text-decoration:none;">Like</a></div></td>
         
         
         <td class="w10" width="10"></td>
-        <td valign="middle"><a href="http://www.twitter.com/ma_ellak"><img src="http://ma.ellak.gr/js/tweet-glyph.png" alt="Twitter icon" ="" height="13" width="17" border="0"></a></td>
+        <td valign="middle"><a href="http://www.twitter.com/ma_ellak"><img src="http://ma.ellak.gr/js/tweet-glyph.png" alt="Twitter icon" ="" border="0"></a></td>
         <td width="3"></td>
         <td valign="middle"><div class="header-content"><a href="http://www.twitter.com/ma_ellak" style="color:#fff;text-transform:uppercase;text-decoration:none;">Tweet</a></div></td>
         
@@ -295,14 +295,10 @@ $message_footer =
         <tbody><tr><td class="w30" width="30"></td><td class="w580 h0" height="30" width="360"></td><td class="w0" width="60"></td><td class="w0" width="160"></td><td class="w30" width="30"></td></tr>
         <tr>
             <td class="w30" width="30"></td>
-            <td class="w580" valign="top" width="500">
-            <span class="hide"><p id="permission-reminder" class="footer-content-left" align="left">
-            	<span>Λαμβάνετε αυτό το μήνυμα γιατί έχετε εγγραφεί στις Μονάδες Αριστείας. </span>
+            <td class="w580" valign="top">
+            <span class="hide"><p id="permission-reminder" class="footer-content-left" align="left" style="text-align:center;">
+            	<span style="color:#fff;">Λαμβάνετε αυτό το μήνυμα γιατί έχετε εγγραφεί στις Μονάδες Αριστείας. </span>
             </span>
-            </td>
-            <td class="hide w0" width="60"></td>
-            <td class="hide w0" valign="top" width="160">
-            <p id="street-address" class="footer-content-right" align="right"></p>
             </td>
             <td class="w30" width="30"></td>
         </tr>
