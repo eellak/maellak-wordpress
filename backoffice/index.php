@@ -108,7 +108,7 @@
     </div><!--home-->
 	</div>
     <div id="main1" class="main1">
-      <div class="container">
+      <div class="container" style="height:auto;padding-top:80px;">
 		
 <div id="demo">
 
