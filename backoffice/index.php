@@ -11,18 +11,10 @@
 
     <link href="/wp-content/themes/ma_ellak/css/main.css" rel="stylesheet">
     <link href="/wp-content/themes/ma_ellak/css/datepicker.css" rel="stylesheet">
-
-		<style type="text/css" title="currentStyle">
-			@import "js/demo_page.css";
-			@import "js/demo_table.css";
-		</style>
-
-
-		<script type="text/javascript" language="javascript" src="/js/jquery.js"></script>
-		<script type="text/javascript" language="javascript" src="/js/jquery.validate.min.js"></script>
-		<script type="text/javascript" language="javascript" src="/js/validateforms.js"></script>
-		<script type="text/javascript" language="javascript" src="/js/jquery.dataTables.js"></script>
-
+	<style type="text/css" title="currentStyle">
+		@import "dow/data/media/css/demo_page.css";
+		@import "dow/data/media/css/demo_table.css";
+	</style>
     <style>
 		.main1{background: #00C697;}
 		label {color:white;}
@@ -49,10 +41,9 @@
 		.icon-facebook-sign:before{content:"\f082";}
     </style>
 	
-	<style type="text/css" title="currentStyle">
-		@import "dow/data/media/css/demo_page.css";
-		@import "dow/data/media/css/demo_table.css";
-	</style>
+	<script type="text/javascript" language="javascript" src="dow/data/media/js/jquery.js"></script>
+	<script type="text/javascript" language="javascript" src="dow/data/media/js/jquery.dataTables.js">
+	
 	<script type="text/javascript" charset="utf-8">
 		/* Define two custom functions (asc and desc) for string sorting */
 		jQuery.fn.dataTableExt.oSort['string-case-asc']  = function(x,y) {
@@ -165,6 +156,7 @@
 </table>
 			</div>
 			<div class="spacer"></div>
+			
  </div><!--container-->
  </div><!main1-->
     <div class="footer">
