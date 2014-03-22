@@ -1,7 +1,7 @@
 <?php require_once('../wp-config.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <title>ΜΟΝΑΔΕΣ ΑΡΙΣΤΕΙΑΣ</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,41 +9,12 @@
     <meta name="author" content="">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic&amp;subset=latin,greek-ext,greek' rel='stylesheet' type='text/css'>
 
-    <link href="/wp-content/themes/ma_ellak/css/main.css" rel="stylesheet">
-    <link href="/wp-content/themes/ma_ellak/css/datepicker.css" rel="stylesheet">
-	<style type="text/css" title="currentStyle">
+   <style type="text/css" title="currentStyle">
 		@import "dow/data/media/css/demo_page.css";
 		@import "dow/data/media/css/demo_table.css";
 	</style>
-    <style>
-		.main1{background: #00C697;}
-		label {color:white;}
-		.btn {padding: 4px 10px 4px;font-weight: normal; }
-		login .btn-link {
-		padding: 0;
-		text-align: left;
-		border-color: transparent;
-		cursor: pointer;
-		color: #FAED4B;
-		}
-		h3{color:white;}
-		.main .btn-link, .main .btn-link:active, .main .btn-link[disabled],
-		.main .btn-link,
-		a.btn , .btn-link, .dropdown.login .btn-link:active, .login .btn-link[disabled] {
-		background-color: none !important;
-		background-image: none !important;
-		}
-		.error{color:#C0392B;display:inline-block;padding:5px;}
-		input.error{border: 2px solid #C0392B; }
-		p {color:white;}
-		.footer p {color:#333333;}
-		.icon-twitter-sign:before{content:"\f081";}
-		.icon-facebook-sign:before{content:"\f082";}
-    </style>
-	
 	<script type="text/javascript" language="javascript" src="dow/data/media/js/jquery.js"></script>
-	<script type="text/javascript" language="javascript" src="dow/data/media/js/jquery.dataTables.js">
-	
+	<script type="text/javascript" language="javascript" src="dow/data/media/js/jquery.dataTables.js"></script>
 	<script type="text/javascript" charset="utf-8">
 		/* Define two custom functions (asc and desc) for string sorting */
 		jQuery.fn.dataTableExt.oSort['string-case-asc']  = function(x,y) {
@@ -63,12 +34,39 @@
 				]
 			} );
 		} );
-	</script>
+	</script>	
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+
+    <link href="/wp-content/themes/ma_ellak/css/main.css" rel="stylesheet">
+    <link href="maellak/maeelak/wp-content/themes/ma_ellak/css/datepicker.css" rel="stylesheet">
+
+    <style>
+		.main1{background: #00C697;}
+		label {color:white;}
+		.btn {padding: 4px 10px 4px;font-weight: normal; }
+		login .btn-link {
+		padding: 0;
+		text-align: left;
+		border-color: transparent;
+		cursor: pointer;
+		color: #FAED4B;
+		}
+		h3{color:white;}
+		.main .btn-link, .main .btn-link:active, .main .btn-link[disabled],
+		.main .btn-link,
+		a.btn , .btn-link, .dropdown.login .btn-link:active, .login .btn-link[disabled] {
+		background-color: none !important;
+		background-image: none !important;
+		}
+		.error{color:red;}
+		label{text-transform:uppercase;}
+		p {color:white;}
+		.footer p {color:#333333;}
+    </style>
 
     <link rel="shortcut icon" href="/wp-content/themes/ma_ellak/images/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/wp-content/themes/ma_ellak/images/apple-touch-icon-144-precomposed.png">
@@ -191,7 +189,5 @@
         </div>
       </div>
     </div>
-
-    <script src="/js/jquery-1.10.2.min.js"></script>
   </body>
 </html>
