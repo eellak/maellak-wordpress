@@ -1,0 +1,4 @@
+AuthName "Login to Administration Area"
+AuthType Basic
+AuthUserFile /var/www/maeelak/backoffice/.htpasswd
+Require user admin 
