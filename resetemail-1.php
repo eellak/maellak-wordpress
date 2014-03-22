@@ -301,6 +301,7 @@ $message_footer =
 		mail($to, $subject, $message, $headers);
 		
 		$sent = true;
+		
 	} else {
 		$error = true;
 	}
