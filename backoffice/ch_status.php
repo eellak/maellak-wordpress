@@ -230,7 +230,7 @@ text-rendering: optimizelegibility;
                         <table class="w580" width="580" border="0" cellpadding="0" cellspacing="0">
                             <tbody>
                             <tr>
-                                <td class="w580" width="580"><center><img label="Image"  border="0" src="http://snf-131326.vm.okeanos.grnet.gr/maellak/maeelak/wp-content/themes/ma_ellak/images/logo_normal.png" align="center" style="display: block;
+                                <td class="w580" width="580"><center><img label="Image"  border="0" src="http://ma.ellak.gr/wp-content/themes/ma_ellak/images/logo_normal.png" align="center" style="display: block;
 width: auto;
 max-width: none;vertical-align:center;"></center></td>
 
