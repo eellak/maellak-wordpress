@@ -46,21 +46,7 @@
 		
 		});
 	
-		$("#emailForm").validate({
-			
-			ignore: "",
-			rules: {
-				email:{ required:true,
-						 email:true},
-			},
-			messages: {
-				email:{ required:"Το ηλεκτρονικό ταχυδρομείο δεν έχει σωστή μορφή. Πρέπει να έχει τη μορφή onoma@onoma.gr",
-						   email:"Πρέπει να έχει την μορφή email"},
-			},
-			
-			
-			
-		});
+		
 	} );
 	
 	

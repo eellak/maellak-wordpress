@@ -1,6 +1,6 @@
  
  </div><!--container-->
- </div><!main1-->
+ </div><!--main1-->
     <div class="footer">
       <div class="container">
         <div class="row-fluid logos relative">
@@ -33,7 +33,6 @@
         </div>
       </div>
     </div>
-
-    <script src="js/jquery-1.10.2.min.js"></script>
+	</div>
   </body>
 </html>

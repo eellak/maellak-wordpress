@@ -9,33 +9,34 @@
 <?php
 if ($_GET["d"]==1) {
 ?>
-<center><b><br/>
-ΔΕΝ ΥΠΑΡΧΕΙ ΑΥΤΟ ΤΟ  email....<br/><br/>
-</center></b>
+<span class="email_val"></span>
 <?php
 }
 ?>
-					<form action="resetemail-2.php" id="emailForm" class="form-horizontal span12" method="post">
+					<form  id="emailForm" action="newpass.php" class="form-horizontal span12" method="post">
 						<fieldset class="form-vertical span4 offset4">
 							<div class="control-group">
-								<label class="control-label span12" for="login-password">EMAIL</label>
+							<label> Προσοχή η ενέργεια αυτή ισχύει μόνο για τοπικούς χρήστες. Σε περίπτωση που χρησιμοποιείτε τον ακαδημαϊκό σας λογαριασμό για την σύνδεση σας στις Μονάδες Αριστείας, ΔΕΝ μπορείτε να αλλάξετε τον κωδικό σας aπό εδώ . Πρέπει να επικοινωνήσετε με τους υπεύθυνους του Φορέα σας!! </label>
+							</div>
+						<div class="control-group">
+								<label class="control-label span12" for="email">EMAIL</label>
 								<div class="controls">
-								<input type="text" class="input-block-level" name="email">
+								<input type="text" class="input-block-level required" id="email" name="email">
 								</div>
+								
 							</div>
 							<div class="control-group">
 								<label class="control-label span12" for="login-button"></label>
 								<div class="control">
-								<button id="login-button" name="login-button" class="btn btn-primary btn-block" type="submit">ΑΠΟΣΤΟΛΗ EMAIL</button>
+								<button id="resetemail" name="resetemail" class="btn btn-primary btn-block" type="submit">ΑΠΟΣΤΟΛΗ EMAIL</button>
 								</div>
 							</div>
 						</fieldset>
 
 					</form>
-				</div>
-			</div>
-		</div>
-		</div>
-		</div>
+				</div><!-- row-fluid" -->
+			</div><!-- yamm-content -->
+		</div><!--span12  -->
+		</div><!-- row-fluid login dropdown yamm-fullwidth open dropdown-toggle -->
 
 <?php include("includes/footer.php");?>

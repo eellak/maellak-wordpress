@@ -17,10 +17,11 @@
 		</style>
 
 
-		<script type="text/javascript" language="javascript" src="js/jquery.js"></script>
-		<script type="text/javascript" language="javascript" src="js/jquery.validate.min.js"></script>
-		<script type="text/javascript" language="javascript" src="js/validateforms.js"></script>
-		<script type="text/javascript" language="javascript" src="js/jquery.dataTables.js"></script>
+		<script type="text/javascript" src="js/jquery.js"></script> 
+		<script type="text/javascript"  src="js/jquery.validate.min.js"></script>
+		<script type="text/javascript"  src="js/validateforms.js"></script>
+		<script type="text/javascript" src="js/checkemail.js"></script> 
+		<script type="text/javascript"  src="js/jquery.dataTables.js"></script>
 
     <style>
 		.main1{background: #00C697;}

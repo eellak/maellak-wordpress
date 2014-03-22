@@ -1,49 +1,46 @@
 <?php require_once('wp-config.php'); 
 
 include("includes/header.php");
-$ee =  strip_tags($_POST["email"]);
+$usersemail = strip_tags($_POST["email"]);
+$password =  strip_tags($_POST["password"]);
 
 $lid = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD) or die(mysql_error());
-
-
-$regex = '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/';
 mysql_select_db(DB_NAME, $lid);
-$s1="select * from users where email='".$ee."' limit 1;";
-//echo $q1;
-$r1=mysql_query($s1,$lid) or die(mysql_error());
-//echo mysql_num_rows($r1);
-if (mysql_num_rows($r1)==0) { // or !preg_match($regex, $ee) OR strlen(ee)<4) {
-	Header("Location: /resetemail-1.php?d=1");
-	exit;
-}
-
-
+$regex = '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/';
 mysql_query("SET NAMES 'utf8'",$lid);
-$q="select * from users where email like '%".$ee."%';";
-$rr = mysql_db_query("users", $q,$lid) or die (" error ".mysql_error ()." ");
+$query = "Update users set password='".$password."', password_md5='".md5($password)."' where email='".$usersemail."'";
 
-while($row = mysql_fetch_object($rr)) {
-	$user = $row->username1;
-}
+$result=mysql_query($query,$lid) or die(mysql_error());
 
+if($result!=1){
+	?>
+	
+	<div class="row-fluid">&nbsp;
+        <div class="span4 offset4"><h3> Ξέχασα τον κωδικό μου </h3></div>
+        </div>
+        <div class="row-fluid">&nbsp;
+        <div class="span4 offset4">
+        <p>Κάποιο λάθος παρουσιάστηκε παρακαλώ δοκιμάστε ξανά!<a href='resetemail-1.php'>Ξέχασα τον κωδικό μου!</a></p>
+		<p></p>
+		<p>Σας ευχαριστούμε για την συμμετοχή σας<br/> 
+		Οι υπεύθυνοι των Μονάδων Αριστείας! <br/>
+		Μa.ellak.gr<br/>
+		</p>
+        	
+        </div>
+        </div>
+       
+	<?php 
+}else{
 $to      = $row['email'];
-$subject = 'Αλλαγή κωδικού Λογαριασμού aristeia ellak';
-$message = 'link: <a href=\'http://ma.ellak.gr/newpass.php?id='.$row->_time.'\'> </a>';
+$subject = 'Αλλαγή κωδικού Λογαριασμού aristeia ma.ellak.gr';
 $headers = 'From: aristeia@ellak.gr' . "\r\n" .
     'Reply-To: aristeia@ellak.gr' . "\r\n" .
     'X-Mailer: PHP/' . phpversion();
 
-mail($to, $subject, $message, $headers);
-
-
-
-
 // Setup recipients
 //$to = 'johndoe@google.com' . ',' // comma separates multiple addresses
 //$to .= 'janedoe@msn.com';
-
-// subject
-$subject = 'New Password';
 
 // message (to use single quotes in the 'message' variable, supercede them with a back slash like this-->&nbsp; \'
 $message = '
@@ -258,7 +255,7 @@ max-width: none;vertical-align:center;"></center></td>
                                     </div>
                                     <div class="article-content" align="left">
                                     O κωδικός σας είναι :<br/>
-                                    <strong style="color:#57294C">Κωδικός:</strong> λαλαλα
+                                    <strong style="color:#57294C">Κωδικός:</strong> '.$password.'
                                     </div>
                                     <div class="article-content" align="left">
                                         Μπορείτε να συνδεθείτε από <a href="http://ma.ellak.gr">εδώ</a>.
@@ -352,5 +349,6 @@ mail($to, $subject, $message, $headers);
         </div>
        
  <?php 
+}
 	include("includes/footer.php")
 ?>

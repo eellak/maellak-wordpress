@@ -6,28 +6,29 @@
 	<div class="span12">
 		<div class="yamm-content">
 			<div class="row-fluid">
-				<form action="resetemail-2.php" class="form-horizontal span12" method="post">
+				<form id="newpass" action="resetemail-2.php" class="form-horizontal span12" method="post">
 					<fieldset class="form-vertical span4 offset4">
 						<div class="control-group">
-							<label class="control-label span12" for="login-password">PASSWORD #1</label>
-							<div class="controls">
-							<input class="input-block-level" name="pass">
+								<label class="control-label span12" for="email">ΝΕΟΣ ΚΩΔΙΚΟΣ - PASSWORD</label>
+								<div class="controls">
+								<input type="password" class="input-block-level required" id="password" name="password">
+								</div>
 							</div>
-						</div>
 
 						<div class="control-group">
-							<label class="control-label span12" for="login-password">PASSWORD #2</label>
+							<label class="control-label span12" for="login-password">ΝΕΟΣ ΚΩΔΙΚΟΣ ΞΑΝΑ - PASSWORD</label>
 							<div class="controls">
-							<input class="input-block-level" name="pass">
+								<input type="password" class="input-block-level required" id="password1" name="password1">
 							</div>
 						</div>
 
 						<div class="control-group">
 							<label class="control-label span12" for="login-button"></label>
 							<div class="control">
-							<button id="login-button" name="login-button" class="btn btn-primary btn-block" type="submit"> ΑΛΛΑΓΗ ΚΩΔΙΚΟΥ ( PASSWORD )</button>
+							<button id="newpass" name="newpass" class="btn btn-primary btn-block" type="submit"> ΑΛΛΑΓΗ ΚΩΔΙΚΟΥ ( PASSWORD )</button>
 							</div>
 						</div>
+						<input type="hidden" id="email" name="email" value="<?php echo $_POST['email'];?>"/>
 					</fieldset>
 
 				</form>
