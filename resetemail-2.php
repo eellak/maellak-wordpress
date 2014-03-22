@@ -7,8 +7,8 @@ $newtoken =  strip_tags($_POST["newtoken"]);
 
 $lid = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD) or die(mysql_error());
 mysql_select_db(DB_NAME, $lid);
-$regex = '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/';
-mysql_query("SET NAMES 'utf8'",$lid);
+mysql_set_charset('utf8',$lid);
+
 $query = "Update users set password='".$password."', password_md5='".md5($password)."' where email='".$usersemail."'";
 
 $result=mysql_query($query,$lid) or die(mysql_error());
