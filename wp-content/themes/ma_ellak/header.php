@@ -198,7 +198,7 @@
             
 			<?php if (! is_user_logged_in()){ ?>
 				<li><a href="<?php echo wp_login_url(); ?>" title=<?php _e('ΣΥΝΔΕΣΗ','ma-ellak');?> class="dropdown-toggle"><?php _e('ΣΥΝΔΕΣΗ','ma-ellak');?></a></li>
-				<li><a href="/register.php" title="<?php _e('Εγγραφή','ma-ellak');?>" id="signup_button" class="dropdown-toggle"><?php _e('Εγγραφή','ma-ellak');?></a></li>
+				<li><a href="https://ma.ellak.gr/register.php" title="<?php _e('Εγγραφή','ma-ellak');?>" id="signup_button" class="dropdown-toggle"><?php _e('Εγγραφή','ma-ellak');?></a></li>
 			<?php } else{  
 				$cur_user = wp_get_current_user();
 				$redmine = get_option_tree('ma_ellak_redmine');
