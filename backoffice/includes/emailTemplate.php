@@ -1,40 +1,7 @@
-<?php require_once('../wp-config.php');
-require_once('includes/emailTemplate.php'); 
-
-$user = $_GET['id'];
-
-if ($user=="admin") {
-	Header("Location: /backoffice/");
-exit;
-}
-
-
-$con = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);
-
-
-if (!$con)
-  {
-  die('Could not connect: ' . mysql_error());
-  }
-
-mysql_select_db(DB_NAME, $con);
-
-$st=0;
-
-$q = "select * from users where username ='".$user."'";
-$qry = mysql_query($q);
-$row = mysql_fetch_array($qry);
-if ($row['_status']==0)
-	$st =1;
- 
-$q  = "UPDATE `users` SET `_status` = '".$st."' WHERE `users`.`username` = '".$user."'";
-
-$qry = mysql_query($q);
-
-$message_header = '
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=320, target-densitydpi=device-dpi">
+<?php
+function sendMaEmail($MainMessage, $subject, $toEmail){
+$startEmail ='<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=320, target-densitydpi=device-dpi">
 <style type="text/css">
-/* Mobile-specific Styles */
 @media only screen and (max-width: 660px) { 
 table[class=w0], td[class=w0] { width: 0 !important; }
 table[class=w10], td[class=w10], img[class=w10] { width:10px !important; }
@@ -139,7 +106,7 @@ text-rendering: optimizelegibility;
    list-style-position: inside;
 }
 </style>
-<![endif]--><script type="text/javascript">var NREUMQ=NREUMQ||[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);</script></head><body><table id="background-table" width="100%" border="0" cellpadding="0" cellspacing="0">
+<![endif]--></head><body><table id="background-table" width="100%" border="0" cellpadding="0" cellspacing="0">
 	<tbody><tr>
 		<td align="center" bgcolor="#ececec">
         	<table class="w640" style="margin:0 10px;" width="640" border="0" cellpadding="0" cellspacing="0">
@@ -166,15 +133,16 @@ text-rendering: optimizelegibility;
             <table border="0" cellpadding="0" cellspacing="0">
     <tbody><tr>
         
-        <td valign="middle"><a href="http://www.facebook.com/ma_ellak" rel="cs_facebox"><img src="http://ma.ellak.gr/js/like-glyph.png" alt="Facebook icon" ="" border="0"></a></td>
+        <td valign="middle"><a href="http://preview.createsend1.com/t/i-fb-l-l-t/" rel="cs_facebox"><img src="like-glyph.png" alt="Facebook icon" ="" height="14" width="8" border="0"></a></td>
         <td width="3"></td>
-        <td valign="middle"><div class="header-content"><a href="http://www.facebook.com/ma_ellak" rel="cs_facebox" style="color:#fff;text-transform:uppercase;text-decoration:none;">Like</a></div></td>
+        <td valign="middle"><div class="header-content"><a href="http://www.facebook.com/ma.elllak" rel="cs_facebox">Like</a></div></td>
         
         
         <td class="w10" width="10"></td>
-        <td valign="middle"><a href="http://www.twitter.com/ma_ellak"><img src="http://ma.ellak.gr/js/tweet-glyph.png" alt="Twitter icon" ="" border="0"></a></td>
+        <td valign="middle"><a href="http://www.twitter.com/ma_ellak"><img src="tweet-glyph.png" alt="Twitter icon" ="" height="13" width="17" border="0"></a></td>
         <td width="3"></td>
-        <td valign="middle"><div class="header-content"><a href="http://www.twitter.com/ma_ellak" style="color:#fff;text-transform:uppercase;text-decoration:none;">Tweet</a></div></td>
+        <td valign="middle"><div class="header-content"><a href="http://www.twitter.com/ma_ellak">Tweet</a></div></td>
+        
         
         <td class="w10" width="10"></td>
         <td valign="middle"></td>
@@ -223,66 +191,15 @@ text-rendering: optimizelegibility;
                         <table class="w580" width="580" border="0" cellpadding="0" cellspacing="0">
                             <tbody>
                             <tr>
-                                <td class="w580" width="580"><center><img label="Image"  border="0" src="http://ma.ellak.gr/wp-content/themes/ma_ellak/images/logo_normal.png" align="center" style="display: block;
+                                <td class="w580" width="580"><center><img label="Image"  border="0" src="https://ma.ellak.gr/wp-content/themes/ma_ellak/images/logo_normal.png" align="center" style="display: block;
 width: auto;
 max-width: none;vertical-align:center;"></center></td>
 
                             </tr>
-                            <tr><td class="w580" height="15" width="580"></td></tr>
-                            <tr>';
-							
-$message_activate = '<td class="w580" width="580">
-                                    <h1>Ενεργοποίηση Λογαριασμού</h1>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w580" width="580">
-                                    <div class="article-content" align="left">
-                                        Ο λογαριασμός σας ενεργοποιήθηκε από τους υπεύθυνους του έργου.Μπορείτε να συνδεθείτε από <a href="http://ma.ellak.gr">εδώ</a>.
-                                    </div>
-									 <div class="article-content" align="left">
-										Για την ολοκλήρωση της εγγραφής σας παρακαλούμε κάνετε τουλάχιστον μια φορά login στο σύστημα απο <a href="https://ma.ellak.gr/">εδώ</a>.
-									</div>
-                                    <div class="article-content" align="left">
-                                        Μπορείτε να δηλώσετε συμμετοχή και να συμβάλλετε στο έργο των Μονάδων Αριστείας. Παράλληλα, μπορείτε ανεξάρτητα από τις Μοναδες Αριστείας 
-                                        να βοηθήσετε στην διάδοση του ανοικτού λογισμικού / λογισμικού ανοικτού κώδικα , παρέχοντας σχετικό υλικό. Ενημερωθείτε για το πως μπορείτε να συμμετάσχετε ενεργά από <a href="http://ma.ellak.gr">εδώ</a>.
-                            		</div>
-									<div class="article-content" align="left">
-                                        <br/><br/>
-                                        Σας ευχαριστούμε για την συμμετοχή σας<br/>
-                                        Οι υπεύθυνοι των Μονάδων Αριστείας!
-                                        <br/>
-										<br/>
-                                        <a href="http://ma.ellak.gr">ma.ellak.gr</a>
-                                    </div>
-                                </td>
-                            </tr>';
-                                    
-$message_deactivate =  '<td class="w580" width="580">
-                                    <h1>Απενεργοποίηση Λογαριασμού</h1>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w580" width="580">
-                                    <div class="article-content" align="left">
-                                        Ο λογαριασμός σας απενεργοποιήθηκε από τους υπεύθυνους του έργου.
-                                    </div>
-                                    <div class="article-content" align="left">
-                                        Μπορείτε να ζητήσετε ενεργοποίηση του λογαριασμού σας αποστέλλοντας μήνυμα στο info@ma.ellak.gr.
-                            		</div>
-									<div class="article-content" align="left">
-                                        <br/><br/>
-                                        Σας ευχαριστούμε για την συμμετοχή σας<br/>
-                                        Οι υπεύθυνοι των Μονάδων Αριστείας!
-                                        <br/>
-										<br/>
-                                        <a href="http://ma.ellak.gr">ma.ellak.gr</a>
-                                    </div>
-                                </td>
-                            </tr>';
-										
-$message_footer = '<tr>
-                                <td class="w580" width="580">
+                            <tr><td class="w580" height="15" width="580"></td></tr>';
+                          
+
+$endEmail = '<tr><td class="w580" width="580">
                                     <div class="article-content" align="left">
                            				<small>Το υποέργο «Διαδικτυακή Πύλη»  εντάσσεται στο έργο «Ηλεκτρονικές Υπηρεσίες για την Ανάπτυξη και Διάδοση του Ανοιχτού Λογισμικού». Στόχος της διαδικτυακής πύλης ειναι να λειτουργεί ως κεντρικό σημείο δημοσιοποίησης και υποστήριξης του έργου που υλοποιούν οι Μονάδες Αριστείας, ώστε να αποτελέσει μια δυναμική και ανανεούμενη πηγή πληροφόρησης της Ακαδημαϊκής Κοινότητας, των πολιτών, του Δημόσιου Τομέα και των επιχειρήσεων, για τις τάσεις και τις εξελίξεις, στην Ελλάδα και διεθνλως, για θέματα ανοικτού λογισμικού, από οποιοδήποτε μέσο.   Η επίτευξη του στόχου αυτού γίνεται μέσα από την παροχή μιας σειράς από εργαλεία και υπηρεσίες προς τους χρήστες που εξυπηρετούν τη δημοσιοποίηση και την οργάνωση του περιεχομένου  που παράγεται από τις Μονάδες Αριστείας αλλά και όλους τους χρήστες της πύλης.
                                 </small>
@@ -308,10 +225,14 @@ $message_footer = '<tr>
         <tbody><tr><td class="w30" width="30"></td><td class="w580 h0" height="30" width="360"></td><td class="w0" width="60"></td><td class="w0" width="160"></td><td class="w30" width="30"></td></tr>
         <tr>
             <td class="w30" width="30"></td>
-            <td class="w640" valign="top">
-            <span class="hide"><p id="permission-reminder" class="footer-content-left" align="left" style="text-align:center;">
-            	<span style="color:#fff;">Λαμβάνετε αυτό το μήνυμα γιατί έχετε εγγραφεί στις Μονάδες Αριστείας. </span>
+            <td class="w580" valign="top" width="500">
+            <span class="hide"><p id="permission-reminder" class="footer-content-left" align="left">
+            	<span>Λάβατε αυτή την ενημέρωση γιατί έχετε εγγραφεί στις Μονάδες Αριστείας. </span>
             </span>
+            </td>
+            <td class="hide w0" width="60"></td>
+            <td class="hide w0" valign="top" width="160">
+            <p id="street-address" class="footer-content-right" align="right"></p>
             </td>
             <td class="w30" width="30"></td>
         </tr>
@@ -327,23 +248,15 @@ $message_footer = '<tr>
 </body></html>
 ';
 
-$to      = $row['email'];
-$headers  = 'MIME-Version: 1.0' . "\r\n";
-$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-$headers .= 'To: ' .$to. "\r\n";
-$headers .= 'From: Μονάδες Αριστείας ΕΛΛ/ΛΑΚ <no-reply@ma.ellak.gr>' . "\r\n";
-
-if ($st==0) {
-	$subject = 'Ενεργοποίηση Λογαριασμού - Μονάδες Αριστείας';
-	$message = $message_header . $message_activate  . $message_footer ;
-	//mail($to, $subject, $message, $headers);
-	sendMaEmail($message_activate, $subject, $row['email']);
-} else {
-	$subject = 'Απενεργοποίηση Λογαριασμού - Μονάδες Αριστείας';
-	$message = $message_header . $message_deactivate  . $message_footer ;
-	//mail($to, $subject, $message, $headers);
-	sendMaEmail($message_deactivate, $subject, $row['email']);
+	$headers  = 'MIME-Version: 1.0' . "\r\n";
+	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+	$headers .= 'To: ' .$toEmail. "\r\n";
+	$headers .= 'From: Μονάδες Αριστείας ΕΛΛ/ΛΑΚ <no-reply@ma.ellak.gr>' . "\r\n";
+	
+	
+	$message = $startEmail . $MainMessage . $endMail;
+	mail($toEmail, $subject, $message, $headers);
+	
+	
 }
-
-Header("Location: /backoffice/");
 ?>
