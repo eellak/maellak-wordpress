@@ -1,4 +1,5 @@
 <?php require_once('wp-config.php'); 
+require_once('backoffice/includes/emailTemplate.php');
 
 	require_once('recaptchalib.php');
         $privatekey = "6LfZFOcSAAAAAKhtX-AxGDX2grJ8t8Cl5wpmZn4T";
@@ -437,13 +438,42 @@ max-width: none;vertical-align:center;"></center></td>
 
 <?php
 
-$headers  = 'MIME-Version: 1.0' . "\r\n";
+$messageF =  '<tr>
+                                <td class="w580" width="580">
+                                    <h1>Εγγραφή στις Μονάδες</h1>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="w580" width="580">
+                                    <div class="article-content" align="left">
+                                        Η διαδικασία εγγραφής στη δικτυακή πύλη των Μονάδων Αριστείας ολοκληρώθηκε. 
+                                        Ο λογαριασμός σας είναι ενεργός προς το παρόν και μπορείτε να συνδεθείτε από <a href="http://ma.ellak.gr">εδώ</a>
+                                      </div>
+									 <div class="article-content" align="left">Για την ολοκλήρωση της εγγραφής σας παρακαλούμε κάνετε τουλάχιστον μια φορά login στο σύστημα απο <a href="https://ma.ellak.gr/">εδώ</a>.</div>
+                                    <div class="article-content" align="left">
+                                        Με την εγγραφή σας  στη δικτυακή πύλη των Μονάδων Αριστείας αποκτάτε κατευθείαν πρόσβαση στις υπηρεσίες του έργου, ενώ παράλληλα μπορείτε να δηλώσετε συμμετοχή και να συμβάλλετε στο έργο τους. Παράλληλα, μπορείτε ανεξάρτητα από τις Μοναδες Αριστείας 
+                                        να βοηθήσετε στην διάδοση του ανοικτού λογισμικού / λογισμικού ανοικτού κώδικα , παρέχοντας σχετικό υλικό. Ενημερωθείτε για το πως μπορείτε να συμμετάσχετε ενεργά από <a href="http://ma.ellak.gr">εδώ</a>.
+                            		</div>
+                                    <div class="article-content" align="left">
+                                        <br/>
+                                        Σας ευχαριστούμε για την συμμετοχή σας 
+                                        <br/>
+                                        Οι υπεύθυνοι των Μονάδων Αριστείας!
+                                        <br/>
+                                        <a href="http://ma.ellak.gr">Μa.ellak.gr</a>
+                                    </div>
+                                </td>
+                            </tr>';
+            
+/*$headers  = 'MIME-Version: 1.0' . "\r\n";
 $headers .= 'Content-type: text/html; charset=iso-8859-7' . "\r\n";
 
 $headers .= 'To: ' .$_POST["regemail"]. "\r\n";
 $headers .= 'From: newuser@ellak.gr' . "\r\n";
 
 mail($to, $subject, $message, $headers);
+*/
+sendMaEmail($messageF, $subject, $_POST["regemail"]);
 
 
 
