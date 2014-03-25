@@ -1,7 +1,9 @@
 <?php
 function sendMaEmail($MainMessage, $subject, $toEmail){
-$startEmail ='<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=320, target-densitydpi=device-dpi">
+$startEmail ='
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=320, target-densitydpi=device-dpi">
 <style type="text/css">
+/* Mobile-specific Styles */
 @media only screen and (max-width: 660px) { 
 table[class=w0], td[class=w0] { width: 0 !important; }
 table[class=w10], td[class=w10], img[class=w10] { width:10px !important; }
@@ -106,7 +108,7 @@ text-rendering: optimizelegibility;
    list-style-position: inside;
 }
 </style>
-<![endif]--></head><body><table id="background-table" width="100%" border="0" cellpadding="0" cellspacing="0">
+<![endif]--><script type="text/javascript">var NREUMQ=NREUMQ||[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);</script></head><body><table id="background-table" width="100%" border="0" cellpadding="0" cellspacing="0">
 	<tbody><tr>
 		<td align="center" bgcolor="#ececec">
         	<table class="w640" style="margin:0 10px;" width="640" border="0" cellpadding="0" cellspacing="0">
@@ -133,16 +135,15 @@ text-rendering: optimizelegibility;
             <table border="0" cellpadding="0" cellspacing="0">
     <tbody><tr>
         
-        <td valign="middle"><a href="http://preview.createsend1.com/t/i-fb-l-l-t/" rel="cs_facebox"><img src="like-glyph.png" alt="Facebook icon" ="" height="14" width="8" border="0"></a></td>
+        <td valign="middle"><a href="http://www.facebook.com/ma_ellak" rel="cs_facebox"><img src="http://ma.ellak.gr/js/like-glyph.png" alt="Facebook icon" ="" border="0"></a></td>
         <td width="3"></td>
-        <td valign="middle"><div class="header-content"><a href="http://www.facebook.com/ma.elllak" rel="cs_facebox">Like</a></div></td>
+        <td valign="middle"><div class="header-content"><a href="http://www.facebook.com/ma_ellak" rel="cs_facebox" style="color:#fff;text-transform:uppercase;text-decoration:none;">Like</a></div></td>
         
         
         <td class="w10" width="10"></td>
-        <td valign="middle"><a href="http://www.twitter.com/ma_ellak"><img src="tweet-glyph.png" alt="Twitter icon" ="" height="13" width="17" border="0"></a></td>
+        <td valign="middle"><a href="http://www.twitter.com/ma_ellak"><img src="http://ma.ellak.gr/js/tweet-glyph.png" alt="Twitter icon" ="" border="0"></a></td>
         <td width="3"></td>
-        <td valign="middle"><div class="header-content"><a href="http://www.twitter.com/ma_ellak">Tweet</a></div></td>
-        
+        <td valign="middle"><div class="header-content"><a href="http://www.twitter.com/ma_ellak" style="color:#fff;text-transform:uppercase;text-decoration:none;">Tweet</a></div></td>
         
         <td class="w10" width="10"></td>
         <td valign="middle"></td>
@@ -191,12 +192,13 @@ text-rendering: optimizelegibility;
                         <table class="w580" width="580" border="0" cellpadding="0" cellspacing="0">
                             <tbody>
                             <tr>
-                                <td class="w580" width="580"><center><img label="Image"  border="0" src="https://ma.ellak.gr/wp-content/themes/ma_ellak/images/logo_normal.png" align="center" style="display: block;
+                                <td class="w580" width="580"><center><img label="Image"  border="0" src="http://ma.ellak.gr/wp-content/themes/ma_ellak/images/logo_normal.png" align="center" style="display: block;
 width: auto;
 max-width: none;vertical-align:center;"></center></td>
 
                             </tr>
-                            <tr><td class="w580" height="15" width="580"></td></tr>';
+                            <tr><td class="w580" height="15" width="580"></td></tr>
+                            <tr>';
                           
 
 $endEmail = '<tr>
@@ -248,7 +250,7 @@ $endEmail = '<tr>
 
 	$headers  = 'MIME-Version: 1.0' . "\r\n";
 	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-	$headers .= 'To: ' .$toEmail. "\r\n";
+	//$headers .= 'To: ' .$toEmail. "\r\n";
 	$headers .= 'From: Μονάδες Αριστείας ΕΛΛ/ΛΑΚ <no-reply@ma.ellak.gr>' . "\r\n";
 	
 	
