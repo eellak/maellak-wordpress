@@ -199,7 +199,8 @@ max-width: none;vertical-align:center;"></center></td>
                             <tr><td class="w580" height="15" width="580"></td></tr>';
                           
 
-$endEmail = '<tr><td class="w580" width="580">
+$endEmail = '<tr>
+                                <td class="w580" width="580">
                                     <div class="article-content" align="left">
                            				<small>Το υποέργο «Διαδικτυακή Πύλη»  εντάσσεται στο έργο «Ηλεκτρονικές Υπηρεσίες για την Ανάπτυξη και Διάδοση του Ανοιχτού Λογισμικού». Στόχος της διαδικτυακής πύλης ειναι να λειτουργεί ως κεντρικό σημείο δημοσιοποίησης και υποστήριξης του έργου που υλοποιούν οι Μονάδες Αριστείας, ώστε να αποτελέσει μια δυναμική και ανανεούμενη πηγή πληροφόρησης της Ακαδημαϊκής Κοινότητας, των πολιτών, του Δημόσιου Τομέα και των επιχειρήσεων, για τις τάσεις και τις εξελίξεις, στην Ελλάδα και διεθνλως, για θέματα ανοικτού λογισμικού, από οποιοδήποτε μέσο.   Η επίτευξη του στόχου αυτού γίνεται μέσα από την παροχή μιας σειράς από εργαλεία και υπηρεσίες προς τους χρήστες που εξυπηρετούν τη δημοσιοποίηση και την οργάνωση του περιεχομένου  που παράγεται από τις Μονάδες Αριστείας αλλά και όλους τους χρήστες της πύλης.
                                 </small>
@@ -225,14 +226,10 @@ $endEmail = '<tr><td class="w580" width="580">
         <tbody><tr><td class="w30" width="30"></td><td class="w580 h0" height="30" width="360"></td><td class="w0" width="60"></td><td class="w0" width="160"></td><td class="w30" width="30"></td></tr>
         <tr>
             <td class="w30" width="30"></td>
-            <td class="w580" valign="top" width="500">
-            <span class="hide"><p id="permission-reminder" class="footer-content-left" align="left">
-            	<span>Λάβατε αυτή την ενημέρωση γιατί έχετε εγγραφεί στις Μονάδες Αριστείας. </span>
+            <td class="w640" valign="top">
+            <span class="hide"><p id="permission-reminder" class="footer-content-left" align="left" style="text-align:center;">
+            	<span style="color:#fff;">Λαμβάνετε αυτό το μήνυμα γιατί έχετε εγγραφεί στις Μονάδες Αριστείας. </span>
             </span>
-            </td>
-            <td class="hide w0" width="60"></td>
-            <td class="hide w0" valign="top" width="160">
-            <p id="street-address" class="footer-content-right" align="right"></p>
             </td>
             <td class="w30" width="30"></td>
         </tr>
@@ -248,13 +245,16 @@ $endEmail = '<tr><td class="w580" width="580">
 </body></html>
 ';
 
+
 	$headers  = 'MIME-Version: 1.0' . "\r\n";
 	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 	$headers .= 'To: ' .$toEmail. "\r\n";
 	$headers .= 'From: Μονάδες Αριστείας ΕΛΛ/ΛΑΚ <no-reply@ma.ellak.gr>' . "\r\n";
 	
 	
-	$message = $startEmail . $MainMessage . $endMail;
+	$message = $startEmail . $MainMessage . $endEmail;
+	
+	
 	mail($toEmail, $subject, $message, $headers);
 	
 	
