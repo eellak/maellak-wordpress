@@ -135,9 +135,9 @@ text-rendering: optimizelegibility;
             <table border="0" cellpadding="0" cellspacing="0">
     <tbody><tr>
         
-        <td valign="middle"><a href="http://www.facebook.com/ma_ellak" rel="cs_facebox"><img src="http://ma.ellak.gr/js/like-glyph.png" alt="Facebook icon" ="" border="0"></a></td>
+        <td valign="middle"><a href="http://www.facebook.com/ma.ellak" rel="cs_facebox"><img src="http://ma.ellak.gr/js/like-glyph.png" alt="Facebook icon" ="" border="0"></a></td>
         <td width="3"></td>
-        <td valign="middle"><div class="header-content"><a href="http://www.facebook.com/ma_ellak" rel="cs_facebox" style="color:#fff;text-transform:uppercase;text-decoration:none;">Like</a></div></td>
+        <td valign="middle"><div class="header-content"><a href="http://www.facebook.com/ma.ellak" rel="cs_facebox" style="color:#fff;text-transform:uppercase;text-decoration:none;">Like</a></div></td>
         
         
         <td class="w10" width="10"></td>
@@ -255,7 +255,6 @@ $endEmail = '<tr>
 	
 	
 	$message = $startEmail . $MainMessage . $endEmail;
-	
 	
 	mail($toEmail, $subject, $message, $headers);
 	
