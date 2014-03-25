@@ -22,7 +22,7 @@ if(isset($_POST['email']) and isset($_POST['resetemail'])){
 	if(mysql_num_rows($query) == 1) { 
 		$row = mysql_fetch_array($query);
 		
-		
+	 $subjec = 'Επανορισμός συνθηματικού - Μονάδες Αριστείας';
                                     
 $message_reset =  '<td class="w580" width="580">
                                     <h1>Επανορισμός συνθηματικού.</h1>
