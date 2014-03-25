@@ -84,7 +84,8 @@ $message_reset =  '<td class="w580" width="580">
 									<div class="controls">
 									<input type="text" class="input-block-level required" id="email" name="email">
 									</div>
-									
+									<div id="loading"  style="display:none"><span style='color:white;font-size:12px;font-weight:bold;'>έλεγχος email......</span></div>
+									<div id="ok"  style="display:none"><span style='color:white;font-size:12px;font-weight:bold;'>Το email υπάρχει επιλέξτε την "αποστολή email"</span></div>
 								</div>
 								<div class="control-group">
 									<label class="control-label span12" for="login-button"></label>

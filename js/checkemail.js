@@ -8,7 +8,21 @@
 			rules: {
 				email:{ required:true,
 						 email:true,
-						 remote: "includes/check_email.php"},
+						 remote: {
+							 url: "includes/check_email.php",
+							 beforeSend: function(){
+							     // Handle the beforeSend event
+								 $("#loading").show();
+								 $("#ok").hide();
+							 },
+							 complete: function(data){
+							     // Handle the complete event
+								   $("#loading").hide();
+								   if(data && data.responseText=='true')
+									   $("#ok").show();
+							 }
+						 },//end remote
+				},
 			},
 			messages: {
 				email:{ required:"Το ηλεκτρονικό ταχυδρομείο δεν έχει σωστή μορφή. Πρέπει να έχει τη μορφή onoma@onoma.gr",
