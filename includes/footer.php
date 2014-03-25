@@ -22,7 +22,7 @@
         </div>
         <div class="row-fluid bottomline">
           <div class="licence pull-left">
-            <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="/js/88x31.png" /></a>
           </div>
           <div class="pull-left">
             <ul class="inline">

@@ -151,7 +151,7 @@ if (strlen($lathos)>5) {
 
 $subject = 'Εγγραφή νέου χρήστη';
 
-$messageF =  '<tr>
+$messageF =  '
                                 <td class="w580" width="580">
                                     <h1>Εγγραφή στις Μονάδες</h1>
                                 </td>
