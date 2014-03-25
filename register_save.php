@@ -139,10 +139,10 @@ if (strlen($lathos)>5) {
 <?php
 } else {
 ?>
-        <p>Η διαδικασία εγγραφής στη δικτυακή πύλη των Μονάδων Αριστείας ολοκληρώθηκε. Ο λογαριασμός σας είναι ανενεργός προς το παρόν. Μόλις ενεργοποιηθεί από τους υπεύθυνους του έργου θα ενημερωθείτε μέσω ηλεκτρονικού ταχυδρομείου.
-		Με την εγγραφή σας στη δικτυακή πύλη των Μονάδων Αριστείας αποκτάτε κατευθείαν πρόσβαση στις υπηρεσίες του έργου ενώ παράλληλα μπορείτε να δηλώσετε συμμετοχή στις Μοναδες Αριστείας και να συμβάλλετε στο έργο τους. Παράλληλα, 
-		μπορείτε ανεξάρτητα από τις Μοναδες Αριστείας να βοηθήσετε στην διάδοση του ανοικτού λογισμικού / λογισμικού ανοικτού κώδικα , παρέχοντας σχετικό υλικό. Ενημερωθείτε για το πως μπορείτε να συμμετάσχετε ενεργά από <strong><a href="https://ma.ellak.gr/">εδώ</a></strong>.
+        <p>Η διαδικασία εγγραφής στη δικτυακή πύλη των Μονάδων Αριστείας ολοκληρώθηκε. Ο λογαριασμός σας είναι ενεργός και μπορείτε να συνδεθείτε απο εδώ <a href="https://ma.ellak.gr/">εδώ</a>.</p>
+		 <p>Με την εγγραφή σας στη δικτυακή πύλη των Μονάδων Αριστείας αποκτάτε κατευθείαν πρόσβαση στις υπηρεσίες του έργου ενώ παράλληλα μπορείτε να δηλώσετε συμμετοχή στις Μοναδες Αριστείας και να συμβάλλετε στο έργο τους. Παράλληλα, μπορείτε ανεξάρτητα από τις Μοναδες Αριστείας να βοηθήσετε στην διάδοση του ανοικτού λογισμικού / λογισμικού ανοικτού κώδικα , παρέχοντας σχετικό υλικό. Ενημερωθείτε για το πως μπορείτε να συμμετάσχετε ενεργά από <strong><a href="https://ma.ellak.gr/">εδώ</a></strong>.
 		</p>
+		<p>Για την ολοκλήρωση της εγγραφής σας παρακαλούμε κάνετε τουλάχιστον μια φορά login στο σύστημα απο εδώ <a href="https://ma.ellak.gr/">εδώ</a>.</p>
 		<p></p>
 		<p>Σας ευχαριστούμε για την συμμετοχή σας<br/> 
 
@@ -266,7 +266,7 @@ text-rendering: optimizelegibility;
    list-style-position: inside;
 }
 </style>
-<![endif]--><script type="text/javascript">var NREUMQ=NREUMQ||[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);</script></head><body><table id="background-table" width="100%" border="0" cellpadding="0" cellspacing="0">
+<![endif]--></head><body><table id="background-table" width="100%" border="0" cellpadding="0" cellspacing="0">
 	<tbody><tr>
 		<td align="center" bgcolor="#ececec">
         	<table class="w640" style="margin:0 10px;" width="640" border="0" cellpadding="0" cellspacing="0">
@@ -295,11 +295,11 @@ text-rendering: optimizelegibility;
         
         <td valign="middle"><a href="http://preview.createsend1.com/t/i-fb-l-l-t/" rel="cs_facebox"><img src="like-glyph.png" alt="Facebook icon" ="" height="14" width="8" border="0"></a></td>
         <td width="3"></td>
-        <td valign="middle"><div class="header-content"><a href="http://www.facebook.com/ma_ellak" rel="cs_facebox">Like</a></div></td>
+        <td valign="middle"><div class="header-content"><a href="http://www.facebook.com/ma.elllak" rel="cs_facebox">Like</a></div></td>
         
         
         <td class="w10" width="10"></td>
-        <td valign="middle"><a href="http://www.facebook.com/am"><img src="tweet-glyph.png" alt="Twitter icon" ="" height="13" width="17" border="0"></a></td>
+        <td valign="middle"><a href="http://www.twitter.com/ma_ellak"><img src="tweet-glyph.png" alt="Twitter icon" ="" height="13" width="17" border="0"></a></td>
         <td width="3"></td>
         <td valign="middle"><div class="header-content"><a href="http://www.twitter.com/ma_ellak">Tweet</a></div></td>
         
@@ -366,9 +366,9 @@ max-width: none;vertical-align:center;"></center></td>
                                 <td class="w580" width="580">
                                     <div class="article-content" align="left">
                                         Η διαδικασία εγγραφής στη δικτυακή πύλη των Μονάδων Αριστείας ολοκληρώθηκε. 
-                                        Ο λογαριασμός σας είναι ανενεργός προς το παρόν. 
-                                        Μόλις ενεργοποιηθεί από τους υπεύθυνους του έργου θα ενημερωθείτε μέσω ηλεκτρονικού ταχυδρομείου και θα μπορείτε να συνδεθείτε από <a href="http://ma.ellak.gr">εδώ</a>
-                                                                        </div>
+                                        Ο λογαριασμός σας είναι ενεργός προς το παρόν και μπορείτε να συνδεθείτε από <a href="http://ma.ellak.gr">εδώ</a>
+                                      </div>
+									 <div class="article-content" align="left">Για την ολοκλήρωση της εγγραφής σας παρακαλούμε κάνετε τουλάχιστον μια φορά login στο σύστημα απο εδώ <a href="https://ma.ellak.gr/">εδώ</a>.</div>
                                     <div class="article-content" align="left">
                                         Με την εγγραφή σας  στη δικτυακή πύλη των Μονάδων Αριστείας αποκτάτε κατευθείαν πρόσβαση στις υπηρεσίες του έργου, ενώ παράλληλα μπορείτε να δηλώσετε συμμετοχή και να συμβάλλετε στο έργο τους. Παράλληλα, μπορείτε ανεξάρτητα από τις Μοναδες Αριστείας 
                                         να βοηθήσετε στην διάδοση του ανοικτού λογισμικού / λογισμικού ανοικτού κώδικα , παρέχοντας σχετικό υλικό. Ενημερωθείτε για το πως μπορείτε να συμμετάσχετε ενεργά από <a href="http://ma.ellak.gr">εδώ</a>.
