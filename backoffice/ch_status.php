@@ -337,12 +337,12 @@ if ($st==0) {
 	$subject = 'Ενεργοποίηση Λογαριασμού - Μονάδες Αριστείας';
 	$message = $message_header . $message_activate  . $message_footer ;
 	//mail($to, $subject, $message, $headers);
-	sendMaEmail($message_activate, $subject, $row['email']);
+	sendMaEmail($MainMessage, $subject, $row['email']);
 } else {
 	$subject = 'Απενεργοποίηση Λογαριασμού - Μονάδες Αριστείας';
 	$message = $message_header . $message_deactivate  . $message_footer ;
 	//mail($to, $subject, $message, $headers);
-	sendMaEmail($message_deactivate, $subject, $row['email']);
+	sendMaEmail($MainMessage, $subject, $row['email']);
 }
 
 Header("Location: /backoffice/");
