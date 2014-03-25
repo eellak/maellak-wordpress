@@ -83,14 +83,12 @@ $message_deactivate =  '<td class="w580" width="580">
 
 if ($st==0) {
 	$subject = 'Ενεργοποίηση Λογαριασμού - Μονάδες Αριστείας';
-	$message = $message_header . $message_activate  . $message_footer ;
 	//mail($to, $subject, $message, $headers);
-	sendMaEmail($MainMessage, $subject, $row['email']);
+	sendMaEmail($message_activate, $subject, $row['email']);
 } else {
 	$subject = 'Απενεργοποίηση Λογαριασμού - Μονάδες Αριστείας';
-	$message = $message_header . $message_deactivate  . $message_footer ;
 	//mail($to, $subject, $message, $headers);
-	sendMaEmail($MainMessage, $subject, $row['email']);
+	sendMaEmail($message_deactivate, $subject, $row['email']);
 
 }
 
