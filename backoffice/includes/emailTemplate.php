@@ -249,7 +249,7 @@ $endEmail = '<tr>
 
 
 	$headers  = 'MIME-Version: 1.0' . "\r\n";
-	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+	$headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
 	//$headers .= 'To: ' .$toEmail. "\r\n";
 	$headers .= 'From: Μονάδες Αριστείας ΕΛΛ/ΛΑΚ <no-reply@ma.ellak.gr>' . "\r\n";
 	
