@@ -140,9 +140,15 @@
   					<a href="#tab-1" data-toggle="tab"><?php echo  __('ΠΕΡΙΓΡΑΦΗ','ma-ellak');?></a>
   				</li>
   				<?php }?>
+				
   				<?php if(strlen($program)>6){?>
   					<li><a href="#tab-2"><?php echo __('ΠΡΟΓΡΑΜΜΑ','ma-ellak')?></a></li>
   				<?php }?>
+				
+				<?php if( $video_query->have_posts() ) {?>
+  					<li><a href="#tab-3"><?php echo __('ΣΧΕΤΙΚΑ ΒΙΝΤΕΟ','ma-ellak')?></a></li>
+  				<?php }?>
+				
   			</ul>
   		</div>
   	</div>
@@ -156,16 +162,6 @@
             	<p>LIVE STREAMING</p>
             	<p><?php if($currenttime> $thistime){ 
             		echo __('Η ζωντανή μετάδοση έχει ολοκληρωθεί','ma-ellak');
-            	
-            		if( $video_query->have_posts() ) {
-            			$count=0;
-            			while ($video_query->have_posts()) : $video_query->the_post();
-            			$videoId= get_the_ID();
-            			?>
-            			<?php echo "<br/>&nbsp;".__('Σχετικό Video','ma-ellak')." : ";?><a href=<?php echo get_permalink($videoId);?>/><?php echo get_the_title($videoId);?></a>
-            			<?php 
-            			endwhile;
-            		}
             	}else if($currenttime < $thistime) 
             	{
             		echo __('Η ζωντανή μετάδοση θα πραγματοποιηθεί στις ','ma-ellak') .$startd;
@@ -184,7 +180,6 @@
             <?php }?>	
               	<?php 
               	echo  apply_filters('the_content', get_post($post->ID)->post_content);
-              	 
               	?>
               </div>
               
@@ -193,6 +188,23 @@
               	<?php include('ma_ellak_events_tmpl_program.php');?>
               </div>
               <?php }?>
+			  
+			  <?php
+				if( $video_query->have_posts() ) {
+			?>
+				<div id="tab-3" class="tab-pane">
+			<?php
+					$count=0;
+					while ($video_query->have_posts()) : $video_query->the_post();
+					$videoId= get_the_ID();
+					?>
+					<?php echo "<br/>&nbsp;".__('Σχετικό Video','ma-ellak')." : ";?><a href=<?php echo get_permalink($videoId);?>/><?php echo get_the_title($videoId);?></a>
+					<?php 
+					endwhile; ?>
+				</div>
+			<?php
+				}
+			  ?>
              </div>
            </div>
          </div>

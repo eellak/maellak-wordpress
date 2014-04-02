@@ -176,6 +176,16 @@
 					if(!$user_has_profile and ( !empty($add_profile) or $add_profile != '' )) { ?>
 					 <li><a href="<?php echo get_permalink($add_profile); ?>"><?php _e('ΠΡΟΣΘΗΚΗ ΠΡΟΦΙΛ ΕΠΑΓΓΛΕΜΑΤΙΑ/ΕΘΕΛΟΝΤΗ','ma-ellak');?></a></li>	
 	<?php		}?>
+				<?php
+					$redmine = get_option_tree('ma_ellak_redmine');
+					$moodle = get_option_tree('ma_ellak_moodle');
+				?>
+				<?php if(isset($moodle) && strlen($moodle)>5){?>
+					<li><a href="<?php echo $moodle; ?>"><?php _e('ΚΑΤΑΧΩΡΙΣΗ ΕΚΠΑΙΔΕΥΤΙΚΟΥ ΥΛΙΚΟΥ','ma-ellak');?></a></li>
+				<?php }
+					if(isset($redmine) && strlen($redmine)>5){?>
+					<li><a href="<?php echo $redmine; ?>"><?php _e('ΚΑΤΑΧΩΡΙΣΗ ΕΡΓΟΥ','ma-ellak');?></a></li>
+				<?php }?>
                 </ul>
             </li>
             <?php }
@@ -183,6 +193,7 @@
 				 <li><a href="<?php echo get_permalink($list_profile); ?>"><?php _e('ΑΝΑΖΗΤΗΣΗ ΕΠΑΓΓΕΛΜΑΤΙΑ/ΕΘΕΛΟΝΤΗ','ma-ellak');?></a></li>	
 			<?php */ }
 			}?>
+			<li><a href="<?php echo get_permalink(get_option_tree('ma_ellak_manuals_page')); ?>"><?php _e('ΕΓΧΕΙΡΙΔΙΑ','ma-ellak');?></a></li>	
            </ul>
           <ul class="nav pull-right">
           <?php 
@@ -201,8 +212,6 @@
 				<li><a href="https://ma.ellak.gr/register.php" title="<?php _e('Εγγραφή','ma-ellak');?>" id="signup_button" class="dropdown-toggle"><?php _e('Εγγραφή','ma-ellak');?></a></li>
 			<?php } else{  
 				$cur_user = wp_get_current_user();
-				$redmine = get_option_tree('ma_ellak_redmine');
-				$moodle = get_option_tree('ma_ellak_moodle');
 			?>
 				<li class="dropdown">
 				  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $cur_user->display_name ;?> <b class="caret"></b></a>

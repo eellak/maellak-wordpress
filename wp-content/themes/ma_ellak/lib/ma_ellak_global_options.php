@@ -532,6 +532,20 @@ function custom_theme_options() {
       		'class'       => ''
       ),
 	  
+	  	array(
+      		'id'          => 'ma_ellak_manuals_page',
+      		'label'       => 'Εγχειρίδα Χρήσης',
+      		'desc'        => 'Επιλέξτε τη σελίδα των Εγχειριδίων Χρήσης',
+      		'std'         => '',
+      		'type'        => 'page-select',
+      		'section'     => 'varius',
+      		'rows'        => '',
+      		'post_type'   => '',
+      		'taxonomy'    => '',
+      		'min_max_step'=> '',
+      		'class'       => ''
+      ),
+	  
 	   array(
       		'id'          => 'ma_ellak_json_sourceforge_fetch',
       		'label'       => 'JSON Sourceforge fetch',
