@@ -123,9 +123,15 @@ add_action( 'admin_init', 'redirect_non_admin_users' );
 
 // Αφαιρεί τη δυνατότητα σε μη Administrators να έχουν πρόσβαση στο backend [2/2]
 function redirect_non_admin_users() {
-	 if( !defined('DOING_AJAX') && !current_user_can('administrator') ){ 
-		wp_redirect( home_url() );
-		exit;
+	global $pagenow;
+	
+	$valid_pages = array('admin-ajax.php', 'async-upload.php', 'media-upload.php');
+	
+	 if (!in_array( $pagenow, $valid_pages ) ) {
+		 if (!current_user_can('activate_plugins') && !(defined('DOING_AJAX') && DOING_AJAX)) {
+			wp_redirect( home_url() );
+			exit;
+		}
 	}
 }
 
