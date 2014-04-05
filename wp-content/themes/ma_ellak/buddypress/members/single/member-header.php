@@ -19,12 +19,15 @@
 			<?php do_action( 'bp_before_member_header_meta' ); ?>
 		  <h2><?php bp_displayed_user_fullname(); ?></h2>
 		    <p><?php do_action( 'bp_member_header_actions' ); ?></p>
-		   <p><?php bp_activity_latest_update( bp_displayed_user_id() ); ?></p>
+		   <p><?php //bp_activity_latest_update( bp_displayed_user_id() ); ?></p>
 		  <?php
 		/***
 		 * If you'd like to show specific profile fields here use:
 		 * bp_member_profile_data( 'field=About Me' ); -- Pass the name of the field
 		 */
+		 echo '<p>';
+		 bp_member_profile_data( 'field=Σύντομο Βιογραφικό' );
+		 echo '</p>';
 		 do_action( 'bp_profile_header_meta' );
 
 		 ?>
