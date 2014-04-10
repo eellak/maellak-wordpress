@@ -23,17 +23,18 @@ Template Name: Event - Participation
 		$ma_position = sanitize_text_field($_POST['ma_position']);
 		$ma_institute = sanitize_text_field($_POST['ma_institute']);
 		$ma_phone = sanitize_text_field($_POST['ma_phone']);
-		if(isset($_FILES["file"]["name"])){
-		$ma_bio = sanitize_text_field($_FILES["file"]["name"]);
-			if (file_exists(ABSPATH."wp-content/files/bios/" . $_FILES["file"]["name"]))
+		
+		if(isset($_FILES["fileToUpload"]["name"])){
+		$ma_bio = sanitize_text_field($_FILES["fileToUpload"]["name"]);
+			if (file_exists(ABSPATH."wp-content/files/bios/" . $_FILES["fileToUpload"]["name"]))
 			{
-				$ma_message="Το αρχείο με όνομα". $_FILES["file"]["name"] . " υπάρχει ήδη. ";
+				$ma_message="Το αρχείο με όνομα". $_FILES["fileToUpload"]["name"] . " υπάρχει ήδη. ";
 				$upload=-1;
 			}
 			else
 			{
-				move_uploaded_file($_FILES["file"]["tmp_name"],
-						ABSPATH."wp-content/files/bios/" . $_FILES["file"]["name"]);
+				move_uploaded_file($_FILES["fileToUpload"]["tmp_name"],
+						ABSPATH."wp-content/files/bios/" . $_FILES["fileToUpload"]["name"]);
 			}
 		}
 		//Collect the data
@@ -49,10 +50,11 @@ Template Name: Event - Participation
 		);
 		$format= array('%s','%s','%s', '%d','%s' );
 		// Καταχωρούμε τη συμμετοχή 
-		$wpdb->insert( 'ma_events_participants', $participation );
-		$wpdb->show_errors();
-		$id = $wpdb->insert_id;
-		
+		if($upload!=-1){
+			$wpdb->insert( 'ma_events_participants', $participation );
+			$wpdb->show_errors();
+			$id = $wpdb->insert_id;
+		}
 		if($id && $upload!=-1){
 			
 			$ma_message = '<p class="message">H καταχώριση σας ήταν επιτυχής.</p>';
@@ -60,6 +62,18 @@ Template Name: Event - Participation
 			
 			// Αποστολή email στον διαχειριστή/υπεύθυνο
 			$email_message = 'Νέα συμμετοχή με όνομα: '.$name;
+			$unit_id = get_post_meta($events_id, '_ma_ellak_belongs_to_unit', true);
+			if($unit_id != 0 ){
+				$mail_message = 'Νέα συμμετοχή στην Εκδήλωση - Σεμινάριο,\r\n\r\n';
+				$mail_message .= 'Αφορά την εκδήλωση '.get_the_title($events_id).' ('.get_permalink($events_id).').\r\n\r\n';
+				$mail_message .= 'Επεξεργαστείτε την συμμετοχή '.get_permalink(get_option_tree('ma_ellak_update_event'))."?id=".$events_id.' \r\n\r\n';
+				$mail_message .= 'Διαχείριση Δικτυακής Πύλης Μονάδων Αριστείας ΕΛ/ΛΑΚ \r\n\r\n';
+				
+				$admin_users = get_users(array('meta_key' => '_ma_ellak_admin_unit', 'meta_value' =>$unit_id ));
+				foreach ($admin_users as $user) {
+					wp_mail( $user->user_email, 'Μονάδες Αριστείας ΕΛ/ΛΑΚ - Νέα συμμετοχή στην Εκδήλωση - Σεμινάριο', $mail_message );
+				}
+			}
 			// wp_mail( 'email@ma.ellak.gr', '[Λογισμικό] Νέα καταχώριση', $email_message);
 		} else {
 			$ma_message .= '<p class="error">Παρουσιάστηκε πρόβλημα και η καταχώριση. Δεν ήταν επιτυχής.</p>';
@@ -93,7 +107,7 @@ $event_type = $custom['_ma_events_type'][0];
 $start = $custom['_ma_event_startdate_timestamp'][0]?strtotime($custom['_ma_event_startdate_timestamp'][0]):'';
 $startd = date(MA_DATE_FORMAT,$start);
 $endd = $custom['_ma_event_enddate_timestamp'][0]?date(MA_DATE_FORMAT,strtotime($custom['_ma_event_enddate_timestamp'][0])):'';
-
+$event_type = $custom['_ma_events_type'][0];
 
 ?>
   
@@ -101,10 +115,7 @@ $endd = $custom['_ma_event_enddate_timestamp'][0]?date(MA_DATE_FORMAT,strtotime(
 	 <div class="row-fluid filters">
           <div class="span6">
             <p><a href="<?php echo get_permalink($events_id)?>"><?php echo __('ΠΙΣΩ','ma-ellak');?>
-            <?php if($event_type=='event')
-						echo  __('ΣΤΗΝ ΕΚΔΗΛΩΣΗ','ma-ellak'); 
-						if($event_type=='seminar')
-						echo __('ΣΤΟ ΣΕΜΙΝΑΡΙΟ','ma-ellak'); 
+            <?php get_event_type_label($event_type); 
 						?>
             
             </a></p>
@@ -116,10 +127,7 @@ $endd = $custom['_ma_event_enddate_timestamp'][0]?date(MA_DATE_FORMAT,strtotime(
 					  <h3><a href="<?php get_permalink($events_id) ?>" rel="bookmark"  
 				  	title="<?php echo get_the_title($events_id);?>" class="btn btn-large btn-link"><?php echo get_the_title($events_id); ?></a></h3>
 					  <p  class="meta purple">
-					  <?php if($event_type=='event')
-						echo  __('ΕΚΔΗΛΩΣΗ','ma-ellak'); 
-						if($event_type=='seminar')
-						echo __('ΣΕΜΙΝΑΡΙΟ','ma-ellak'); 
+					  <?php get_event_type_label($event_type); 
 						?>
 					  <?php ma_ellak_print_unit_title($cid); ?> 
 					 
@@ -188,11 +196,11 @@ $endd = $custom['_ma_event_enddate_timestamp'][0]?date(MA_DATE_FORMAT,strtotime(
 						<input type="text" name="ma_phone" id="ma_phone" class="form-control input-block-level " value="<?php if(isset($_POST['ma_phone'])) echo $_POST['ma_phone'];?>"  />
 					</div>
 				</div>
-				<?php if($event_type=='seminar'){?>
+				<?php if($event_type=='seminar' || $event_type=='seminar1' || $event_type=='school' || $event_type=='summerschool'){?>
 				<div class="control-group">
    				   	<label class="control-label span12" for="exampleInputFile"><?php echo __('Βιογραφικό.','ma-ellak');?></label>
     			  	<div class="controls">
-    			  		<input type="file" name="file" id="file">
+    			  		<input type="file" name="fileToUpload" id="fileToUpload" class="required">
 						<span class="help-block"><?php echo __('Εισάγεται το βιογραφικό σας σε pdf.','ma-ellak');?></span>
     			 	</div>
     			 </div>

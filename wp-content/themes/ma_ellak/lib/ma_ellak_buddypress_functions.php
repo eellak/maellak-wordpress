@@ -127,7 +127,12 @@ function my_groups_page_function_to_show_screen_content() {
 		<li>
 			<p><a href="<?php echo get_permalink($poster->ID); ?>" class="btn btn-large btn-link"><?php echo get_the_title($poster->ID); ?></a></p>
 			<p class="meta">
-				<span><?php echo get_posttype_label($poster->post_type) ;?></span> 
+				<span><?php if($poster->post_type=='events'){
+                                    $data = get_post_meta($poster->ID,'_ma_events_type', true);
+                                    echo get_posttype_label($poster->post_type,$data);
+                                    
+                            }else 
+                                echo get_posttype_label($poster->post_type);?></span> 
 				<span><?php echo ma_ellak_print_unit_title($poster->ID);?></span>
 				<span>
 				<?php 

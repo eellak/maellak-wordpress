@@ -8,6 +8,7 @@
 				surnamez:{ required:true },
 				emailz:{ required:true,
 						 email:true},
+				fileToUpload: {required:true},
 			    cptch_number:{required:true}
 				
 			},
@@ -16,6 +17,7 @@
 				surnamez:{ required:"Απαιτείται" },
 				emailz:{ required:"Απαιτείται",
 						 email:"Πρέπει να έχει την μορφή email"},
+				fileToUpload: {required: "Το βιογραφικό είναι υποχρεωτικό"},
 				cptch_number:{required:"Απαιτείται το captcha που ακολουθεί"}
 			
 			},

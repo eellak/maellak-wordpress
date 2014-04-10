@@ -18,12 +18,19 @@
 			echo '<div class="title"><a href="' . get_permalink($myid) . '" title="' . apply_filters('the_title', $post->post_title) . '" rel="bookmark">';
 			echo' <h3>'.apply_filters('the_title', $post->post_title).'</h3></a></div>';
 			
-    			echo'<p class="meta purple">';
-    			 get_posttype_label($side_posts[0]->post_type)."&nbsp;";
-    				
-    				echo ma_ellak_print_unit_title($myid);
-    				echo ma_ellak_print_thema($myid,'thema');
-    				echo'</p>';
+    			echo'<p class="meta purple"><span>';
+                if($post->post_type=='events'){
+                    $data = get_post_meta($post->ID,'_ma_events_type', true);
+                
+                    echo get_posttype_label($post->post_type,$data);
+                        
+                }else
+                    echo get_posttype_label($post->post_type);
+                
+                    echo"&nbsp;";                    
+                    echo ma_ellak_print_unit_title($myid);
+                    echo ma_ellak_print_thema($myid,'thema');
+                    echo'</span></p>';
 ?>
     		 <div class="excerpt">
 		        <?php the_excerpt_max_charlength(80); ?>

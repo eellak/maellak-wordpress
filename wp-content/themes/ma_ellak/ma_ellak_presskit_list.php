@@ -105,7 +105,16 @@ Template Name: PressKit - View
 						?>
 						  <li>
 							<p class='heading'><a href="<?php the_permalink(); ?>" class="btn btn-large btn-link"><?php the_title(); ?></a></p>
-							<p class="meta"><span><?php echo ma_ellak_print_thema($cid,'thema');?></span> 
+							<p class="meta">
+							<?php 
+							if($post->post_type=='events'){
+                                    $data = get_post_meta($post->ID,'_ma_events_type', true);
+                                    echo get_posttype_label($post->post_type,$data);
+                                    
+                            }else 
+                                echo get_posttype_label($post->post_type);
+                            echo " ";?>
+							<span><?php echo ma_ellak_print_thema($cid,'thema');?></span> 
 							<span>
 							<?php if($post->post_type=='events')
 									echo date(MA_DATE_FORMAT,strtotime(get_post_meta( $post->ID, '_ma_event_startdate_timestamp', true )));
@@ -137,7 +146,9 @@ Template Name: PressKit - View
 						?>
 						  <li>
 							<p class='heading'><a href="<?php the_permalink(); ?>" class="btn btn-large btn-link"><?php the_title(); ?></a></p>
-							<p class="meta"><span><?php echo get_posttype_label($post->post_type) ." ";?><?php echo ma_ellak_print_thema($cid,'thema');?></span> 
+							<p class="meta"><span>
+							<?php echo get_posttype_label($post->post_type); ?>
+                            <?php echo ma_ellak_print_thema($cid,'thema');?></span> 
 							<span>
 							<?php if($post->post_type=='events')
 									echo date(MA_DATE_FORMAT,strtotime(get_post_meta( $post->ID, '_ma_event_startdate_timestamp', true )));

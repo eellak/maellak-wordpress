@@ -31,7 +31,17 @@ foreach( $user_posts as $post ) {
 		<div class="cols">
 			<div class="span10 offset2 col">
 				<p><a href="<?php the_permalink(); ?>" class="btn btn-large btn-link"><?php the_title(); ?></a> <?php echo ma_ellak_single_edit_permalink($post); ?></p>
-				<p class="meta"><span><?php echo get_posttype_label($post->post_type) ." ";?><?php echo ma_ellak_print_thema($post->ID,'thema');?></span> <span><?php the_date(); ?></span></p>
+				<p class="meta"><span>
+				<?php if($post->post_type=='events'){
+                            $data = get_post_meta($post->ID,'_ma_events_type', true);
+                                
+                                    echo get_posttype_label($post->post_type,$data);
+                                    
+                            }else 
+                                echo get_posttype_label($post->post_type);
+                            echo " ";?>
+				
+				<?php echo ma_ellak_print_thema($post->ID,'thema');?></span> <span><?php the_date(); ?></span></p>
 			</div>
 		</div>
 	</div>

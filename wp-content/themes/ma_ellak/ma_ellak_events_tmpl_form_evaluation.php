@@ -99,6 +99,7 @@ else{
 		$start = $custom['_ma_event_startdate_timestamp'][0]?strtotime($custom['_ma_event_startdate_timestamp'][0]):'';
 		$startd = date(MA_DATE_FORMAT,$start);
 		$endd = $custom['_ma_event_enddate_timestamp'][0]?date(MA_DATE_FORMAT,strtotime($custom['_ma_event_enddate_timestamp'][0])):'';
+		$event_type = $custom['_ma_events_type'][0];
 		
 
 ?>
@@ -107,10 +108,7 @@ else{
 	 <div class="row-fluid filters">
           <div class="span6">
             <p><a href="<?php echo get_permalink($events_id)?>"><?php echo __('ΠΙΣΩ','ma-ellak');?>
-            <?php if($event_type=='event')
-						echo  __('ΣΤΗΝ ΕΚΔΗΛΩΣΗ','ma-ellak'); 
-						if($event_type=='seminar')
-						echo __('ΣΤΟ ΣΕΜΙΝΑΡΙΟ','ma-ellak'); 
+            <?php get_event_type_label($event_type); 
 						?>
             
             </a></p>
@@ -122,10 +120,7 @@ else{
 					  <h3><a href="<?php get_permalink($events_id) ?>" rel="bookmark"  
 				  	title="<?php echo get_the_title($events_id);?>" class="btn btn-large btn-link"><?php echo get_the_title($events_id); ?></a></h3>
 					  <p  class="meta purple">
-					  <?php if($event_type=='event')
-						echo  __('ΕΚΔΗΛΩΣΗ','ma-ellak'); 
-						if($event_type=='seminar')
-						echo __('ΣΕΜΙΝΑΡΙΟ','ma-ellak'); 
+					  <?php get_event_type_label($event_type); 
 						?>
 					  <?php ma_ellak_print_unit_title($cid); ?> 
 					 

@@ -58,7 +58,7 @@ Template Name: Event - Add
 			if($unit_id != 0 ){
 				$mail_message = 'Καταχωρήθηκε Νέα Εκδήλωση,\r\n\r\n';
 				$mail_message .= 'Αφορά την εκδήλωση '.get_the_title($event_id).' ('.get_permalink($event_id).').\r\n\r\n';
-				$mail_message .= 'Επεξεργαστείτε την εκδήλωση '.get_permalink(get_option_tree('ma_ellak_update_event'))."?id=".$software_id.' \r\n\r\n';
+				$mail_message .= 'Επεξεργαστείτε την εκδήλωση '.get_permalink(get_option_tree('ma_ellak_update_event'))."?id=".$event_id.' \r\n\r\n';
 				$mail_message .= 'Διαχείριση Δικτυακής Πύλης Μονάδων Αριστείας ΕΛ/ΛΑΚ \r\n\r\n';
 				$admin_users = get_users(array('meta_key' => '_ma_ellak_admin_unit', 'meta_value' =>$unit_id ));
 				foreach ($admin_users as $user) {
@@ -130,6 +130,10 @@ Template Name: Event - Add
 							<select name="_ma_events_type" id="_ma_events_type" class="required" class="input-block-level">
 								<option value="event" selected="selected">Εκδήλωση</option>
 								<option value="seminar" >Σεμινάριο</option>
+								<option value="seminar1" >Κύκλος Εκπαίδευσης</option>
+								<option value="school" >Σχολείο Ανάπτυξης Κώδικα</option>
+								<option value="meeting" >Ημερίδα</option>
+								<option value="summerschool" >Θερινό σχολείο</option>
 							</select>
 							</div>
 						</div><!-- span6 -->

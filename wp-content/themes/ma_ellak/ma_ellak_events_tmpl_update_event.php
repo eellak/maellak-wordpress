@@ -68,18 +68,6 @@ Template Name: Event - Update
 			if( $unit_id != 0)
 				update_post_meta( $event_id, '_ma_ellak_belongs_to_unit',$unit_id );
 			
-			// Ενημέρωσε τους Διαχειριστές της ΜΑ -----------------------------------
-			$unit_id = get_post_meta($event_id, '_ma_ellak_belongs_to_unit', true);
-			if($unit_id != 0 ){
-				$mail_message = 'Ανανεώθηκε Εκδήλωση,\r\n\r\n';
-				$mail_message .= 'Αφορά την εκδήλωση '.get_the_title($event_id).' ('.get_permalink($event_id).').\r\n\r\n';
-				$mail_message .= 'Επεξεργαστείτε την εκδήλωση '.get_permalink(get_option_tree('ma_ellak_update_event'))."?id=".$software_id.' \r\n\r\n';
-				$mail_message .= 'Διαχείριση Δικτυακής Πύλης Μονάδων Αριστείας ΕΛ/ΛΑΚ \r\n\r\n';
-				$admin_users = get_users(array('meta_key' => '_ma_ellak_admin_unit', 'meta_value' =>$unit_id ));
-				foreach ($admin_users as $user) {
-					wp_mail( $user->user_email, 'Μονάδες Αριστείας ΕΛ/ΛΑΚ - Καταχώριση Νέας Εκδήλωσης', $mail_message );
-				}
-			}
 			} else {
 				$ma_message = '<p class="error">Παρουσιάστηκε πρόβλημα και η καταχώρησή Δεν ήταν επιτυχής.</p>';
 			}
@@ -157,8 +145,12 @@ Template Name: Event - Update
 										 
 									?>
 									<option value="event" <?php if($meta['_ma_events_type'][0]=='event') echo "selected='selected'";?>>Εκδήλωση</option>
-									<option value="seminar" <?php if($meta['_ma_events_type'][0]=='seminar') echo "selected='selected'";?> >Σεμινάριο</option>
-								</select>
+									 <option value="seminar" <?php if($meta['_ma_events_type'][0]=='seminar') echo "selected='selected'";?> >Σεμινάριο</option>
+									 <option value="seminar1" <?php if($meta['_ma_events_type'][0]=='seminar1') echo "selected='selected'";?>>Κύκλος Εκπαίδευσης</option>
+									 <option value="school"  <?php if($meta['_ma_events_type'][0]=='school') echo "selected='selected'";?>>Σχολείο Ανάπτυξης Κώδικα</option>
+									 <option value="meeting"  <?php if($meta['_ma_events_type'][0]=='meeting') echo "selected='selected'";?>>Ημερίδα</option>
+									 <option value="summerschool"  <?php if($meta['_ma_events_type'][0]=='summerschool') echo "selected='selected'";?>>Θερινό σχολείο</option>
+ 								</select>
 								</div>
 							</div><!-- span6 -->
 							<div class="span4">

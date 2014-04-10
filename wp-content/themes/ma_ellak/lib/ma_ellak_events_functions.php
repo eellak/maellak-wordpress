@@ -74,7 +74,11 @@ function ma_ellak_events_metaboxe( array $meta_boxes ) {
 						'type'    => 'select',
 						'options' => array(
 								array( 'name' => 'Εκδήλωση', 'value' => 'event', ),
-								array( 'name' => 'Σεμινάριο', 'value' => 'seminar', ),
+                                array( 'name' => 'Σεμινάριο', 'value' => 'seminar', ),
+                                array( 'name' => 'Κύκλος Εκπαίδευσης', 'value' => 'seminar1', ),
+                                array( 'name' => 'Σχολείο Ανάπτυξης Κώδικα', 'value' => 'school', ),
+                                array( 'name' => 'Ημερίδα', 'value' => 'meeting', ),
+                                array( 'name' => 'Θερινό σχολείο', 'value' => 'summerschool', ),
 						),
 				),
 				array(
@@ -699,10 +703,10 @@ function ma_ellak_events_list($my_query,$whichType='video'){
 			$startd = date(MA_DATE_FORMAT,$start);
   			$endd = $meta['_ma_event_enddate_timestamp'][0]?date(MA_DATE_FORMAT,strtotime($meta['_ma_event_enddate_timestamp'][0])):'';
   			$endtime = $meta['_ma_event_enddate_time'][0]?$meta['_ma_event_enddate_time'][0]:'';
-  				
+  			
   			$SdateD = date('d',$start);
   			$SdateM = date('m',$start);
-			$event_type = $meta['_ma_events_type'];
+			$event_type = $meta['_ma_events_type'][0];
 			$Sdate = explode('/',$startd);
 			$title = get_the_title();
 			
@@ -734,10 +738,8 @@ function ma_ellak_events_list($my_query,$whichType='video'){
 	            <ul class="unstyled purple">
                   <li>
                    <?php 
-                   		if($event_type=='event')
-	     					 echo  __('ΕΚΔΗΛΩΣΗ','ma-ellak'); 
-	    			  	if($event_type=='seminar')
-	      					_e('ΣΕΜΙΝΑΡΙΟ','ma-ellak'); 
+                  
+                   		get_event_type_label($event_type);
 	      			?>
 	       			<?php echo ma_ellak_print_unit_title($cid);?>  
 		       		<?php echo ma_ellak_print_thema($cid,'thema');?>
@@ -779,10 +781,8 @@ function ma_ellak_events_list($my_query,$whichType='video'){
 	    
 	       	</h3>
 	       <p  class="meta purple">
-	       <?php if($event_type=='event')
-	      echo  __('ΕΚΔΗΛΩΣΗ','ma-ellak'); 
-	      if($event_type=='seminar')
-	      _e('ΣΕΜΙΝΑΡΙΟ','ma-ellak'); 
+	       <?php 
+	       get_event_type_label($event_type);
 	      ?>
 	       <?php echo ma_ellak_print_unit_title($cid);?>  
 		   <?php echo ma_ellak_print_thema($cid,'thema');?>

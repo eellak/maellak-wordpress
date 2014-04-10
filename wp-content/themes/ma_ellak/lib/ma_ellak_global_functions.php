@@ -778,13 +778,16 @@ function arrayToObject($array){
  * Function that returns PostType label
  * array('post','events','video','software', 'document', 'bp_doc');
  */
-function get_posttype_label($posttypename){
+function get_posttype_label($posttypename,$eventtype=''){
 	
 	switch ($posttypename){
 		case "post":
 			return _e('ΑΡΘΡO','ma-ellak');
 		case "events":
-			return _e('ΕΚΔΗΛΩΣΗ','ma-ellak');
+            if($eventtype!='')
+                return get_event_type_label($eventtype);
+                else
+            return _e('ΕΚΔΗΛΩΣΗ','ma-ellak');
 		case "video":
 			return _e('ΒΙΝΤΕΟ','ma-ellak');
 		case "software":
@@ -906,7 +909,26 @@ function pagination($max_page, $paged, $wp_query){
 		</div> <!--closing links_of_posts div -->
 	</div>
 <?php
+
 }
 
-
+/**
+ * function that returns the event type label
+ * @param string $type the type of the event
+ */
+function get_event_type_label($event_type){
+	if($event_type=='event')
+		echo  __('ΕΚΔΗΛΩΣΗ','ma-ellak');
+	if($event_type=='seminar')
+		echo __('ΣΕΜΙΝΑΡΙΟ','ma-ellak');
+	if($event_type=='seminar1')
+		echo __('ΚΥΚΛΟΣ ΕΚΠΑΙΔΕΥΣΗΣ','ma-ellak');
+	if($event_type=='school')
+		echo __('ΣΧΟΛΕΙΟ ΑΝΑΠΤΥΞΗΣ ΚΩΔΙΚΑ','ma-ellak');
+	if($event_type=='meeting')
+		echo __('ΗΜΕΡΙΔΑ','ma-ellak');
+	if($event_type=='summerschool')
+		echo __('ΘΕΡΙΝΟ ΣΧΟΛΕΙΟ','ma-ellak');
+	 
+}
 ?>

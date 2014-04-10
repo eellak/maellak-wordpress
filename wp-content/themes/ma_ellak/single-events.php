@@ -80,10 +80,7 @@
 				  	<?php echo  ma_ellak_single_edit_permalink();?>
 				  	</h3>
 				  	  <p  class="meta purple">
-					  <?php if($event_type=='event')
-						echo  __('ΕΚΔΗΛΩΣΗ','ma-ellak'); 
-						if($event_type=='seminar')
-						echo __('ΣΕΜΙΝΑΡΙΟ','ma-ellak'); 
+					  <?php get_event_type_label($event_type);
 						?>
 					  <?php ma_ellak_print_unit_title($cid); ?> 
 					  <?php echo ma_ellak_print_thema($cid,'thema');?>
