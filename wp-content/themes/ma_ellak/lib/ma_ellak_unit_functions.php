@@ -286,7 +286,7 @@ function ma_ellak_unit_save_details($unit_id){
 	foreach($unit_fields as $field){
 		if($field['type'] != 'text' and $field['type'] != 'text_medium') continue;
 		
-		if ( isset( $_POST[$field['id']]) )
+		if ( isset( $_POST[$field['id']]) and $field['id'] != $ma_prefix . 'unit_logo')
 			update_post_meta( $unit_id, $field['id'],  $_POST[$field['id']] );
 	}
 }

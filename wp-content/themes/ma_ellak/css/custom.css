@@ -415,7 +415,8 @@ width: 100%;
 
 }
 
-#softwarefilterform ul, li{
+#softwarefilterform ul, 
+#softwarefilterform ul > li{
 	list-style:none;
 	margin:0;
 	padding:0;

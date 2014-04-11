@@ -11,7 +11,8 @@
 	<link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="<?php bloginfo('atom_url'); ?>" />
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 	<?php  
-		ma_ellak_social_print_header();
+		if(!is_edit_page())
+			ma_ellak_social_print_header();
 		
 		/*
 		if(get_option_tree('ma_ellak_twitter_user')!='')

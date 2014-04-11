@@ -62,11 +62,5 @@ jQuery.fn.extend({
 
 jQuery(document).ready(function($) {
   $(':uppercase').not('.fieldset-legend').removeAcc();
-  $(document).ajaxComplete(function(event, request, settings) {
-    $(':uppercase').not('.fieldset-legend').removeAcc();
-  });
   $(':smallcaps').not('.fieldset-legend').removeAcc();
-  $(document).ajaxComplete(function(event, request, settings) {
-    $(':smallcaps').not('.fieldset-legend').removeAcc();
-  });
 });

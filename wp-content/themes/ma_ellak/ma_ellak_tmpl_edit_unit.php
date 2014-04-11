@@ -12,6 +12,7 @@ Template Name: Unit - Edit
 	$unit_post;
 	$unit_id = 0;
 	
+	
 	if(isset($_GET['uid']) and $_GET['uid'] !=''){
 		$unit_post = get_post(intval($_GET['uid']));
 		if(!empty($unit_post) and 'unit' == $unit_post->post_type) 
@@ -23,7 +24,9 @@ Template Name: Unit - Edit
 	
 	$url = get_permalink(get_option_tree('ma_ellak_edit_unit'));
 	$url .="?uid=".$unit_id;
-
+	
+	$current_logo = get_post_meta($unit_id, $ma_prefix . 'unit_logo', true);
+	
 	if(isset($_POST['ma_ellak_unit_submit']) &&isset($_POST['post_nonce_field']) && wp_verify_nonce($_POST['post_nonce_field'], 'post_nonce')) {
 		
 		$title = sanitize_text_field($_POST['ctitle']);
@@ -39,6 +42,20 @@ Template Name: Unit - Edit
 		
 		if($unit_id){
 			ma_ellak_unit_save_details($unit_id);
+			global $ma_prefix ;
+			if ($_FILES and isset($_POST['replacelogo']) and $_POST['replacelogo'] == 'yes' and $current_logo != '' and !empty($current_logo )) {
+				foreach ($_FILES as $file => $array) {
+					if(!empty($file))
+						insert_attachment($file, $unit_id, $ma_prefix . 'unit_logo');
+				}
+			};
+			
+			if( $current_logo == '' or empty($current_logo ) and $_FILES ){
+				foreach ($_FILES as $file => $array) {
+					if(!empty($file))
+						insert_attachment($file, $unit_id, $ma_prefix . 'unit_logo');
+				}
+			}
 			$ma_message = '<p class="alert alert-info">H επεξεργασία της Μονάδας Αριστείας ήταν επιτυχής</p>';
 			$success = true;
 
@@ -92,9 +109,29 @@ if(!is_current_user_admin($unit_id)){
 					<?php
 						global $unit_fields;
 						global $ma_prefix ;
+					?>
+					<div class="control-group">
+						<label for="logo"><?php _e('Λογότυπο', 'ma-ellak'); ?></label>
+						<input type="file" name="datafile" size="40">
+						<?php if($current_logo != '' and !empty($current_logo)) { ?>
+							<input type="checkbox" name="replacelogo" value="yes"> <?php _e('Αντικατάσταση Λογότυπου'); ?>
+						<?php }?>
+						<br /><?php _e('Προτεινόμενη διάσταση'); ?>: 300 Χ 300 pixels;
+					</div>
+					
+					<?php if($current_logo != '' and !empty($current_logo)) { ?>
+						<div class="control-group">
+							<label for="current_logo"><?php _e('Υπάρχον Λογότυπο', 'ma-ellak'); ?></label>
+							<?php global $ma_prefix; ?>
+							<img src="<?php echo $current_logo; ?>" width="300" />
+						</div>
+					<?php }?>
+					<?php
 						foreach($unit_fields as $field){
 						
 							if($field['type'] != 'text' and $field['type'] != 'text_medium') continue;
+							if($field['id'] == $ma_prefix . 'unit_logo') continue;
+							
 							$data = get_post_meta($unit_id , $field['id'], true);
 						?>
 						

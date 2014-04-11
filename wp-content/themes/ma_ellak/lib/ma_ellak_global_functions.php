@@ -347,29 +347,62 @@ function ma_ellak_global_theme_scripts_css(){
 	wp_enqueue_script( 'ma_ellak_html5shiv_js', $template_dir . '/js/vendor/html5shiv.js', array('jquery'), '1.0', true );
 	wp_enqueue_script( 'ma_ellak_holder_js', $template_dir . '/js/vendor/holder/holder.js', array('jquery'), '1.0', true );
 */	
-	
+	wp_enqueue_script( 'ma_ellak_validator_js', $template_dir . '/js/jquery.validate.min.js', array('jquery'), '1.0', true );	
 	wp_enqueue_script( 'ma_ellak_bootstrap_js', $template_dir . '/js/vendor/bootstrap/bootstrap.min.js', array('jquery'), '1.0', true );
 	wp_enqueue_script( 'ma_ellak_plugins_js', $template_dir . '/js/plugins.js', array('jquery'), '1.0', true );
 	wp_enqueue_script( 'ma_ellak_main_js', $template_dir . '/js/main.js', array('jquery'), '1.0', true );
-	wp_enqueue_script( 'ma_ellak_newsletter_validate_js', $template_dir . '/js/jquery.validate.min.js', array('jquery'), '1.0', true );
-	wp_enqueue_script( 'ma_ellak_newsletter_js', $template_dir . '/js/validate_newsletter.js', array('jquery'), '1.0', true );
-	wp_localize_script( 'ma_ellak_newsletter_js', 'ma_ellak_newsletter_settings', array(
-			'ajax_url' => admin_url( 'admin-ajax.php' ),
-			'req_nonce' => wp_create_nonce("ma_ellak_register_newsletter_nonce"),
-			'need_email'=> __('Το πεδίο είναι υποχρεωτικό!', 'ma-ellak'),
-			'valid_email'=> __('Πρέπει να προσθέσετε ένα έγκυρο email.', 'ma-ellak'),
-		) );
-	wp_enqueue_script( 'ma_ellak_calendar_js', $template_dir . '/js/change_calendar.js', array('jquery'), '1.0', true );
-	wp_localize_script( 'ma_ellak_calendar_js', 'ma_ellak_calendar_settings', array(
-			'ajax_url' => admin_url( 'admin-ajax.php' ),
-			'req_nonce' => wp_create_nonce("ma_ellak_change_calendar_nonce"),
-		) );
-		
+	
+	if(is_home()){
+		wp_enqueue_script( 'ma_ellak_newsletter_js', $template_dir . '/js/validate_newsletter.js', array('jquery'), '1.0', true );
+		wp_localize_script( 'ma_ellak_newsletter_js', 'ma_ellak_newsletter_settings', array(
+				'ajax_url' => admin_url( 'admin-ajax.php' ),
+				'req_nonce' => wp_create_nonce("ma_ellak_register_newsletter_nonce"),
+				'need_email'=> __('Το πεδίο είναι υποχρεωτικό!', 'ma-ellak'),
+				'valid_email'=> __('Πρέπει να προσθέσετε ένα έγκυρο email.', 'ma-ellak'),
+			) );
+		wp_enqueue_script( 'ma_ellak_calendar_js', $template_dir . '/js/change_calendar.js', array('jquery'), '1.0', true );
+		wp_localize_script( 'ma_ellak_calendar_js', 'ma_ellak_calendar_settings', array(
+				'ajax_url' => admin_url( 'admin-ajax.php' ),
+				'req_nonce' => wp_create_nonce("ma_ellak_change_calendar_nonce"),
+			) );
+	}
+	
 	wp_enqueue_script( 'ma_ellak_remove_upper_js', $template_dir . '/js/jquery.remove-upcase-accents.js', array('jquery'), '1.0', true );
-	wp_enqueue_script( 'ma_ellak_social', $template_dir . '/js/social_count.js', array('jquery'), '1.0', true );
+	
+	if(!is_edit_page()){
+		wp_enqueue_script( 'ma_ellak_social', $template_dir . '/js/social_count.js', array('jquery'), '1.0', true );
+	}
 	
 }
 add_action( 'wp_enqueue_scripts', 'ma_ellak_global_theme_scripts_css', 111 );
+
+// Function to see if it is edit page template
+function is_edit_page(){
+	
+	$template_list = array(
+		'ma_ellak_tmpl_edit_unit.php',
+		'ma_ellak_yp2_tmpl_add_software.php',
+		'ma_ellak_yp2_tmpl_edit_software.php',
+		'ma_ellak_yp3_tmpl_add_characteristic.php',
+		'ma_ellak_yp3_tmpl_edit_characteristic.php',
+		'ma_ellak_yp4_tmpl_add_job.php',
+		'ma_ellak_yp4_tmpl_edit_job.php',
+		'ma_ellak_yp4_tmpl_add_profile.php',
+		'ma_ellak_yp4_tmpl_edit_profile.php',
+		'ma_ellak_yp7_tmpl_add_video.php',
+		'ma_ellak_yp7_tmpl_update_video.php',
+		'ma_ellak_yp9_tmpl_add_document.php',
+		'ma_ellak_yp9_tmpl_update_document.php',
+		'ma_ellak_events_tmpl_add_event.php',
+		'ma_ellak_events_tmpl_update_event.php'
+	);
+	
+	$template_name = get_page_template_slug();
+	if( in_array($template_name, $template_list))
+		return true;
+	
+	return false;
+}
 
 /**
  * Function that prints the thema of a post type
@@ -931,4 +964,57 @@ function get_event_type_label($event_type){
 		echo __('ΘΕΡΙΝΟ ΣΧΟΛΕΙΟ','ma-ellak');
 	 
 }
+
+// Removes the More Button @http://wpengineer.com/1963/customize-wordpress-wysiwyg-editor/
+function ma_ellak_change_mce_options($initArray) {
+	if(!is_admin()){
+		$ext = 'bold,italic,strikethrough,|,bullist,numlist,blockquote,|,justifyleft,justifycenter,justifyright,|,link,unlink,|,spellchecker,fullscreen,wp_adv';
+		if ( isset( $initArray['theme_advanced_buttons1'] ) ) {
+			$initArray['theme_advanced_buttons1'] = $ext;
+		} 
+	}
+    return $initArray;
+}
+add_filter( 'tiny_mce_before_init', 'ma_ellak_change_mce_options' );
+
+// Removes the More Button in HTML @http://www.onextrapixel.com/2012/10/08/10-tips-for-a-deeply-customised-wordpress-admin-area/
+function ma_ellak_remove_quicktags( $qtInit , $editor_id){
+	// 'strong,em,link,block,del,img,ul,ol,li,code,more,spell,close,fullscreen';
+	$qtInit['buttons'] = 'strong,em,link,block,del,img,ul,ol,li,code,spell,close,fullscreen';
+    return $qtInit;
+}
+add_filter('quicktags_settings', 'ma_ellak_remove_quicktags',2, 2);
+
+/**
+ * Filter the link query arguments to change the post types. 
+ *
+ * @param array $query An array of WP_Query arguments. 
+ * @return array $query
+ */
+function my_custom_link_query( $query ){
+	global $ma_ellak_content_types;
+	$cur_user = wp_get_current_user();
+	$user_unit_id = 0;
+	$user_unit_id = get_user_meta( $cur_user->ID, '_ma_ellak_member_unit', true ); 
+	
+	if($user_unit_id != 0 or $user_unit_id =='' or empty($user_unit_id)) 
+		$user_unit_id = get_user_meta( $cur_user->ID , '_ma_ellak_admin_unit', true ); 
+	
+	if($user_unit_id != 0)
+		$query = array(
+			'post_type' =>  $ma_ellak_content_types,
+			'meta_key' => '_ma_ellak_belongs_to_unit',
+			'meta_value' => $user_unit_id,
+		);
+	else
+		$query = array(
+			'post_type' =>  'nothing_to_show'
+		);
+		
+	return $query ;
+}
+
+add_filter( 'wp_link_query_args', 'my_custom_link_query' );
+
+
 ?>

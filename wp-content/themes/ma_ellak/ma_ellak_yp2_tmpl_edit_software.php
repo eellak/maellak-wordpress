@@ -91,7 +91,7 @@ if(!ma_ellak_user_can_edit_post($software_post)){
 			if( $unit_id != 0)
 				update_post_meta( $event_id, '_ma_ellak_belongs_to_unit',$unit_id );
 			
-			// Ενημέρωσε τους Διαχειριστές της ΜΑ -----------------------------------
+			/* Ενημέρωσε τους Διαχειριστές της ΜΑ -----------------------------------
 			$unit_id = get_post_meta($event_id, '_ma_ellak_belongs_to_unit', true);
 			if($unit_id != 0 ){
 				$mail_message = 'Καταχωρήθηκε Νέο Λογισμικό- Ανανέωση μεταδεδομένων,\r\n\r\n';
@@ -103,6 +103,7 @@ if(!ma_ellak_user_can_edit_post($software_post)){
 					wp_mail( $user->user_email, 'Μονάδες Αριστείας ΕΛ/ΛΑΚ - Καταχώριση Νέου Λογισμικού - Ανανέωση μεταδεδομένων', $mail_message );
 				}
 			}
+			*/
 		} else {
 			$ma_message = '<p class="error">Παρουσιάστηκε πρόβλημα και η επεξεργασία Δεν ήταν επιτυχής.</p>';
 		}
