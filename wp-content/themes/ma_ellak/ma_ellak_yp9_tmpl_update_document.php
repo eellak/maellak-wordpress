@@ -78,7 +78,7 @@ Template Name: Document - Update
 					$unit_id = get_post_meta($doc_id, '_ma_ellak_belongs_to_unit', true);
 					if($unit_id != 0){
 						$mail_message = 'Καταχωρήθηκε Νέο Αρχείο - Επεξεργασία,\r\n\r\n';
-						$mail_message .= 'Αφορά το Αρχείο '.get_the_title($doc_id).' ('.get_permalink($doc_id).').\r\n\r\n';
+						$mail_message .= 'Αφορά το Αρχείο '.get_the_title($doc_id).' ( '.get_permalink($doc_id).' ).\r\n\r\n';
 						$mail_message .= 'Επεξεργαστείτε το Αρχείο '.get_permalink(get_option_tree('ma_ellak_update_document'))."?doc_id=".$doc_id.' \r\n\r\n';
 						$mail_message .= 'Διαχείριση Δικτυακής Πύλης Μονάδων Αριστείας ΕΛ/ΛΑΚ \r\n\r\n';
 						$admin_users = get_users(array('meta_key' => '_ma_ellak_admin_unit', 'meta_value' =>$unit_id ));

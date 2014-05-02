@@ -73,7 +73,7 @@ Template Name: Event - Participation
 					$unit_id = get_post_meta($events_id, '_ma_ellak_belongs_to_unit', true);
 					if($unit_id != 0 ){
 						$mail_message = 'Νέα συμμετοχή στην Εκδήλωση - Σεμινάριο,\r\n\r\n';
-						$mail_message .= 'Αφορά την εκδήλωση '.get_the_title($events_id).' ('.get_permalink($events_id).').\r\n\r\n';
+						$mail_message .= 'Αφορά την εκδήλωση '.get_the_title($events_id).' ( '.get_permalink($events_id).' ).\r\n\r\n';
 						$mail_message .= 'Επεξεργαστείτε την συμμετοχή '.get_permalink(get_option_tree('ma_ellak_update_event'))."?id=".$events_id.' \r\n\r\n';
 						$mail_message .= 'Διαχείριση Δικτυακής Πύλης Μονάδων Αριστείας ΕΛ/ΛΑΚ \r\n\r\n';
 						

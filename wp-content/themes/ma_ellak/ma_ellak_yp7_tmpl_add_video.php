@@ -51,7 +51,7 @@ Template Name: Video - Add
 			$unit_id = get_post_meta($video_id, '_ma_ellak_belongs_to_unit', true);
 			if($unit_id != 0){
 				$mail_message = 'Καταχωρήθηκε Νέο Video,\r\n\r\n';
-				$mail_message .= 'Αφορά το Video '.get_the_title($video_id).' ('.get_permalink($video_id).').\r\n\r\n';
+				$mail_message .= 'Αφορά το Video '.get_the_title($video_id).' ( '.get_permalink($video_id).' ).\r\n\r\n';
 				$mail_message .= 'Επεξεργαστείτε το Video '.get_permalink(get_option_tree('ma_ellak_update_video'))."?id=".$video_id.' \r\n\r\n';
 				$mail_message .= 'Διαχείριση Δικτυακής Πύλης Μονάδων Αριστείας ΕΛ/ΛΑΚ \r\n\r\n';
 				$admin_users = get_users(array('meta_key' => '_ma_ellak_admin_unit', 'meta_value' =>$unit_id ));

@@ -96,7 +96,7 @@ Template Name: Software - Add
 			$unit_id = get_post_meta($event_id, '_ma_ellak_belongs_to_unit', true);
 			if($unit_id != 0 ){
 				$mail_message = 'Καταχωρήθηκε Νέο Λογισμικό,\r\n\r\n';
-				$mail_message .= 'Αφορά το λογισμικό '.get_the_title($event_id).' ('.get_permalink($event_id).').\r\n\r\n';
+				$mail_message .= 'Αφορά το λογισμικό '.get_the_title($event_id).' ( '.get_permalink($event_id).' ).\r\n\r\n';
 				$mail_message .= 'Επεξεργαστείτε το λογισμικό '.get_permalink(get_option_tree('ma_ellak_edit_software'))."?id=".$software_id.' \r\n\r\n';
 				$mail_message .= 'Διαχείριση Δικτυακής Πύλης Μονάδων Αριστείας ΕΛ/ΛΑΚ \r\n\r\n';
 				$admin_users = get_users(array('meta_key' => '_ma_ellak_admin_unit', 'meta_value' =>$unit_id ));

@@ -57,7 +57,7 @@ Template Name: Event - Add
 			$unit_id = get_post_meta($event_id, '_ma_ellak_belongs_to_unit', true);
 			if($unit_id != 0 ){
 				$mail_message = 'Καταχωρήθηκε Νέα Εκδήλωση,\r\n\r\n';
-				$mail_message .= 'Αφορά την εκδήλωση '.get_the_title($event_id).' ('.get_permalink($event_id).').\r\n\r\n';
+				$mail_message .= 'Αφορά την εκδήλωση '.get_the_title($event_id).' ( '.get_permalink($event_id).' ).\r\n\r\n';
 				$mail_message .= 'Επεξεργαστείτε την εκδήλωση '.get_permalink(get_option_tree('ma_ellak_update_event'))."?id=".$event_id.' \r\n\r\n';
 				$mail_message .= 'Διαχείριση Δικτυακής Πύλης Μονάδων Αριστείας ΕΛ/ΛΑΚ \r\n\r\n';
 				$admin_users = get_users(array('meta_key' => '_ma_ellak_admin_unit', 'meta_value' =>$unit_id ));
