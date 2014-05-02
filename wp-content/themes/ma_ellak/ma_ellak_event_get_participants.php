@@ -25,7 +25,7 @@ $result = $wpdb->get_results( $query ,ARRAY_A);
 
 for($i=0;$i<count($result);$i++)
 	if(!empty($result[$i]['ma_bio']))
-	$result[$i]['ma_bio']="<a href=".get_site_url()."/wp-content/files/bios/".$result[$i]['ma_bio']." target='_blank'>(bio)</a>";
+	$result[$i]['ma_bio']="<a href=".get_site_url()."/wp-content/files/bios/".rawurlencode($result[$i]['ma_bio'])." target='_blank'>Bio</a>";
 	
 
 echo json_encode($result);

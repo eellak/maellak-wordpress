@@ -82,7 +82,7 @@ class TT_List_Table_Event_Participants extends WP_List_Table {
             case 'ma_phone':
                 return $item[$column_name];
             case 'ma_bio':
-            	return "<a href=".get_site_url()."/wp-content/files/bios/".$item[$column_name]." target='_blank'>".$item[$column_name]."</a>";
+            	return "<a href=".get_site_url()."/wp-content/files/bios/".rawurlencode($item[$column_name])." target='_blank'>".$item[$column_name]."</a>";
             	default:
                 return print_r($item,true); //Show the whole array for troubleshooting purposes
         }

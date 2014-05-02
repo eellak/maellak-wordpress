@@ -603,6 +603,10 @@ function ma_ellak_events_show_evaluation( $post ) {
 		else
 			delete_post_meta( $post_id,'_ma_events_type' );
 		
+		if ( isset( $_POST['_ma_event_title_program_desc'] ) )
+			update_post_meta( $post_id, '_ma_event_title_program_desc',  $_POST['_ma_event_title_program_desc'] );
+		else
+			delete_post_meta( $post_id,'_ma_event_title_program_desc' );
 		
 		if(isset($_POST['eventz'])){
 			update_post_meta( $post_id, 'eventslive',  $_POST['eventz'] );

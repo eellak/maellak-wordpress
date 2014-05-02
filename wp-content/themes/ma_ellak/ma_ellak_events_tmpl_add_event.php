@@ -207,12 +207,12 @@ Template Name: Event - Add
 					</div><!-- row-fluid -->
 						
 				<div class="control-group">
-					<label for="event_title_program_desc"><?php _e('Πρόγραμμα εκδήλωσης', 'ma-ellak'); ?></label>
+					<label for="_ma_event_title_program_desc"><?php _e('Πρόγραμμα εκδήλωσης', 'ma-ellak'); ?></label>
 				<?php 	
 					echo"<br/>";
-					if(isset($_POST['event_title_program_desc'])) $content = $_POST['event_title_program_desc'];
+					if(isset($_POST['_ma_event_title_program_desc'])) $content = $_POST['_ma_event_title_program_desc'];
 						
-					wp_editor( $content, 'event_title_program_desc');
+					wp_editor( $content, '_ma_event_title_program_desc');
 				?>
 				<span class="help-block"><?php echo __('Αναλυτική περιγραφή της εκδήλωσης','ma-ellak')?></span>
 				</div>

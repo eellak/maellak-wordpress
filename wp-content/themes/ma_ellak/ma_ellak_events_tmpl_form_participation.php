@@ -15,69 +15,78 @@ Template Name: Event - Participation
 		global $wpdb;
 		$upload=0;
 		if( function_exists( 'cptch_check_custom_form' ) && cptch_check_custom_form() === true ) {
-					
-		$name = sanitize_text_field($_POST['namez']);
-		$surname = sanitize_text_field($_POST['surnamez']);
-		$email = sanitize_text_field($_POST['emailz']);
-		$events_id = intval($_POST['events_id']);
-		$ma_position = sanitize_text_field($_POST['ma_position']);
-		$ma_institute = sanitize_text_field($_POST['ma_institute']);
-		$ma_phone = sanitize_text_field($_POST['ma_phone']);
 		
-		if(isset($_FILES["fileToUpload"]["name"])){
-		$ma_bio = sanitize_text_field($_FILES["fileToUpload"]["name"]);
-			if (file_exists(ABSPATH."wp-content/files/bios/" . $_FILES["fileToUpload"]["name"]))
-			{
-				$ma_message="Το αρχείο με όνομα". $_FILES["fileToUpload"]["name"] . " υπάρχει ήδη. ";
-				$upload=-1;
-			}
-			else
-			{
-				move_uploaded_file($_FILES["fileToUpload"]["tmp_name"],
-						ABSPATH."wp-content/files/bios/" . $_FILES["fileToUpload"]["name"]);
-			}
-		}
-		//Collect the data
-		$participation = array(
-				'events_id'	=> $events_id,
-				'name'	=> $name,
-				'surname'	=> $surname,
-				'email'		=> $email,	
-				'ma_position'=>$ma_position,			
-				'ma_institute'=>$ma_institute,			
-				'ma_phone'=>$ma_phone,
-				'ma_bio'=>$ma_bio,			
-		);
-		$format= array('%s','%s','%s', '%d','%s' );
-		// Καταχωρούμε τη συμμετοχή 
-		if($upload!=-1){
-			$wpdb->insert( 'ma_events_participants', $participation );
-			$wpdb->show_errors();
-			$id = $wpdb->insert_id;
-		}
-		if($id && $upload!=-1){
+			$name = sanitize_text_field($_POST['namez']);
+			$surname = sanitize_text_field($_POST['surnamez']);
+			$email = sanitize_text_field($_POST['emailz']);
+			$events_id = intval($_POST['events_id']);
+			$ma_position = sanitize_text_field($_POST['ma_position']);
+			$ma_institute = sanitize_text_field($_POST['ma_institute']);
+			$ma_phone = sanitize_text_field($_POST['ma_phone']);
 			
-			$ma_message = '<p class="message">H καταχώριση σας ήταν επιτυχής.</p>';
-			$success = true;
+			// Check if mail exists
+			$query = "SELECT count(*) FROM ma_events_participants where events_id=$events_id and email like '$email%'";
+			$user_email_already = $wpdb->get_var( $query );
+
+			if($user_email_already != 0){
+				$ma_message .= '<p class="error">Παρουσιάστηκε πρόβλημα και η καταχώριση. Το δηλωθέν email έχει ήδη καταχωρηθεί.</p>';
+			} else {
 			
-			// Αποστολή email στον διαχειριστή/υπεύθυνο
-			$email_message = 'Νέα συμμετοχή με όνομα: '.$name;
-			$unit_id = get_post_meta($events_id, '_ma_ellak_belongs_to_unit', true);
-			if($unit_id != 0 ){
-				$mail_message = 'Νέα συμμετοχή στην Εκδήλωση - Σεμινάριο,\r\n\r\n';
-				$mail_message .= 'Αφορά την εκδήλωση '.get_the_title($events_id).' ('.get_permalink($events_id).').\r\n\r\n';
-				$mail_message .= 'Επεξεργαστείτε την συμμετοχή '.get_permalink(get_option_tree('ma_ellak_update_event'))."?id=".$events_id.' \r\n\r\n';
-				$mail_message .= 'Διαχείριση Δικτυακής Πύλης Μονάδων Αριστείας ΕΛ/ΛΑΚ \r\n\r\n';
-				
-				$admin_users = get_users(array('meta_key' => '_ma_ellak_admin_unit', 'meta_value' =>$unit_id ));
-				foreach ($admin_users as $user) {
-					wp_mail( $user->user_email, 'Μονάδες Αριστείας ΕΛ/ΛΑΚ - Νέα συμμετοχή στην Εκδήλωση - Σεμινάριο', $mail_message );
+				if(isset($_FILES["fileToUpload"]["name"])){
+				$ma_bio = sanitize_text_field($_FILES["fileToUpload"]["name"]);
+					if (file_exists(ABSPATH."wp-content/files/bios/" . $_FILES["fileToUpload"]["name"]))
+					{
+						$ma_message="Το αρχείο με όνομα ". $_FILES["fileToUpload"]["name"] . " υπάρχει ήδη. ";
+						$upload=-1;
+					}
+					else
+					{
+						move_uploaded_file($_FILES["fileToUpload"]["tmp_name"],
+								ABSPATH."wp-content/files/bios/" . $_FILES["fileToUpload"]["name"]);
+					}
+				}
+				//Collect the data
+				$participation = array(
+						'events_id'	=> $events_id,
+						'name'	=> $name,
+						'surname'	=> $surname,
+						'email'		=> $email,	
+						'ma_position'=>$ma_position,			
+						'ma_institute'=>$ma_institute,			
+						'ma_phone'=>$ma_phone,
+						'ma_bio'=>$ma_bio,			
+				);
+				$format= array('%s','%s','%s', '%d','%s' );
+				// Καταχωρούμε τη συμμετοχή 
+				if($upload!=-1){
+					$wpdb->insert( 'ma_events_participants', $participation );
+					$wpdb->show_errors();
+					$id = $wpdb->insert_id;
+				}
+				if($id && $upload!=-1){
+					
+					$ma_message = '<p class="message">H καταχώριση σας ήταν επιτυχής.</p>';
+					$success = true;
+					
+					// Αποστολή email στον διαχειριστή/υπεύθυνο
+					$email_message = 'Νέα συμμετοχή με όνομα: '.$name;
+					$unit_id = get_post_meta($events_id, '_ma_ellak_belongs_to_unit', true);
+					if($unit_id != 0 ){
+						$mail_message = 'Νέα συμμετοχή στην Εκδήλωση - Σεμινάριο,\r\n\r\n';
+						$mail_message .= 'Αφορά την εκδήλωση '.get_the_title($events_id).' ('.get_permalink($events_id).').\r\n\r\n';
+						$mail_message .= 'Επεξεργαστείτε την συμμετοχή '.get_permalink(get_option_tree('ma_ellak_update_event'))."?id=".$events_id.' \r\n\r\n';
+						$mail_message .= 'Διαχείριση Δικτυακής Πύλης Μονάδων Αριστείας ΕΛ/ΛΑΚ \r\n\r\n';
+						
+						$admin_users = get_users(array('meta_key' => '_ma_ellak_admin_unit', 'meta_value' =>$unit_id ));
+						foreach ($admin_users as $user) {
+							wp_mail( $user->user_email, 'Μονάδες Αριστείας ΕΛ/ΛΑΚ - Νέα συμμετοχή στην Εκδήλωση - Σεμινάριο', $mail_message );
+						}
+					}
+					// wp_mail( 'email@ma.ellak.gr', '[Λογισμικό] Νέα καταχώριση', $email_message);
+				} else {
+					$ma_message .= '<p class="error">Παρουσιάστηκε πρόβλημα και η καταχώριση. Δεν ήταν επιτυχής.</p>';
 				}
 			}
-			// wp_mail( 'email@ma.ellak.gr', '[Λογισμικό] Νέα καταχώριση', $email_message);
-		} else {
-			$ma_message .= '<p class="error">Παρουσιάστηκε πρόβλημα και η καταχώριση. Δεν ήταν επιτυχής.</p>';
-		}
 		}else 
 			$ma_message = '<p class="error">Παρουσιάστηκε πρόβλημα και η καταχώριση. Δεν ήταν επιτυχής.Πρέπει να συμπληρώσετε το captcha</p>';
 			

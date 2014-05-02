@@ -241,7 +241,7 @@
               <div id="tab-4" class="tab-pane<?php if($is_manage_page ) echo ' active '; ?>">
 				  <div class="item-list-tabs no-ajax" id="subnav" role="navigation">
 					<ul>
-						<li<?php if(isset($_GET['members'])) echo ' class="current"'; ?>><a href="<?php the_permalink(); ?>?members"><?php _e('Αιτήσες Μελών', 'ma-ellak'); ?></a></li>
+						<li<?php if(isset($_GET['members'])) echo ' class="current"'; ?>><a href="<?php the_permalink(); ?>?members"><?php _e('Αιτήσεις Μελών', 'ma-ellak'); ?></a></li>
 						<li<?php if(isset($_GET['content'])) echo ' class="current"'; ?>><a href="<?php the_permalink(); ?>?content"><?php _e('Καταχωρίσεις προς Δημοσίευση', 'ma-ellak'); ?></a></li>
 					</ul>
 				</div>
