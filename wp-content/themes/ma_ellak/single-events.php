@@ -126,7 +126,7 @@
   	<div class="container">
   		<div class="row-fluid">
   			<ul class="nav nav-tabs span10 offset2">
-  				<?php if($meta['_ma_event_live'][0]==on){?>
+  				<?php if($meta['_ma_event_live'][0]=='on'){?>
   				<li class="active">
   					<a href="#tab-0" data-toggle="tab"><?php echo  __('LIVE STREAMING','ma-ellak');?></a>
   				</li>
@@ -134,9 +134,10 @@
   				
   				<?php }else{?>
   				<li class="active">
+				<?php }?>
   					<a href="#tab-1" data-toggle="tab"><?php echo  __('ΠΕΡΙΓΡΑΦΗ','ma-ellak');?></a>
   				</li>
-  				<?php }?>
+  				
 				
   				<?php if(strlen($program)>6){?>
   					<li><a href="#tab-2"><?php echo __('ΠΡΟΓΡΑΜΜΑ','ma-ellak')?></a></li>
@@ -154,7 +155,7 @@
         <div class="container">
           <div class="row-fluid">
             <div class="tab-content span8 offset1">
-            <?php if($meta['_ma_event_live'][0]==on){?>
+            <?php if($meta['_ma_event_live'][0]=='on'){ ?>
               <div id="tab-0" class="tab-pane active">
             	<p>LIVE STREAMING</p>
             	<p><?php if($currenttime> $thistime){ 
