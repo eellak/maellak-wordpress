@@ -822,8 +822,9 @@ function ma_ellak_events_list($my_query,$whichType='video'){
 				 	echo"<div id='single-home-container'>";
 				 	echo"<h4 class='magenta'>".$event['_ma_ellak_event_url_title']."</h4>";
 				 	 
-					// FOTIS for Proof of concept: USE ONLY THE XXXXXXXXXXXXXXX from the youtube.com/watch?v=XXXXXXXXXXXXX
-						echo '<iframe width="420" height="315" src="//www.youtube.com/embed/'.$event['_ma_ellak_event_url'].'?rel=0" frameborder="0" allowfullscreen></iframe>';
+						// FOTIS for Proof of concept: USE ONLY THE XXXXXXXXXXXXXXX from the youtube.com/watch?v=XXXXXXXXXXXXX
+						//echo '<iframe width="420" height="315" src="//www.youtube.com/embed/'.$event['_ma_ellak_event_url'].'?rel=0" frameborder="0" allowfullscreen></iframe>';
+						echo '<iframe scrolling="no"  name="video_frame" src="'.$event['_ma_ellak_event_url'].'/#left" width="640" height="360" frameborder="0" style="height: 360px; border: 0px none; width: 640px; margin-top: 0; margin-left: -24px; "></iframe>';
 						echo'<p class="views-and-likes"><i class="icon-eye-open"></i> '. $event['_ma_ellak_event_views'] .'</p>';
 						
 					echo '</div>';

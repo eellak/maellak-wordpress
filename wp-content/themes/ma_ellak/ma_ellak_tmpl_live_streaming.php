@@ -33,8 +33,8 @@ ma_ellak_streaming_redirect();
   $program = strlen($meta['_ma_event_title_program_desc'][0])<6?'':$meta['_ma_event_title_program_desc'][0];
   $thistime = strtotime($startd);
   $currenttime= strtotime(date(MA_DATE_FORMAT));
- 	//echo $currenttime ." Thistime=". $currenttime;
-   ?>
+  $Urls = get_post_meta($cid,'eventslive');
+  ?>
   
   <div class="row-fluid filters">
           <div class="span6">
@@ -43,13 +43,14 @@ ma_ellak_streaming_redirect();
    </div>
    <div class="row-fluid event">
 		  	<div class="cols">
-		  		<div class="span5 col">
-		  			<div class="boxed-in  livestreaming the-date">
+		  		<div class="span8 offset2 col">
+		  			<div class="">
 					  
 				    <?php 
 					// FOTIS for Proof of concept: USE ONLY THE XXXXXXXXXXXXXXX from the youtube.com/watch?v=XXXXXXXXXXXXX
-				    ma_ellak_print_streaming ($cid);
-					//echo '<iframe width="420" height="315" src="'.$meta['_ma_ellak_event_url'][0].'" frameborder="0" allowfullscreen></iframe>';
+				  //  ma_ellak_print_streaming ($cid);
+					//echo ' <iframe width="100%" height="600px"  src="'.$Urls[0][0][_ma_ellak_event_url].'" frameborder="0" allowfullscreen></iframe>';
+					echo '<iframe scrolling="no"  name="video_frame" src="'.$Urls[0][0]['_ma_ellak_event_url'].'#left" width="640" height="360" frameborder="0" style="height: 360px; border: 0px none; width: 640px; margin-top: 0; margin-left: -20px; "></iframe>';
 					?>
 					</div>
 		 		</div><!-- span4 col -->
@@ -58,11 +59,7 @@ ma_ellak_streaming_redirect();
 				  	title="<?php the_title_attribute($cid);?>" class="btn btn-large btn-link"><?php echo $postdata->post_title; ?></a>
 				  	<a href="?ical&eid=<?php echo$cid; ?>" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/images/btn_ical.png" width="24" height="15" alt="ical"/></a></h3>
 				  	  <p  class="meta purple">
-					  <?php if($event_type=='event')
-						echo  __('ΕΚΔΗΛΩΣΗ','ma-ellak'); 
-						if($event_type=='seminar')
-						echo __('ΣΕΜΙΝΑΡΙΟ','ma-ellak'); 
-						?>
+					  <?php get_event_type_label($event_type);?>
 					  <?php ma_ellak_print_unit_title($cid); ?> 
 					  <?php echo ma_ellak_print_thema($cid,'thema');?>
 					  </strong> 

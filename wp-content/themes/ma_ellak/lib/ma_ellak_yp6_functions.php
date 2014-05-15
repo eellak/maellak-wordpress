@@ -209,11 +209,10 @@ function ma_ellak_get_event_day_query($day, $month, $year){
 function ma_ellak_streaming_redirect(){
 	
 	$RedirectUrl = get_option_tree('ma_ellak_view_event_streaming');
-	if(isset($RedirectUrl) && $RedirectUrl!=''){
 	
+	if(isset($RedirectUrl) && $RedirectUrl!=''){
 		
 		if(get_post_type()=='events' && is_singular()){
-		
 			global $post;
 			$metaData = get_post_meta($post->ID);
 			$Urls = get_post_meta($post->ID,'eventslive');
@@ -224,7 +223,8 @@ function ma_ellak_streaming_redirect(){
 			
 			$today= strtotime(date('m/d/y'));
 			$isLive = $metaData['_ma_event_live'][0];
-			if($isLive=='on' && count($Urls[0])>1){
+			if($isLive=='on' && count($Urls[0])>0){
+				
 				if(!empty($end_time)){
 					if($today >= $start_time && $today<=$end_time){
 						wp_redirect(get_permalink($RedirectUrl)."?eventId=".$post->ID);
@@ -241,6 +241,7 @@ function ma_ellak_streaming_redirect(){
 		}else if (is_page_template('ma_ellak_tmpl_live_streaming.php')){
 			$eventID = sanitize_text_field($_GET['eventId']);
 			$metaData = get_post_meta($eventID);
+			$Urls = get_post_meta($eventID,'eventslive');
 			
 			$today = strtotime(date('d/m/y'));
 			//echo get_post_meta( $post->ID, '_ma_event_enddate_timestamp', true );
@@ -250,8 +251,7 @@ function ma_ellak_streaming_redirect(){
 			
 			$isLive = $metaData['_ma_event_live'][0];
 			if($isLive=='on' ){
-				//no urls please go back;
-				if(count($Urls[0])<=1) wp_redirect(get_permalink($eventID));
+				if(count($Urls[0])==0) wp_redirect(get_permalink($eventID));
 				if(!empty($end_time)){
 					if($today>$end_time){
 						wp_redirect(get_permalink($eventID));
