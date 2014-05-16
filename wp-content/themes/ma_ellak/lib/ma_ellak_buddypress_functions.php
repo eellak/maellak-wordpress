@@ -126,7 +126,7 @@ function my_groups_page_function_to_show_screen_content() {
 		setup_postdata($poster); 
 	?>
 		<li>
-			<p><a href="<?php echo get_permalink($poster->ID); ?>" class="btn btn-large btn-link"><?php echo get_the_title($poster->ID); ?></a></p>
+			<p><a href="<?php echo doc_permalink($poster->ID); ?>" class="btn btn-large btn-link"><?php echo get_the_title($poster->ID); ?></a></p>
 			<p class="meta">
 				<span><?php if($poster->post_type=='events'){
                                     $data = get_post_meta($poster->ID,'_ma_events_type', true);

@@ -524,7 +524,7 @@ add_action('wp_enqueue_scripts', 'ma_ellak_yp9_scripts', 11);
 /**hook for the permalink in case the extension is not included**/
 function formulate_permalink() {
     global $post, $typenow, $wpdr;
-
+	
 	if ($post->post_type=='document' || $typenow=='document'){
 		$permalink=get_permalink($post->ID);
 		$latest_version = $wpdr->get_latest_revision( $post->ID);
@@ -540,5 +540,25 @@ function formulate_permalink() {
 	}
 }
 add_filter('the_permalink', 'formulate_permalink');
+
+// Fix for not looped Doc items
+function doc_permalink($post_id) {
+	global $wpdr;
+    $post = get_post($post_id);
+	
+	if ($post->post_type=='document'){
+		$permalink=get_permalink($post->ID);
+		$latest_version = $wpdr->get_latest_revision( $post->ID);
+		$extension=$wpdr->get_extension( get_attached_file( $latest_version->post_content ) );
+		$perm=explode($extension, $permalink);
+		if (count($perm)==1)
+			$permalink.=$extension;
+		return $permalink;
+	}
+	else{
+		$permalink=get_permalink();
+		return $permalink;
+	}
+}
 
 ?>
