@@ -866,7 +866,7 @@ function ma_ellak_events_list_where( $where ){
 	if($pageType=='old') $compareType = '<';
 	$today=date('m/d/Y');
 	
-	$where .= " AND (mt.meta_key = '_ma_event_startdate_timestamp' AND STR_TO_DATE(mt.meta_value, '%m/%d/%Y') $compareType STR_TO_DATE('$today', '%m/%d/%Y'))";
+	$where .= " AND (mt.meta_key = '_ma_event_enddate_timestamp' AND STR_TO_DATE(mt.meta_value, '%m/%d/%Y') $compareType STR_TO_DATE('$today', '%m/%d/%Y'))";
 	
 	return $where;
 }
@@ -900,8 +900,8 @@ function ma_ellak_streaming_list_where( $where ){
 	$compareType = '>=';
 	$today=date('m/d/Y');
 
-	$where .= "AND ( ma_postmeta.meta_key = '_ma_event_startdate_timestamp' 
-	AND (mt1.meta_key = '_ma_event_startdate_timestamp' AND STR_TO_DATE(mt1.meta_value, '%m/%d/%Y') $compareType STR_TO_DATE('$today', '%m/%d/%Y')) 
+	$where .= "AND ( ma_postmeta.meta_key = '_ma_event_enddate_timestamp' 
+	AND (mt1.meta_key = '_ma_event_enddate_timestamp' AND STR_TO_DATE(mt1.meta_value, '%m/%d/%Y') $compareType STR_TO_DATE('$today', '%m/%d/%Y')) 
 	AND (mt2.meta_key = '_ma_event_live' AND CAST(mt2.meta_value AS CHAR) = 'on') )";
 	
 	return $where;
