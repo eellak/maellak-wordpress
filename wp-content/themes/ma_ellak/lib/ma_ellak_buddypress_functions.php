@@ -123,7 +123,7 @@ function my_groups_page_function_to_show_screen_content() {
 	
 	<?php 
 	foreach( $unit_posts as $poster ) {
-		setup_postdata($post); 
+		setup_postdata($poster); 
 	?>
 		<li>
 			<p><a href="<?php echo get_permalink($poster->ID); ?>" class="btn btn-large btn-link"><?php echo get_the_title($poster->ID); ?></a></p>
