@@ -86,17 +86,10 @@ ma_ellak_streaming_redirect();
   	<div class="container">
   		<div class="row-fluid">
   			<ul class="nav nav-tabs span10 offset2">
-  				<?php if($meta['_ma_event_live'][0]==on){?>
-  				<li class="active">
-  					<a href="#tab-0" data-toggle="tab"><?php echo  __('LIVE STREAMING','ma-ellak');?></a>
-  				</li>
-  				<li>
-  				
-  				<?php }else{?>
+
   				<li class="active">
   					<a href="#tab-1" data-toggle="tab"><?php echo  __('ΠΕΡΙΓΡΑΦΗ','ma-ellak');?></a>
   				</li>
-  				<?php }?>
   				<?php if(strlen($program)>6){?>
   					<li><a href="#tab-2"><?php echo __('ΠΡΟΓΡΑΜΜΑ','ma-ellak')?></a></li>
   				<?php }?>
@@ -107,36 +100,28 @@ ma_ellak_streaming_redirect();
   <div class="back-gray">
         <div class="container">
           <div class="row-fluid">
-            <div class="tab-content span8 offset1">
-            <?php if($meta['_ma_event_live'][0]==on){?>
-              <div id="tab-0" class="tab-pane active">
-            	<p>LIVE STREAMING</p>
-            	<p><?php if($currenttime> $thistime) echo __('Η ζωντανή μετάδοση έχει ολοκληρωθεί','ma-ellak');
-            	else if($currenttime < $thistime) 
-            	{
-            		echo __('Η ζωντανή μετάδοση θα πραγματοποιηθεί στις ','ma-ellak') .$startd;
-            		if($meta['_ma_event_startdate_time'][0]) 
-            			echo " - ". $meta['_ma_event_startdate_time'][0];
-            	}else{
-            		//ma_ellak_print_streaming($cid);
-            	}
-            	?>
-            	</p>
-            	<p>&nbsp;</p>
-           		</div>
-           	  <div id="tab-1" class="tab-pane">
-            <?php }else{?>
+           <div class="tab-content span8 offset1">
               <div id="tab-1" class="tab-pane active">
-            <?php }?>	
               	<?php 
-              	echo  apply_filters('the_content', get_post($post->ID)->post_content);
+              	echo  apply_filters('the_content', $postdata->post_content);
               	 
               	?>
               </div>
               
               <?php if(strlen($program)>6){?>
               <div id="tab-2" class="tab-pane">
-              	<?php include('ma_ellak_events_tmpl_program.php');?>
+
+				  <?php 
+					echo  apply_filters('the_content', 'hello');
+					
+					if($meta['_ma_event_program_pdf'][0]){
+						echo  "<a href='".$meta['_ma_event_program_pdf'][0]."'>";
+						echo  __('Κατεβάστε το αρχείο','ma-ellak');
+						echo"</a>";
+					}
+		
+				  ?>
+
               </div>
               <?php }?>
              </div>
