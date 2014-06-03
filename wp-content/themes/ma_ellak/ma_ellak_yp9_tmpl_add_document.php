@@ -27,7 +27,14 @@ Template Name: Document - Add
 		$tax1=$tax2=$state=array();
 		if (!isset($_POST['parent'])){
 			if (isset($_POST['tag-select']))
-				$tax1=array('post_tag' => implode(',', $_POST['tag-select']));
+				$tag_list=implode(',', $_POST['tag-select']);
+			
+			if(isset($_POST['selftags'])){
+				$tag_list .= ','.sanitize_text_field($_POST['selftags']);
+			}
+			
+			$tax1=array('post_tag' => $tag_list);
+			
 			if (isset($_POST['thema-select']))
 				$tax2=array('thema' => implode(',', $_POST['thema-select']));
 			$state=array('workflow_state' => 'Under Review');
@@ -180,6 +187,8 @@ Template Name: Document - Add
 						$tagz = get_taxonomy('post_tag'); 
 						echo ma_ellak_add_term_chosebox( $tagz, 'tag-select'); 
 					?>
+					<a href="#" id="addnewtags" style="font-size:90%; font-style:italics;"><?php _e('Προσθέστε δικές σας Ετικέτες αν δεν εντοπίστηκαν παραπάνω.', 'ma-ellak'); ?></a>
+						<input type="text" name="selftags" style="display:none;" id="selftags" class="form-control input-block-level" value="<?php if(isset($_POST['selftags'])) echo $_POST['selftags'];?>" placeholder="<?php _e('Χωρίστε με κόμα (,) τις νέες ετικέτες', 'ma-ellak'); ?>" />
 				</div>
 				
 				<input type="hidden" id="revision" name="revision" value="0" />

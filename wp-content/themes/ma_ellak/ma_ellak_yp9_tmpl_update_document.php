@@ -35,11 +35,18 @@ Template Name: Document - Update
 			$pub_status='private';
 			if(isset($_POST['_ma_document_status'])) $pub_status = 'publish';
 
-			// Ορίζουμε τις κατηγορίες/ταξονομίες
-			$tax1=$tax2=$state=array();
-			if (!isset($_POST['parent'])){
-				if (isset($_POST['tag-select']))
-					$tax1=array('post_tag' => implode(',', $_POST['tag-select']));
+				// Ορίζουμε τις κατηγορίες/ταξονομίες
+				$tax1=$tax2=$state=array();
+				if (!isset($_POST['parent'])){
+					if (isset($_POST['tag-select']))
+					$tag_list=implode(',', $_POST['tag-select']);
+				
+				if(isset($_POST['selftags'])){
+					$tag_list .= ','.sanitize_text_field($_POST['selftags']);
+				}
+				
+				$tax1=array('post_tag' => $tag_list);
+			
 				if (isset($_POST['thema-select']))
 					$tax2=array('thema' => implode(',', $_POST['thema-select']));
 				if ($pub_status=='publish')
@@ -74,7 +81,7 @@ Template Name: Document - Update
 					$ma_message .='Μπορείτε να γυρίσετε στην σελίδα που ήσασταν πατώντας <a href='.$_POST['pagerefferer'].'>εδώ</a>';
 					$success = true;
 					
-					// Ενημέρωσε τους Διαχειριστές της ΜΑ -----------------------------------
+					/* Ενημέρωσε τους Διαχειριστές της ΜΑ -----------------------------------
 					$unit_id = get_post_meta($doc_id, '_ma_ellak_belongs_to_unit', true);
 					if($unit_id != 0){
 						$mail_message = 'Καταχωρήθηκε Νέο Αρχείο - Επεξεργασία,\r\n\r\n';
@@ -87,6 +94,7 @@ Template Name: Document - Update
 							//echo $user->user_email.' => '.$mail_message;
 						}
 					}
+					*/
 				}
 			}else{
 				$doc_id = wp_update_post($document);
@@ -217,6 +225,8 @@ Template Name: Document - Update
 						$tagz = get_taxonomy('post_tag');
 						echo ma_ellak_add_term_chosebox( $tagz, 'tag-select',false,$arrayTermsTags);
 					?>
+					<a href="#" id="addnewtags" style="font-size:90%; font-style:italics;"><?php _e('Προσθέστε νέες Ετικέτες αν δεν εντοπίζονται παραπάνω.', 'ma-ellak'); ?></a>
+						<input type="text" name="selftags" style="display:none;" id="selftags" class="form-control input-block-level" value="<?php if(isset($_POST[$field['selftags']])) echo $_POST[$field['selftags']];?>" placeholder="<?php _e('Χωρίστε με κόμα (,) τις νέες ετικέτες', 'ma-ellak'); ?>" />
 				</div>
 				<div class="control-group">
 						<div class="controls">

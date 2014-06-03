@@ -82,5 +82,11 @@
 			setTimeout("jQuery('.spinner').css('display', 'none');", 500);
 			setTimeout("jQuery('#publish').removeClass('button-primary-disabled');", 500);
 		};
+		
+		$('#addnewtags').click(function( event){
+			 event.preventDefault();
+			$('#selftags').slideToggle();
+		});
+		
 	} );
 })(jQuery)
