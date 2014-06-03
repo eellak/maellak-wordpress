@@ -47,7 +47,10 @@ if(isset($_POST['ma_ellak_test_mail'])) {
 		<p  class="alert alert-info"><?php echo $message; ?></p>
 		<p  class="alert error-info"><?php print_r($_POST); ?></p>
 	<?php }?>
-  
+	<?php
+		//$video_url = parse_url('https://www.youtube.com/watch?v=fbnaLgCU_7s');
+		//print_r($video_url);
+	?>
 		<form action="<?php echo get_permalink(); ?>" method="post" id="ma_ellak_test_mail_form" enctype="multipart/form-data" class="form-horizontal span12">
 			<fieldset class="form-vertical span8 offset2">
 				

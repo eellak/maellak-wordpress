@@ -26,8 +26,8 @@
 	       title="<?php the_title();?>" class="btn btn-large btn-link"><?php the_title(); ?></a></h3>
 	       <p  class="meta purple">
 	     
-	       <?php echo ma_ellak_print_unit_title($cid);?>  
-		       <?php echo ma_ellak_print_thema($cid,'thema');?>
+	       <?php echo ma_ellak_print_unit_title(get_the_ID());?>  
+		       <?php echo ma_ellak_print_thema(get_the_ID(),'thema');?>
 </p>
 	       <?php  the_excerpt_max_charlength(240);?>
 	       
@@ -43,6 +43,12 @@
 	  endwhile; else: ?>
   		<p> <?php _e('Δεν υπάρχει περιεχόμενο','ma-ellak');?></p>
   		 <?php endif; ?>
+		<?php 
+		global $wp_query;
+	if( $wp_query->max_num_pages>1){
+		pagination(false, false, $wp_query);
+	}
+			?>
   </div><!-- span8 -->
   	<div class="span4 sidebar">
   		<?php get_sidebar()?>
