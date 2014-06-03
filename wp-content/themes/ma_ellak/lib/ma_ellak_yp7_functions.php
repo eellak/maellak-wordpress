@@ -269,9 +269,10 @@ function ma_ellak_video_save_details( $post_id ){
 	else
 		delete_post_meta( $post_id, $prefix.'video_date' );
 
-	if ( isset( $_POST['_ma_video_url'] ) )
-		update_post_meta( $post_id, $prefix.'video_url',  $_POST['_ma_video_url'] );
-	else
+	if ( isset( $_POST['_ma_video_url'] ) ){ 
+		$video = str_replace('https:', 'http:',  $_POST['_ma_video_url'] );
+		update_post_meta( $post_id, $prefix.'video_url',  $video);
+	} else
 		delete_post_meta( $post_id, $prefix.'video_url' );
 
 	if (isset($_POST['_ma_video_know']))
