@@ -1,57 +1,60 @@
 <?php
 
-get_header(); 
+  /**
+  *@desc A single blog post See page.php is for a page layout.
+  */
 
-$cur_user = wp_get_current_user();	
+  get_header();
+  
+  
+  ?>
+  <div class="row-fluid">
+  <div class="span8">
+  
+  
 
-$shown_content_types = array('events', 'video', 'software', 'document', 'bp_doc', 'characteristic', 'job');
-
-$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-
-$arguments = array(
-	'posts_per_page' => -1,
-	'post_status' => 'publish',
-	'post_type' =>  $shown_content_types,
-	'paged'=>$paged,
-);
-$user_posts = get_posts($arguments); 
-
-foreach( $user_posts as $post ) { 
-	setup_postdata($post); 
-?>
-
-	<div class="row-fluid event">
-		<div class="cols">
-			<div class="span10 offset2 col">
-				<p><a href="<?php the_permalink(); ?>" class="btn btn-large btn-link"><?php the_title(); ?></a> <?php echo ma_ellak_single_edit_permalink($post); ?></p>
-				<p class="meta"><span>
-				<?php if($post->post_type=='events'){
-                            $data = get_post_meta($post->ID,'_ma_events_type', true);
-                                
-                                    echo get_posttype_label($post->post_type,$data);
-                                    
-                            }else 
-                                echo get_posttype_label($post->post_type);
-                            echo " ";?>
-				
-				<?php echo ma_ellak_print_thema($post->ID,'thema');?></span> <span><?php the_date(); ?></span></p>
-			</div>
-		</div>
-	</div>
+  <?php 
+  if (have_posts()) : while (have_posts()) : the_post();
 	
-<?php	
-}
-wp_reset_query();
+  ?>
 
-if(count($user_posts)<1){ ?>
-	<div class="row-fluid event">
-		<div class="cols">
-			<div class="span10 offset2 col">
-				<p><?php _e('Δεν εντοπίστηκε περιεχόμενο.','ma-ellak'); ?></p>
-			</div>
+		<div class="row-fluid event">
+	     <div class="cols">
+	     
+	     <div class="span12 text col">
+	       <h3><a href="<?php the_permalink() ?>" rel="bookmark" 
+	       title="<?php the_title();?>" class="btn btn-large btn-link"><?php the_title(); ?></a></h3>
+	       <p  class="meta purple">
+	     
+	       <?php echo ma_ellak_print_unit_title($cid);?>  
+		       <?php echo ma_ellak_print_thema($cid,'thema');?>
+</p>
+	       <?php  the_excerpt_max_charlength(240);?>
+	       
+	    </div><!-- span8 text col -->
+	     </div><!-- cols -->
+	   </div><!-- row-fluid event -->
+	    <div class="row-fluid">
+ 			<p><?php //edit_post_link(__('Edit'), ''); ?></p>
+ 			
 		</div>
-	</div>
+	
+	<?php
+	  endwhile; else: ?>
+  		<p> <?php _e('Δεν υπάρχει περιεχόμενο','ma-ellak');?></p>
+  		 <?php endif; ?>
+  </div><!-- span8 -->
+  	<div class="span4 sidebar">
+  		<?php get_sidebar()?>
+		<br/><br/>
+  		</div><!-- span4 end -->
+ </div><!-- row-fluid -->
+ <?php 
+ next_posts_link(); 
+ previous_posts_link();
+ ?>
 <?php
-}
-get_footer(); 
+
+  get_footer();
+
 ?>

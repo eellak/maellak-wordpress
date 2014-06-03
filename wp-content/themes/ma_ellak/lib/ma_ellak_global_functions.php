@@ -1016,5 +1016,21 @@ function my_custom_link_query( $query ){
 
 add_filter( 'wp_link_query_args', 'my_custom_link_query' );
 
+// Προσθέτει τα Custom Post Types στη σελίδα των Tags
+function query_post_type($query) {
+	global  $ma_ellak_content_types; 
+	$temp_types = $ma_ellak_content_types;
+	$temp_types[] = 'post';
+	if ( is_category() || is_tag() && empty( $query->query_vars['suppress_filters'] ) ) {
+		$post_type = get_query_var('post_type');
+		if($post_type)
+			$post_type = $post_type;
+		else
+			$post_type = $temp_types; // replace cpt to your custom post type
+		$query->set('post_type',$post_type);
+		return $query;
+    }
+}
+add_filter('pre_get_posts', 'query_post_type');
 
 ?>
