@@ -6,14 +6,8 @@ do_action( 'bp_before_group_header' );
 <div id="item-header" role="complementary">
 	<div class="row-fluid">
 	  <div class="cols">
-		<div class="span4 col side-left">
-			<p><?php bp_group_avatar('type=full&width=300&height=300'); ?></p>
-				
-				<p>
-					<?php _e( 'Μονάδες Αριστείας ', 'ma-ellak' ); ?>
-					<?php ma_ellak_get_unit_per_thema_by_bp( bp_get_group_id()); ?>
-					
-				</p>
+		<div class="span3 col side-left">
+			<p><?php bp_group_avatar('type=full&width=200&height=200'); ?></p>
 				
 				<?php 
 					/*
@@ -37,10 +31,14 @@ do_action( 'bp_before_group_header' );
 					endif; */ ?>
 
 		</div>
-		<div class="span8 col side-right">
+		<div class="span9 col side-right">
 		  <h2><?php bp_group_name(); ?></h2>
 		   <p><span class="activity"><?php printf( __( 'active %s', 'buddypress' ), bp_get_group_last_active() ); ?></span></p>
-		 <?php bp_group_description(); ?>
+		 <?php //bp_group_description(); ?>
+		 <p>
+			<?php _e( 'Μονάδες Αριστείας ', 'ma-ellak' ); ?>
+			<?php ma_ellak_get_unit_per_thema_by_bp( bp_get_group_id()); ?>
+		</p>
 		 <?php do_action( 'bp_before_group_header_meta' ); ?>
 		 <?php do_action( 'bp_group_header_actions' ); ?>
 		 <?php do_action( 'bp_group_header_meta' ); ?>

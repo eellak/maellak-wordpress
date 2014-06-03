@@ -556,7 +556,7 @@ function doc_permalink($post_id) {
 		return $permalink;
 	}
 	else{
-		$permalink=get_permalink();
+		$permalink=get_permalink($post_id);
 		return $permalink;
 	}
 }

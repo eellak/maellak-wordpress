@@ -56,7 +56,127 @@
   <!-- main starts -->
    <div id="main" class="main">
       <div class="container">
+               
         <div class="row-fluid">
+          <div class="cols clearfix">
+            <div class="span4 featurette col stats">
+              <h2><?php _e('Το έργο έως τώρα','ma-ellak');?></h2>
+              <?php $data =  ma_ellak_get_number_of_custom_types();?>
+              <ul class="unstyled">
+              <?php 
+              
+              	for($i=0;$i<count($data);$i++){
+              		echo"<li>";
+              		echo"<span class=\"count rounded\">". $data[$i]['num']."</span>";
+              		echo"<a href=".$data[$i]['url'].">".$data[$i]['title']."</a>";
+              		echo"</li>";
+              	}
+              	
+              ?>
+                
+                <li class="text-right"><img src="<?php echo get_template_directory_uri();?>/images/logo_slim_inverted.png" alt="<?php _e('TΟ ΕΡΓΟ ΣΕ ΑΡΙΘΜΟΥΣ','ma-ellak');?>" /></li>
+              </ul>
+            </div><!-- span4 feauturette stats -->
+            <div class="span4 featurette col events">
+              <h2><?php  _e('Εκδηλώσεις','ma-ellak'); ?></h2>
+             <div class="datepicker" id="home_calendar">
+			   <?php ma_ellak_get_calendar(); ?>			
+				</div>
+		
+				<?php 
+				$EventsListId = get_option_tree('ma_ellak_list_event_option_id');
+				$EventsUrl=get_permalink($EventsListId) ;
+				?>
+              <a href="<?php echo $EventsUrl;?>" class="btn btn-tiny btn-inverse btn-more">
+				  <?php _e('ΔΕΙΤΕ ΑΝΑΛΥΤΙΚΑ ΟΛΕΣ ΤΙΣ ΕΚΔΗΛΩΣΕΙΣ','ma-ellak');  
+				  //echo " ( ".wp_count_posts( 'events' )->publish  ." . __('εκδηλώσεις','ma-ellak' ).' )'; 
+				  ?> </a>
+            </div><!-- span4 feauturette events -->
+			<div class="span4 featurette col users inverse">
+              <h2><?php _e('Νέα μέλη','ma-ellak');?></h2>
+              <ul class="unstyled mmusers">
+			  <?php if ( bp_has_members(  array('type'=> 'newest', 'per_page' => 4, 'max'=> 4 ) )  ) :  while ( bp_members() ) : bp_the_member(); ?>
+				<li>
+				  <?php 
+					$author_meta = get_userdata(bp_get_member_user_id());
+					$registration_date = date(MA_DATE_FORMAT, strtotime($author_meta->user_registered));
+				?>	
+					<p class="thumb pull-left"><?php bp_member_avatar(); /* <img src="<?php echo get_template_directory_uri();?>/images/avatar-default.png" alt=""> */ ?></p> 
+					<p class="heading"><a href="<?php bp_member_permalink(); ?>"><?php bp_member_name(); ?></a></p>
+					<p class="meta"><span><strong><?php _e('ΕΓΓΡΑΦΗΚΕ','ma-ellak');?></strong></span> <span><?php echo $registration_date ;  ?></span></p>
+                </li>
+                <?php endwhile;  else:  endif; ?>   
+                </ul>
+                <a href="<?php echo $bp->root_domain . '/members/'; ?>" class="btn btn-tiny btn-inverse btn-more">
+					<?php _e('ΔΕΙΤΕ ΟΛΑ ΤΑ ΜΕΛΗ','ma-ellak'); ?> (<?php echo bp_core_get_active_member_count(); ?>)
+				</a>
+            </div><!-- span4 featurette users -->
+           
+          </div><!-- cols -->
+        </div><!-- row-fluid -->
+        <!-- 2h grammh  -->
+        <div class="row-fluid">
+          <div class="cols clearfix padded">
+            <div class="span4 featurette col">
+              <h2><?php _e('Video on demand','ma-ellak');?></h2>
+            		<?php 
+						ma_ellak_video_get_list_widget(5); 
+						$VideoId = get_option_tree('ma_ellak_list_video_option_id');
+            		?>
+              <a href="<?php echo get_permalink($VideoId);?>" class="btn btn-tiny btn-inverse btn-more"><?php _e('ΔΕΙΤΕ ΟΛΟ ΤΟ VIDEO GALLERY','ma-ellak');  echo " ( ".wp_count_posts( 'video' )->publish ." "; _e('Video','ma-ellak' );?> ) </a>
+            </div><!-- featurette -->
+            <div class="span4 featurette col news">
+              <h2><?php _e('Μέρα με τη μέρα','ma-ellak' ); ?></h2>
+              
+              <?php
+						global  $ma_ellak_content_types; 
+						echo"<ul class='unstyled'>";
+              			$arguments = array(
+							'posts_per_page' => 4,
+							'post_type' => $ma_ellak_content_types,
+						);
+						$unit_posts = get_posts($arguments); 
+						foreach( $unit_posts as $post ) {
+							setup_postdata($post);
+						?>
+						  <li>
+							<p class='heading'><a href="<?php the_permalink(); ?>" class="btn btn-large btn-link"><?php the_title(); ?></a></p>
+							<p class="meta"><span>
+							<?php  if($post->post_type=='events'){
+                                    $data = get_post_meta($post->ID,'_ma_events_type', true);
+                                    echo get_posttype_label($post->post_type,$data);
+                                    
+                            }else 
+                                echo get_posttype_label($post->post_type); ?>
+							<?php echo ma_ellak_print_thema($cid,'thema');?></span> 
+							<span><?php echo ma_ellak_print_unit_title($post->ID);?></span>
+							<span>
+							<?php if($post->post_type=='events')
+									echo date(MA_DATE_FORMAT,strtotime(get_post_meta( $post->ID, '_ma_event_startdate_timestamp', true )));
+								else
+									the_date();
+								?>	
+							</span>
+							</p>
+						  </li>
+				<?php	}
+						wp_reset_query();
+					?>
+             	</ul>
+				<?php if(get_option_tree('ma_ellak_all_news')!=''){?>
+					<a href="<?php echo get_permalink(get_option_tree('ma_ellak_all_news')); ?>" class="btn btn-tiny btn-inverse btn-more">
+						<?php _e('ΔΕΙΤΕ ΤΑ ΤΕΛΕΥΤΑΙΑ ΝΕΑ ','ma-ellak'); ?> 
+					</a>
+				<?php } ?>
+           </div><!-- featurette -->
+             <div class="span4 featurette col newsletter inverse">
+				<h2><?php _e('Newsletter','ma-ellak');?></h2>
+				<?php if (function_exists('wpoi_opt_in')) { wpoi_show_form(); } ?>
+            </div><!-- newsletter -->
+          </div><!-- cols -->
+        </div><!-- row-fluid -->
+		
+		<div class="row-fluid">
           <div class="span6 text-right">
             <div class="accordion" id="accordion1">
               <div class="accordion-group">
@@ -95,121 +215,7 @@
             </div><!-- accordion -->
           </div><!-- spa6 -->
         </div><!-- row-fludi -->
-        
-        <div class="row-fluid">
-          <div class="cols clearfix">
-            <div class="span4 featurette col stats">
-              <h2><?php _e('Το έργο έως τώρα','ma-ellak');?></h2>
-              <?php $data =  ma_ellak_get_number_of_custom_types();?>
-              <ul class="unstyled">
-              <?php 
-              
-              	for($i=0;$i<count($data);$i++){
-              		echo"<li>";
-              		echo"<span class=\"count rounded\">". $data[$i]['num']."</span>";
-              		echo"<a href=".$data[$i]['url'].">".$data[$i]['title']."</a>";
-              		echo"</li>";
-              	}
-              	
-              ?>
-                
-                <li class="text-right"><img src="<?php echo get_template_directory_uri();?>/images/logo_slim_inverted.png" alt="<?php _e('TΟ ΕΡΓΟ ΣΕ ΑΡΙΘΜΟΥΣ','ma-ellak');?>" /></li>
-              </ul>
-            </div><!-- span4 feauturette stats -->
-            <div class="span4 featurette col events">
-              <h2><?php  _e('Εκδηλώσεις','ma-ellak'); ?></h2>
-             <div class="datepicker" id="home_calendar">
-			   <?php ma_ellak_get_calendar(); ?>			
-				</div>
 		
-				<?php 
-				$EventsListId = get_option_tree('ma_ellak_list_event_option_id');
-				$EventsUrl=get_permalink($EventsListId) ;
-				?>
-              <a href="<?php echo $EventsUrl;?>" class="btn btn-tiny btn-inverse btn-more">
-				  <?php _e('ΔΕΙΤΕ ΑΝΑΛΥΤΙΚΑ ΟΛΕΣ ΤΙΣ ΕΚΔΗΛΩΣΕΙΣ','ma-ellak');  
-				  //echo " ( ".wp_count_posts( 'events' )->publish  ." . __('εκδηλώσεις','ma-ellak' ).' )'; 
-				  ?> </a>
-            </div><!-- span4 feauturette events -->
-            <div class="span4 featurette col newsletter">
-				<h2><?php _e('Newsletter','ma-ellak');?></h2>
-				<?php if (function_exists('wpoi_opt_in')) { wpoi_show_form(); } ?>
-            </div><!-- newsletter -->
-          </div><!-- cols -->
-        </div><!-- row-fluid -->
-        <!-- 2h grammh  -->
-        <div class="row-fluid">
-          <div class="cols clearfix padded">
-            <div class="span4 featurette col">
-              <h2><?php _e('Video on demand','ma-ellak');?></h2>
-            		<?php 
-						ma_ellak_video_get_list_widget(5); 
-						$VideoId = get_option_tree('ma_ellak_list_video_option_id');
-            		?>
-              <a href="<?php echo get_permalink($VideoId);?>" class="btn btn-tiny btn-inverse btn-more"><?php _e('ΔΕΙΤΕ ΟΛΟ ΤΟ VIDEO GALLERY','ma-ellak');  echo " ( ".wp_count_posts( 'video' )->publish ." "; _e('Video','ma-ellak' );?> ) </a>
-            </div><!-- featurette -->
-            <div class="span4 featurette col news">
-              <h2><?php _e('Μέρα με τη μέρα','ma-ellak' ); ?></h2>
-              
-              <?php
-						global  $ma_ellak_content_types; 
-						echo"<ul class='unstyled'>";
-              			$arguments = array(
-							'posts_per_page' => 5,
-							'post_type' => $ma_ellak_content_types,
-						);
-						$unit_posts = get_posts($arguments); 
-						foreach( $unit_posts as $post ) {
-							setup_postdata($post);
-						?>
-						  <li>
-							<p class='heading'><a href="<?php the_permalink(); ?>" class="btn btn-large btn-link"><?php the_title(); ?></a></p>
-							<p class="meta"><span>
-							<?php  if($post->post_type=='events'){
-                                    $data = get_post_meta($post->ID,'_ma_events_type', true);
-                                    echo get_posttype_label($post->post_type,$data);
-                                    
-                            }else 
-                                echo get_posttype_label($post->post_type); ?>
-							<?php echo ma_ellak_print_thema($cid,'thema');?></span> 
-							<span><?php echo ma_ellak_print_unit_title($post->ID);?></span>
-							<span>
-							<?php if($post->post_type=='events')
-									echo date(MA_DATE_FORMAT,strtotime(get_post_meta( $post->ID, '_ma_event_startdate_timestamp', true )));
-								else
-									the_date();
-								?>	
-							</span>
-							</p>
-						  </li>
-				<?php	}
-						wp_reset_query();
-					?>
-             	</ul>
-        
-              <a href="#news" class="btn btn-tiny btn-inverse btn-more"><?php _e('ΔΕΙΤΕ ΤΑ ΤΕΛΕΥΤΑΙΑ ΝΕΑ ','ma-ellak'); ?> </a>
-           </div><!-- featurette -->
-            <div class="span4 featurette col users inverse">
-              <h2><?php _e('Νέοι χρήστες','ma-ellak');?></h2>
-              <ul class="unstyled mmusers">
-			  <?php if ( bp_has_members(  array('type'=> 'newest', 'per_page' => 5, 'max'=> 5 ) )  ) :  while ( bp_members() ) : bp_the_member(); ?>
-				<li>
-				  <?php 
-					$author_meta = get_userdata(bp_get_member_user_id());
-					$registration_date = date(MA_DATE_FORMAT, strtotime($author_meta->user_registered));
-				?>	
-					<p class="thumb pull-left"><?php bp_member_avatar(); /* <img src="<?php echo get_template_directory_uri();?>/images/avatar-default.png" alt=""> */ ?></p> 
-					<p class="heading"><a href="<?php bp_member_permalink(); ?>"><?php bp_member_name(); ?></a></p>
-					<p class="meta"><span><strong><?php _e('ΕΓΓΡΑΦΗΚΕ','ma-ellak');?></strong></span> <span><?php echo $registration_date ;  ?></span></p>
-                </li>
-                <?php endwhile;  else:  endif; ?>   
-                </ul>
-                <a href="<?php echo $bp->root_domain . '/members/'; ?>" class="btn btn-tiny btn-inverse btn-more">
-					<?php _e('ΔΕΙΤΕ ΟΛΑ ΤΑ ΜΕΛΗ','ma-ellak'); ?> (<?php echo bp_core_get_active_member_count(); ?> <?php _e('μέλη','ma-ellak'); ?>)
-				</a>
-            </div><!-- span4 featurette users -->
-          </div><!-- cols -->
-        </div><!-- row-fluid -->
       </div><!-- container -->
     </div><!-- main -->
 <?php

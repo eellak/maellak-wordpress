@@ -15,7 +15,7 @@
 		$myid= get_the_ID();
 		
 	    echo'<div class="snippet">';
-			echo '<div class="title"><a href="' . get_permalink($myid) . '" title="' . apply_filters('the_title', $post->post_title) . '" rel="bookmark">';
+			echo '<div class="title"><a href="' . doc_permalink($myid) . '" title="' . apply_filters('the_title', $post->post_title) . '" rel="bookmark">';
 			echo' <h3>'.apply_filters('the_title', $post->post_title).'</h3></a></div>';
 			
     			echo'<p class="meta purple"><span>';

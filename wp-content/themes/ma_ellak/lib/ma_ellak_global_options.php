@@ -559,6 +559,21 @@ function custom_theme_options() {
       		'min_max_step'=> '',
       		'class'       => ''
       ),
+	  
+	    array(
+      		'id'          => 'ma_ellak_all_news',
+      		'label'       => 'Όλα τα νέα',
+      		'desc'        => 'Σελίδα προβολής όλης της Δραστηριότητας.',
+      		'std'         => '',
+      		'type'        => 'page-select',
+      		'section'     => 'varius',
+      		'rows'        => '',
+      		'post_type'   => '',
+      		'taxonomy'    => '',
+      		'min_max_step'=> '',
+      		'class'       => ''
+      ),
+	  
 	   array(
       		'id'          => 'ma_ellak_submit_characteristic',
       		'label'       => 'Προσθήκη Γνωρίσματος',

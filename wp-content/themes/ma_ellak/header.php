@@ -256,7 +256,10 @@
     <?php if (!is_home()){ ?>
   	
     <div id="main" class="main">
-      <div class="container">
+      <div class="container"><br /><br />
+      <?php 
+
+      if ((get_post_type($post->ID) != 'unit') and (bp_current_component() === false)){?>
         <div class="row-fluid">
           <div class="span4 offset4">
             <p  id="logo">
@@ -267,6 +270,7 @@
             	</a></p>
           </div><!-- span4 -->
         </div><!-- row-fluid -->
+        <?php } ?>
 		<?php global $post; 
 		if(is_category()==1){
 			?>
