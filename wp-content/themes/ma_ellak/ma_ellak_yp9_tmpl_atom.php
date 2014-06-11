@@ -50,7 +50,7 @@ echo '<?xml version="1.0" encoding="'.get_option('blog_charset').'"?'.'>'; ?>
 		$description=html_entity_decode( $latest_version->post_excerpt );
 		$thematic=ma_ellak_return_thema_rss($doc_id,'thema');
 		$author=get_the_author_meta('display_name', $latest_version->post_author);
-		$link=get_permalink( $doc_id );
+		$link=doc_permalink( $doc_id );
 		$id=home_url() ."/?p=". $doc_id;
 	?>
 	<entry>

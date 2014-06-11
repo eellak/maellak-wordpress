@@ -210,7 +210,7 @@ $event_type = $custom['_ma_events_type'][0];
    				   	<label class="control-label span12" for="exampleInputFile"><?php echo __('Βιογραφικό.','ma-ellak');?></label>
     			  	<div class="controls">
     			  		<input type="file" name="fileToUpload" id="fileToUpload" class="required">
-						<span class="help-block"><?php echo __('Εισάγεται το βιογραφικό σας σε pdf.','ma-ellak');?></span>
+						<span class="help-block"><?php echo __('Εισάγετε το βιογραφικό σας σε pdf.','ma-ellak');?></span>
     			 	</div>
     			 </div>
     			 <?php }?>

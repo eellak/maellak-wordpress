@@ -49,7 +49,7 @@ echo '<?xml version="1.0" encoding="'.get_option( 'blog_charset' ).'"?'.'>'; ?>
 	?>	
 		<item>
 			<title><?php echo $title; ?></title>
-			<link><?php echo get_permalink($doc_id); ?></link>
+			<link><?php echo doc_permalink($doc_id); ?></link>
 			<pubDate><?php echo $pubDate; ?></pubDate>
 			<dc:creator><?php echo $unit_title; ?></dc:creator>
 
