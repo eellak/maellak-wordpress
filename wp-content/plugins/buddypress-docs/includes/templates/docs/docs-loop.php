@@ -6,8 +6,6 @@
 	<?php bp_docs_info_header() ?>
 </div>
 
-<?php bp_docs_inline_toggle_js() ?>
-
 <?php if ( bp_docs_has_docs() ) : ?>
 	<table class="doctable">
 
@@ -38,7 +36,7 @@
         </thead>
 
         <tbody>
-	<?php while ( bp_docs_has_docs('', 0) ) : bp_docs_the_doc() ?>
+	<?php while ( bp_docs_has_docs() ) : bp_docs_the_doc() ?>
  		<tr<?php bp_docs_doc_row_classes(); ?>>
 			<?php if ( bp_docs_enable_attachments() ) : ?>
 				<td class="attachment-clip-cell">

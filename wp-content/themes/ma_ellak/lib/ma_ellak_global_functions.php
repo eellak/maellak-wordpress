@@ -510,7 +510,13 @@ function ma_ellak_get_number_of_custom_types(){
 	$data[$i]['url']='#';
 	$i++;
 	$data[$i]['type']='members';
+	/* manolis: get the total number of wordpress users
+	            instead. buddypress has no api docs
+
 	$data[$i]['num']=bp_core_get_active_member_count();
+	*/
+	$total_wp_users = count_users();
+	$data[$i]['num'] = $total_wp_users['total_users'];
 	$data[$i]['title']=__('Μέλη','ma_ellak');
 	$data[$i]['url']=$bp->root_domain . '/members/';
 	$i++;

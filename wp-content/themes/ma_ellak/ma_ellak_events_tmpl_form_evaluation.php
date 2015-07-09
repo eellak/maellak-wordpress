@@ -30,6 +30,9 @@ Template Name: Event - Evaluation
 		$macomments = sanitize_text_field($_POST['macomments']);
 		$masex= sanitize_text_field($_POST['masex']);
 		$maage = sanitize_text_field($_POST['maage']);
+		$now  = new DateTime(); 
+		$datesubmited = $now->format('Y-m-d H:i:s'); 
+		
 		//Collect the data
 		$evaluation = array(
 				'events_id'	=> $events_id,
@@ -46,13 +49,13 @@ Template Name: Event - Evaluation
 				'ma_phone'=>$ma_phone,
 				
 				'ma_comments'=>$macomments,
-				'ma_datetime'=>date(),
+				'ma_datetime'=> $datesubmited ,
 				'ma_sex'=>$masex,
 				'ma_age'=>$maage,
 				
 		);
 	
-		$format= array('%d','%d','%d','%d','%d','%s','%s','%s','%s','%s','%s','%s','%s' );
+		$format= array('%d','%d','%d','%d','%d','%d','%s','%s','%s','%s','%s','%s','%s', '%s', '%d', '%d' );
 		
 		// Καταχωρούμε τη συμμετοχή 
 		$wpdb->insert( 'ma_events_evaluation', $evaluation ,$format);
@@ -61,7 +64,7 @@ Template Name: Event - Evaluation
 		
 		if($id){
 			
-			$ma_message = '<p class="message">H καταχώριση σας ήταν επιτυχής.</p>';
+			$ma_message = '<p class="message">H καταχώριση σας ήταν επιτυχής.</p>' ;
 			$success = true;
 			
 			// Αποστολή email στον διαχειριστή/υπεύθυνο

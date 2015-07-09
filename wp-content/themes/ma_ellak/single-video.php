@@ -133,11 +133,11 @@ get_footer();
 function ma_ellak_video_get_embedded_video($url){
 	if (preg_match('/\b(youtube)\.com\b/i', $url)){
 		$video_id=explode("http://www.youtube.com/watch?v=", $url);
-		$embed_url="http://www.youtube.com/embed/" . $video_id[1];
+		$embed_url="https://www.youtube.com/embed/" . $video_id[1];
 	}
 	else if (preg_match('/\b(vimeo)\.com\b/i', $url)){
 		$video_id=explode("http://vimeo.com/", $url);
-		$embed_url="http://player.vimeo.com/video/" . $video_id[1];
+		$embed_url="https://player.vimeo.com/video/" . $video_id[1];
 	}
 	return $embed_url;
 }

@@ -1,30 +1,21 @@
 jQuery(document).ready(function($){
-	// To do on pageload
-	bpdv_refresh_access_settings();
+	// Refresh access settings on pageload, unless this is a failed
+	// submission (in which case trust whatever was submitted in POST)
+	if ( '1' != bp_docs.failed_submission ) {
+		bpdv_refresh_access_settings();
+	}
 
 	// Binders
 	$('#associated_group_id').on('change',function(){ bpdv_refresh_access_settings(); });
 	$('#associated_group_id').on('change',function(){ bpdv_refresh_associated_group(); });
 
-	/**ma-ellak**/
-	$('#doc-form').validate({ // initialize the plugin
-		rules: {
-			associated_group_id: {
-				required: true,
-			}
-		},
-		messages: {
-			associated_group_id:{ required: "<div id=message class=bp-template-notice error><p>Πρέπει να επιλέξετε υποχρεωτικά κάποια θεματική περιοχή.</p></div>" },
-		}
-	});
-	/**************/
-	doc_id = $('#doc_id').val(); 
+	doc_id = $('#doc_id').val();
 
 	// Cascade permissions - new docs only
-	$('#toggle-table-settings tbody').on('change', 'select[name="settings[read]"]', function(e) { 
+	$('#toggle-table-settings tbody').on('change', 'select[name="settings[read]"]', function(e) {
 		// Only cascade if the other permissions haven't been changed yet
 		if ( ! window.bpdv_permissions_changed && 0 == doc_id ) {
-			jQuery(e.target).closest('tbody').find('select[name*="settings"]').val(jQuery(e.target).val());	
+			jQuery(e.target).closest('tbody').find('select[name*="settings"]').val(jQuery(e.target).val());
 		}
 	});
 

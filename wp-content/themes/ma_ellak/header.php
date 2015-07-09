@@ -83,6 +83,8 @@
 				<?php ma_ellak_list_all_units('<li>', '</li>', false); ?>
               </ul>
             </li>
+<li><a href="http://ma.ellak.gr/overview/"><?php _e('ΔΡΑΣΕΙΣ','ma-ellak');?></a></li>
+
             <li><a href="<?php echo get_permalink(get_option_tree('ma_ellak_site_takepart'));?>"><?php _e('ΠΩΣ ΣΥΜΜΕΤΕΧΩ','ma-ellak');?></a></li>
           	
          <li class="dropdown">
@@ -140,6 +142,7 @@
                  <?php if(get_option_tree('ma_ellak_press_kit')!=''){?>
                 <li><a href="<?php echo get_permalink(get_option_tree('ma_ellak_press_kit')); ?>"><?php _e('Press Kit','ma-ellak');?></a></li>
                 <?php }?>
+                <li><a href="http://ma.ellak.gr/%CE%B5%CE%BD%CE%B7%CE%BC%CE%B5%CF%81%CF%89%CF%84%CE%B9%CE%BA%CE%AC-%CE%B4%CE%B5%CE%BB%CF%84%CE%AF%CE%B1-%CE%BC%CE%BF%CE%BD%CE%AC%CE%B4%CF%89%CE%BD-%CE%B1%CF%81%CE%B9%CF%83%CF%84%CE%B5%CE%AF%CE%B1/"><?php _e('Ενημερωικά Δελτία','ma-ellak');?></a></li>
                 
                 </ul>
             </li>
@@ -194,7 +197,22 @@
 				 <li><a href="<?php echo get_permalink($list_profile); ?>"><?php _e('ΑΝΑΖΗΤΗΣΗ ΕΠΑΓΓΕΛΜΑΤΙΑ/ΕΘΕΛΟΝΤΗ','ma-ellak');?></a></li>	
 			<?php */ }
 			}?>
-			<li><a href="<?php echo get_permalink(get_option_tree('ma_ellak_manuals_page')); ?>"><?php _e('ΕΓΧΕΙΡΙΔΙΑ','ma-ellak');?></a></li>	
+			<!--<li><a href="<?php echo get_permalink(get_option_tree('ma_ellak_manuals_page')); ?>"><?php _e('ΕΓΧΕΙΡΙΔΙΑ','ma-ellak');?></a></li>-->
+			<li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php _e('ΕΡΓΑΛΕΙΑ','ma-ellak');?> <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+              	
+                <li><a target="_blank" href="http://ma.ellak.gr/edu"><?php _e('ΤΗΛΕΚΠΑΙΔΕΥΣΗ','ma-ellak');?></a></li>
+               
+				
+				<li><a target="_blak" href="http://ma.ellak.gr/forge"><?php _e('ΑΝΑΠΤΥΞΗ ΕΡΓΩΝ','ma-ellak');?></a></li>
+			
+				
+				<li><a href="http://ma.ellak.gr/manuals/"><?php _e('ΟΔΗΓΙΕΣ ΧΡΗΣΗΣ','ma-ellak');?></a></li>
+			
+				
+				</ul>
+            </li>	
            </ul>
           <ul class="nav pull-right">
           <?php 

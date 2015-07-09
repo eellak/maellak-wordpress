@@ -211,6 +211,7 @@ $event_type = $custom['_ma_events_type'][0];
     			  	<div class="controls">
     			  		<input type="file" name="fileToUpload" id="fileToUpload" class="required">
 						<span class="help-block"><?php echo __('Εισάγετε το βιογραφικό σας σε pdf.','ma-ellak');?></span>
+						<span class="help-block">Το βιογραφικό που θα υποβληθεί στην ΑΙΤΗΣΗ θα πρέπει να έχει συνταχθεί στο: <a href="https://europass.cedefop.europa.eu/editors/el/cv/compose">https://europass.cedefop.europa.eu/editors/el/cv/compose</a></span>
     			 	</div>
     			 </div>
     			 <?php }?>

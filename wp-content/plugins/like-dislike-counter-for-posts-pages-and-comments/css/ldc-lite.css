@@ -10,10 +10,3 @@ html[xmlns] .clearfix {display: block;}
     position: relative;
     top: 3px;
 }
-
-/**ma-ellak**/
-/** css for like/dislike links**/
-a.like:hover,
-a.like:focus {
-  text-decoration: none;
-}

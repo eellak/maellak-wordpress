@@ -53,6 +53,7 @@
         <div class="row-fluid">
           <div class="cols">
             <div class="span4 col side-left">
+				
 				<?php $details = ma_ellak_get_unit_details('field');  ?>
 				<p><img src="<?php echo $details['Λογότυπο']; ?>"></p>
 				<p><?php _e('ΣΥΜΜΕΤΕΧΕΙ','ma-ellak'); ?>: 
@@ -90,6 +91,7 @@
 
 							if($main_thema == ma_ellak_get_thema_id_by_bp_groups_id($bp_id))
 								$main_list .= '<a href="'.get_bloginfo('url').'/'.$bp->groups->slug . '/' . $group -> slug.'" class="thema-list main-thema"><img src="'.$result.'" width="50" ></a>' ;
+							
 							else
 								$thema_list .= '<a href="'.get_bloginfo('url').'/'.$bp->groups->slug . '/' . $group -> slug.'" class="thema-list"><img src="'.$result.'" width="50" ></a>' ;
 						}
@@ -98,9 +100,8 @@
 					?>
 					*/	?>
 				</p>
-            </div>
-            <div class="span8 col side-right">
-              <h2><?php the_title(); ?></h2>
+				<br />
+				 <h2><?php the_title(); ?></h2>
 			 <div class="alert alert-info"> <p>
 			<?php 
 				echo ma_ellak_is_member_on_unit(); 
@@ -113,10 +114,210 @@
               <p>ΣΥΜΜΕΤΟΧΗ <?php //echo ma_ellak_is_member_on_unit(); ?></p>
 			  */ ?>
             </div>
+            <div class="span8 col side-right">
+            <h2><?php the_title(); ?> | Εργασίες Μονάδας Αριστείας</h2>
+            <div class="colfirst">
+<h3>Εκδηλώσεις</h3>
+            
+            <?php
+						
+						global $ma_ellak_content_types;
+						$cid = $post->ID;
+						$arguments = array(
+							'posts_per_page' => 5,
+							'post_type' =>  'events',
+							'meta_key' => '_ma_ellak_belongs_to_unit',
+							'meta_value' => $cid,
+						);
+						$unit_posts = get_posts($arguments); 
+						foreach( $unit_posts as $post ) { 
+							setup_postdata($post); 
+						?>
+						  <li>
+						  <p class="meta">
+							
+								<span><?php  if($post->post_type=='events'){
+				                    $data = get_post_meta($post->ID,'_ma_events_type', true);
+				                
+				                    echo get_posttype_label($post->post_type,$data);
+				                        
+				                }else
+				                    echo get_posttype_label($post->post_type);
+				                ?></span> 
+								<small><span><?php echo ma_ellak_print_thema($post->ID,'thema');?></span> <span><?php the_date(); ?></span></p></small>
+							<p><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a><?php ma_ellak_single_edit_permalink($post); ?></p>
+							<!--
+							<p class="meta">
+
+								<span><?php  if($post->post_type=='events'){
+				                    $data = get_post_meta($post->ID,'_ma_events_type', true);
+				                
+				                    echo get_posttype_label($post->post_type,$data);
+				                        
+				                }else
+				                    echo get_posttype_label($post->post_type);
+				                ?></span> 
+				                <small><span><?php echo ma_ellak_print_thema($post->ID,'thema');?></span> <span><?php the_date(); ?></span></p></small>-->
+						  </li>
+				<?php	}
+						wp_reset_query();
+					?>
+					</div>
+            <div class="colfirst">
+<h3>Βιβλιοθήκη αρχείων</h3>
+            
+            <?php
+						
+						global $ma_ellak_content_types;
+						$cid = $post->ID;
+						$arguments = array(
+							'posts_per_page' => 5,
+							'post_type' =>  'document',
+							'meta_key' => '_ma_ellak_belongs_to_unit',
+							'meta_value' => $cid,
+						);
+						$unit_posts = get_posts($arguments); 
+						foreach( $unit_posts as $post ) { 
+							setup_postdata($post); 
+						?>
+						  <li>
+						  <p class="meta">
+								<span><?php  if($post->post_type=='events'){
+				                    $data = get_post_meta($post->ID,'_ma_events_type', true);
+				                
+				                    echo get_posttype_label($post->post_type,$data);
+				                        
+				                }else
+				                    echo get_posttype_label($post->post_type);
+				                ?></span> 
+								<small><span><?php echo ma_ellak_print_thema($post->ID,'thema');?></span> <span><?php the_date(); ?></span></p></small>
+							<p><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a><?php ma_ellak_single_edit_permalink($post); ?></p>
+							<!--<p class="meta">
+								<span><?php  if($post->post_type=='events'){
+				                    $data = get_post_meta($post->ID,'_ma_events_type', true);
+				                
+				                    echo get_posttype_label($post->post_type,$data);
+				                        
+				                }else
+				                    echo get_posttype_label($post->post_type);
+				                ?></span> 
+								<small><span><?php echo ma_ellak_print_thema($post->ID,'thema');?></span> <span><?php the_date(); ?></span></p></small>-->
+						  </li>
+				<?php	}
+						wp_reset_query();
+					?>
+					</div>
+					<div class="colfirst">
+<h3>Λογισμικό</h3>
+            
+            <?php
+						
+						global $ma_ellak_content_types;
+						$cid = $post->ID;
+						$arguments = array(
+							'posts_per_page' => 5,
+							'post_type' =>  'software',
+							'meta_key' => '_ma_ellak_belongs_to_unit',
+							'meta_value' => $cid,
+						);
+						$unit_posts = get_posts($arguments); 
+						foreach( $unit_posts as $post ) { 
+							setup_postdata($post); 
+						?>
+						  <li>
+						  <p class="meta">
+								<span><?php  if($post->post_type=='events'){
+				                    $data = get_post_meta($post->ID,'_ma_events_type', true);
+				                
+				                    echo get_posttype_label($post->post_type,$data);
+				                        
+				                }else
+				                    echo get_posttype_label($post->post_type);
+				                ?></span> 
+								<small><span><?php echo ma_ellak_print_thema($post->ID,'thema');?></span> <span><?php the_date(); ?></span></p></small>
+							<p><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a><?php ma_ellak_single_edit_permalink($post); ?></p>
+							<!--<p class="meta">
+								<span><?php  if($post->post_type=='events'){
+				                    $data = get_post_meta($post->ID,'_ma_events_type', true);
+				                
+				                    echo get_posttype_label($post->post_type,$data);
+				                        
+				                }else
+				                    echo get_posttype_label($post->post_type);
+				                ?></span> 
+								<small><span><?php echo ma_ellak_print_thema($post->ID,'thema');?></span> <span><?php the_date(); ?></span></p></small>-->
+						  </li>
+				<?php	}
+						wp_reset_query();
+					?>
+					</div>
+					<div class="colfirst">
+<h3>Βίντεο</h3>
+            
+            <?php
+						
+						global $ma_ellak_content_types;
+						$cid = $post->ID;
+						$arguments = array(
+							'posts_per_page' => 5,
+							'post_type' =>  'video',
+							'meta_key' => '_ma_ellak_belongs_to_unit',
+							'meta_value' => $cid,
+						);
+						$unit_posts = get_posts($arguments); 
+						foreach( $unit_posts as $post ) { 
+							setup_postdata($post); 
+						?>
+						  <li>
+						  <p class="meta">
+								<span><?php  if($post->post_type=='events'){
+				                    $data = get_post_meta($post->ID,'_ma_events_type', true);
+				                
+				                    echo get_posttype_label($post->post_type,$data);
+				                        
+				                }else
+				                    echo get_posttype_label($post->post_type);
+				                ?></span> 
+				                
+								<small><span><?php echo ma_ellak_print_thema($post->ID,'thema');?></span> <span><?php the_date(); ?></span></p></small>
+							<p><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a><?php ma_ellak_single_edit_permalink($post); ?></p>
+							<!--<p class="meta">
+								<span><?php  if($post->post_type=='events'){
+				                    $data = get_post_meta($post->ID,'_ma_events_type', true);
+				                
+				                    echo get_posttype_label($post->post_type,$data);
+				                        
+				                }else
+				                    echo get_posttype_label($post->post_type);
+				                ?></span> 
+								<small><span><?php echo ma_ellak_print_thema($post->ID,'thema');?></span> <span><?php the_date(); ?></span></p></small>-->
+						  </li>
+				<?php	}
+						wp_reset_query();
+					?>
+					</div>
+					
+            <!--
+              <h2><?php the_title(); ?></h2>
+			 <div class="alert alert-info"> <p>
+			<?php 
+				echo ma_ellak_is_member_on_unit(); 
+				if( $is_current_admin){
+					echo '<a href="'.ma_ellak_edit_permalink($post->ID, $post->post_type).'" class="btn btn-success btn-mini ma_ellak_edit">'.__('Επεξεργασία','ma-ellak').'</a>';
+				}
+			?></p></div>
+              <?php the_content(__('(more...)')); ?>
+			  <?php /*
+              <p>ΣΥΜΜΕΤΟΧΗ <?php //echo ma_ellak_is_member_on_unit(); ?></p>
+			  */ ?>
+			  -->
+            </div>
           </div>
+		  
         </div>
 		
 	</div>
+	
       <div class="back-purple">
         <div class="container">
           <div class="row-fluid">
@@ -138,7 +339,7 @@
                 <ul class="unstyled">
 					<?php
 						/*
-						$query_string .= '&primary_id='.ma_ellak_get_bp_groups_id_by_thema($main_thema).'&per_page=10'; 
+						$query_string .= '&primary_id='.ma_ellak_get_bp_groups_id_by_thema($main_thema).'&per_page=20'; 
 						if ( bp_has_activities(  bp_ajax_querystring( 'activity' ).$query_string ) ) :  
 							while ( bp_activities() ) : bp_the_activity(); 
 								locate_template( array( 'single-unit-activity-entry.php' ), true, false ); 
@@ -148,7 +349,7 @@
 						global $ma_ellak_content_types;
 						$cid = $post->ID;
 						$arguments = array(
-							'posts_per_page' => 10,
+							'posts_per_page' => 20,
 							'post_type' =>  $ma_ellak_content_types,
 							'meta_key' => '_ma_ellak_belongs_to_unit',
 							'meta_value' => $cid,

@@ -3,6 +3,9 @@
   get_header();
   
 	global $ma_prefix;
+
+	/* manolis: get all wordpress users. buddypress has no api docs */
+	$total_wp_users = count_users();
 ?>
  <div id="carousel" class="carousel slide">
       <img class="logo absolutionized hidden-tablet hidden-phone" src="<?php echo get_template_directory_uri();?>/images/logo_normal.png" width="283" height="180" alt="Logo Normal" />
@@ -108,7 +111,7 @@
                 <?php endwhile;  else:  endif; ?>   
                 </ul>
                 <a href="<?php echo $bp->root_domain . '/members/'; ?>" class="btn btn-tiny btn-inverse btn-more">
-					<?php _e('ΔΕΙΤΕ ΟΛΑ ΤΑ ΜΕΛΗ','ma-ellak'); ?> (<?php echo bp_core_get_active_member_count(); ?>)
+					<?php _e('ΔΕΙΤΕ ΟΛΑ ΤΑ ΜΕΛΗ','ma-ellak'); ?> (<?php echo $total_wp_users['total_users']; ?>)
 				</a>
             </div><!-- span4 featurette users -->
            

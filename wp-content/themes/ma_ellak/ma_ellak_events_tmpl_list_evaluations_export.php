@@ -150,18 +150,21 @@ Template Name: Event - Export Evaluations (xls)
 					switch ($rowr['ma_nexttime']){
 							
 						case 0:
-							$rowr['ma_nexttime']=__('Ναι', 'ma-ellak');
+							$rowr['ma_nexttime']= '';
 							break;
 						case 1:
+							$rowr['ma_nexttime']=__('Ναι', 'ma-ellak');
+							break;
+						case 2:
 							$rowr['ma_nexttime']=__('Οχι', 'ma-ellak');
 							break;
-				
 					}
 				}
 				
 				if(isset($rowr['ma_sex'])){
-					if($rowr['ma_sex']==0)  $rowr['ma_sex']="Άνδρας";
-					if($rowr['ma_sex']==1)  $rowr['ma_sex']="Γυναίκα";
+					if($rowr['ma_sex']==0)  $rowr['ma_sex']="";
+					if($rowr['ma_sex']==1)  $rowr['ma_sex']="Άνδρας";
+					if($rowr['ma_sex']==2)  $rowr['ma_sex']="Γυναίκα";
 						
 				}
 				if(isset($rowr['ma_age'])){

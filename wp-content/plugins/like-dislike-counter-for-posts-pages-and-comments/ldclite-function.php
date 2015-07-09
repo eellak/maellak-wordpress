@@ -5,7 +5,6 @@ $ldc_like_text = $ldc_options['ldc_like_text'];
 $ldc_dislike_text = $ldc_options['ldc_dislike_text'];
 $ldc_deactivate = $ldc_options['ldc_deactivate'];
 
-/*
 function ldc_like_counter_p($text="Likes: ",$post_id=NULL)
 {
 	global $post;
@@ -16,6 +15,7 @@ function ldc_like_counter_p($text="Likes: ",$post_id=NULL)
 	$ldc_return = "<span class='ldc-ul_cont' onclick=\"alter_ul_post_values(this,'$post_id','like')\" >".$text."<img src=\"".plugins_url( 'images/up.png' , __FILE__ )."\" />(<span>".get_post_ul_meta($post_id,"like")."</span>)</span>";
 	return $ldc_return;
 }
+
 function ldc_dislike_counter_p($text="dislikes: ",$post_id=NULL)
 {
 	global $post;
@@ -24,48 +24,6 @@ function ldc_dislike_counter_p($text="dislikes: ",$post_id=NULL)
 	$post_id=$post->ID;
 	}
 	$ldc_return = "<span class='ldc-ul_cont' onclick=\"alter_ul_post_values(this,'$post_id','dislike')\" >".$text."<img src=\"".plugins_url( 'images/down.png' , __FILE__ )."\" />(<span>".get_post_ul_meta($post_id,"dislike")."</span>)</span>";
-	return $ldc_return;
-}
-
-*
-*/
-
-function ldc_like_counter_p($text="Likes: ",$post_id=NULL)
-{
-	global $post;
-	if(empty($post_id))
-	{
-		$post_id=$post->ID;
-	}
-	/** ma-ellak **/
-	//Διαφορετικό stylesheet και τρόπος εμφάνισης
-	//$ldc_return = "<span class='ldc-ul_cont' onclick=\"alter_ul_post_values(this,'$post_id','like')\" >".$text."<img src=\"".plugins_url( 'images/up.png' , __FILE__ )."\" />(<span>".get_post_ul_meta($post_id,"like")."</span>)</span>";
-	$ldc_return="<ul class=\"unstyled bordered inline\">";
-	if(is_user_logged_in())
-		$ldc_return .= "<li><a href=\"javascript:void('0')\" class=\"like\"><span class=\"petrol plain\" onclick=\"alter_ul_post_values(this,'$post_id','like')\" >"
-		.$text."<i class=\"icon-thumbs-up\"></i> <span>".get_post_ul_meta($post_id,"like")."</span> </span></a></li>";
-	else
-		$ldc_return .= "<li class=\"like\"><span class=\"petrol plain\">"
-		.$text."<i class=\"icon-thumbs-up\"></i> <span>".get_post_ul_meta($post_id,"like")."</span> </span></li>";
-	return $ldc_return;
-}
-
-
-
-function ldc_dislike_counter_p($text="dislikes: ",$post_id=NULL)
-{
-	global $post;
-	if(empty($post_id))
-	{
-		$post_id=$post->ID;
-	}
-	/** ma-ellak**/
-	//$ldc_return = "<span class='ldc-ul_cont' onclick=\"alter_ul_post_values(this,'$post_id','dislike')\" >".$text."<img src=\"".plugins_url( 'images/down.png' , __FILE__ )."\" />(<span>".get_post_ul_meta($post_id,"dislike")."</span>)</span>";
-	if(is_user_logged_in())
-		$ldc_return = "<li><a href=\"javascript:void('0')\" class=\"like\"><span class='plain' onclick=\"alter_ul_post_values(this,'$post_id','dislike')\" >".$text." <i class=\"icon-thumbs-down\"></i> <span>".get_post_ul_meta($post_id,"dislike")."</span></span></a></li>";
-	else
-		$ldc_return = "<li class=\"like\"><span class='plain'>".$text." <i class=\"icon-thumbs-down\"></i> <span>".get_post_ul_meta($post_id,"dislike")."</span></span></li>";
-	$ldc_return.="</ul>";
 	return $ldc_return;
 }
 
@@ -94,7 +52,8 @@ function get_post_ul_meta($post_id,$up_type)
 {
 	global $wpdb;
 	$table_name = $wpdb->prefix."like_dislike_counters"; 
-	$sql="select ul_value from $table_name where post_id=$post_id and ul_key='$up_type' ;";
+	$sql = $wpdb->prepare( "select ul_value from $table_name where post_id = %d and ul_key = %s",$post_id, $up_type );
+	
 	$to_ret=$wpdb->get_var($sql);
 	if(empty($to_ret))
 	{
@@ -184,7 +143,8 @@ function update_post_ul_meta($post_id,$up_type)
 	}
 	if($lnumber)
 	{ 
-	$sql="update $table_name set ul_value=".($lnumber+1)." where post_id='$post_id' and ul_key='$up_type';";
+		$sql = $wpdb->prepare( "update $table_name set ul_value = %d where post_id = %d and ul_key = %s",$lnumber+1, $post_id, $up_type );
+	
 		if(isset($_COOKIE['ul_post_cnt']))
 		{
 			$posts=$_COOKIE['ul_post_cnt'];
@@ -202,7 +162,8 @@ function update_post_ul_meta($post_id,$up_type)
 	}
 	else
 	{
-		$sql="insert into $table_name(post_id,ul_key,ul_value) values('$post_id','$up_type',".($lnumber+1).");";
+		$sql = $wpdb->prepare( "insert into $table_name(post_id,ul_key,ul_value) values(%d,%s,%d)",$post_id, $up_type,$lnumber+1 );
+
 		if(isset($_COOKIE['ul_post_cnt']))
 		{
 			$posts=$_COOKIE['ul_post_cnt'];

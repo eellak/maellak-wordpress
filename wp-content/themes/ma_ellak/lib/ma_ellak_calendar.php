@@ -164,8 +164,11 @@ function ma_ellak_get_calendar( $var_monthnum = null, $var_year = null, $initial
 		."AND post_date <= '{$thisyear}-{$thismonth}-{$last_day} 23:59:59' "
 		."AND post_type = 'events' AND post_status = 'publish'"
 	); */
-	
-	$month_day_next = $next->month."/01/$thisyear";
+	if($next->month != '01'){
+		$month_day_next = $next->month."/01/$thisyear";
+	} else {
+		$month_day_next = $next->month."/01/".$next->year;
+	}
 	/*
 	$args=array(
 	  'post_type' => 'events',

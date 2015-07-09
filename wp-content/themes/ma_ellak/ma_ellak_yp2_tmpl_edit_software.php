@@ -244,7 +244,7 @@ if(!ma_ellak_user_can_edit_post($software_post)){
 							foreach (wp_get_post_terms($software_id, 'frascati')  as $term)
 								$terms[]= $term->term_id;		
 							$frascati = get_taxonomy('frascati'); 
-							echo ma_ellak_add_term_chosebox( $frascati, 'frascati-select', true); 
+							echo ma_ellak_add_term_chosebox( $frascati, 'frascati-select', true, $terms);
 						?>
 					</div>
 					
@@ -255,7 +255,7 @@ if(!ma_ellak_user_can_edit_post($software_post)){
 							foreach (wp_get_post_terms($software_id, 'package')  as $term)
 								$terms[]= $term->term_id;		
 							$package = get_taxonomy('package'); 
-							echo ma_ellak_add_term_chosebox( $package, 'package-select', true); 
+							echo ma_ellak_add_term_chosebox( $package, 'package-select', true, $terms);
 						?>
 					</div>
 					

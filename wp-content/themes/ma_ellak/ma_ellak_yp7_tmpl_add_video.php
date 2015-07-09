@@ -115,7 +115,7 @@ Template Name: Video - Add
 					</div>
 				</div>
 				<div class="control-group">
-					<label for="_ma_video_url"><?php _e('Εξωτερικός σύνδεσμος βίντεο (*)', 'ma-ellak'); ?></label>
+					<label for="_ma_video_url"><?php _e('Εξωτερικός σύνδεσμος βίντεο (*) - Youtube & Vimeo - Video hosting Services', 'ma-ellak'); ?></label>
 					<div class="controls ">
 						<input type="text" name="_ma_video_url" id="_ma_video_url"  class="input-block-level" value="<?php if(isset($_POST['_ma_video_url'])) echo $_POST['_ma_video_url'];?>"/>
 					</div>
