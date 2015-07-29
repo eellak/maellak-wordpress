@@ -1,8 +1,6 @@
 /wp-config.php
-/wp-content/themes/ma_ellak/ma_ellak_error_log.txt
+/wp-content/themes/ma_ellak/
 files
 uploads
-/wp-content/themes/ma_ellak/css/__history
 /.htaccess
-/wp-content/themes/ma_ellak/scripts/cache
 .DS_Store
