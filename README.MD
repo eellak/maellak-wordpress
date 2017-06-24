@@ -1,4 +1,4 @@
-Here soon we will have a short description of the project in english.
+Here soon we will have a short description of the ma.ellak.gr platform in english.
 -----------------------------------------------------------------------------------------------------------
 Στο διαδικτυακό τόπο των Μονάδων Αριστείας Ανοιχτού Λογισμικού(https://ma.ellak.gr/) μπορούν να συμμετέχουν 
 όλοι οι ενδιαφερόμενοι
